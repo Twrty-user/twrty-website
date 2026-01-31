@@ -1,194 +1,264 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-<head>
+ <html class="no-js" lang="en">
+ <head>
+ 
+ <meta charset="utf-8">
+ <title>Ecommerce Software Development | twRty Software Services</title>
+ <meta name="description" content="twRty Software Services provides scalable e-commerce web and app development with powerful admin management and secure integrations.">
+ 
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <link rel="stylesheet" href="css/base.css">
+ <link rel="stylesheet" href="css/vendor.css">
+ <link rel="stylesheet" href="css/main.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ 
+ <script src="js/modernizr.js"></script>
+ <script src="js/pace.min.js"></script>
+ 
+ <style>
+ /* =======================
+ BLACK + ORANGE THEME
+ ======================= */
+ 
+ body {
+ background: #0b0b0b;
+ color: #e5e5e5;
+ }
+ 
+ .main {
+ font-family: Arial, sans-serif;
+ line-height: 1.3;
+ margin-top: 135px;
+ padding: 0;
+ background: background: linear-gradient(180deg, #0b0b0b, #121212);
+ /* margin-left: 20px; */
+ padding-bottom: 30px;
+ padding-left: 60px;
+ padding-right: 60px;
+ 
+ }
+ 
+ @media (max-width: 768px) {
+     .main {
+     font-family: Arial, sans-serif;
+     line-height: 1.3;
+     margin-top: 135px;
+     padding: 0;
+     background: background: linear-gradient(180deg, #0b0b0b, #121212);
+     /* margin-left: 20px; */
+     padding-bottom: 30px;
+     padding-left: 20px;
+     padding-right: 20px;
+     
+     }
+ }
+ 
+ 
+ .selDisable{
+ -webkit-touch-callout: none; /* iOS Safari */
+ -webkit-user-select: none; /* Safari */
+ -khtml-user-select: none; /* Konqueror HTML */
+ -moz-user-select: none; /* Firefox */
+ -ms-user-select: none; /* Internet Explorer/Edge */
+ user-select: none; /* Non-prefixed version, currently
+ supported by Chrome and Opera */
+ }
+ 
+ .content {
+ max-width: 1300px;
+ margin: auto;
+ }
+ 
+ .main h1,
+ .main h2,
+ .main h4 {
+     color: #ff8c00;
+     font-weight: 700;
+ }
 
-<meta charset="utf-8">
-<title>Ecommerce Software Development | twRty Software Services</title>
-<meta name="description" content="twRty Software Services provides scalable e-commerce web and app development with powerful admin management and secure integrations.">
+ .main p,
+ .main li {
+     color: #cfcfcf;
+     font-size: 16px;
+     line-height: 1.7;
+ }
+ 
+ .image-container img {
+ max-width: 100%;
+ border-radius: 14px;
+ margin: 30px auto;
+ display: block;
+ }
+ 
+ /* HERO */
+ .hero {
+ display: grid;
+ grid-template-columns: 1.2fr 1fr;
+ gap: 50px;
+ align-items: center;
+ margin-bottom: 80px;
+ }
+ 
+ .hero img {
+ box-shadow: 0 30px 80px rgba(255,140,0,0.15);
+ }
+ 
+ /* BUTTONS */
+ .action-buttons {
+ margin-top: 30px;
+ }
+ 
+ .btn-action {
+ display: inline-block;
+ margin-right: 15px;
+ padding: 14px 34px;
+ border-radius: 30px;
+ font-weight: 700;
+ text-transform: uppercase;
+ letter-spacing: 0.6px;
+ transition: all 0.3s ease;
+ }
+ 
+ .btn-primary {
+ background: linear-gradient(135deg, #ff8c00, #ff6a00);
+ color: #000;
+ }
+ 
+ .btn-secondary {
+ border: 2px solid #ff8c00;
+ color: #ff8c00;
+ }
+ 
+ .btn-action:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 10px 30px rgba(255,140,0,0.35);
+ }
+ 
+ /* CARD GRID */
+ .card-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+ gap: 25px;
+ margin-top: 30px;
+ }
+ 
+ .card {
+ background: #161616;
+ border-radius: 16px;
+ padding: 28px;
+ border: 1px solid rgba(255,140,0,0.15);
+ }
+ 
+ /* ICON STYLE */
+ .card i {
+     font-size: 34px;
+     color: #ff8c00;
+     margin-bottom: 15px;
+     display: inline-block;
+ }
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+ /* ADMIN IMAGE ANIMATION */
+ .admin-section {
+ margin-top: 80px;
+ }
+ 
+ .admin-image {
+ transform: scale(0.85);
+ opacity: 0;
+ transition: all 0.8s ease;
+ }
+ 
+ .admin-image.visible {
+ transform: scale(1);
+ opacity: 1;
+ }
+ 
+ .fade-up {
+ opacity: 0;
+ transform: translateY(30px);
+ transition: all 0.6s ease;
+ }
+ 
+ .fade-up.visible {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ 
+ .content {
+ max-width: 1500px; /* Maximum width for content */
+ margin: 0 auto; /* Center align horizontally */
+ }
+ 
+ /* Responsive adjustments */
+ @media (max-width: 768px) {
+ .content {
+ max-width: 100%; /* Adjust to full width on smaller screens */
+ border-radius: 0; /* Remove border radius on smaller screens */
+ }
+ }
+ 
+ li {
+ margin-bottom: 5px; /* Added spacing between list items */
+ }
+ }
+ </style>
+ 
+ </head>
+ 
+ <body id="top"; class="selDisable">
+ 
+ <!-- preloader
+ ================================================== -->
+ <!-- <div id="preloader">
+ <div id="loader" class="dots-jump">
+ <div></div>
+ <div></div>
+ <div></div>
+ </div>
+ </div> -->
+ 
+ 
+ <!-- header
+ ================================================== -->
+ <header class="s-header">
+ 
+ <div class="row">
+ 
+ <div class="header-logo">
+ <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage">
+ <span class="logo-text">Software Services</span>
+ </a>
+ </div>
+ 
+ <nav class="header-nav-wrap">
+ <ul class="header-nav">
+ <li> <a rel="canonical" href="/" title="home">Home
+ </a></li>
+ <li><a rel="canonical" href="/#services" title="services">Services</a></li>
+ <li><a rel="canonical" href="/#industries" title="Industries">Industries</a></li>
+ <li><a rel="canonical" href="/#technologies" title="Technologies">Technologies</a></li>
+ <li><a rel="canonical" href="Hire-Us.html" title="Hire Us">Hire Us</a></li>
+ <li><a rel="canonical" href="/#about" title="about">About</a></li>
+ <li><a rel="canonical" href="/#contact" title="contact">Contact</a></li>
+ <li><a rel="canonical" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></li>
+ 
+ </ul>
+ </nav> <!-- end header-nav-wrap -->
+ 
+ <a class="header-menu-toggle" href="#0">
+ <span class="header-menu-icon"></span>
+ </a>
+ 
+ </div> <!-- end row -->
+ 
+ </header> <!-- end s-header -->
+ 
+ <!-- MAIN -->
+ <div class="content">
+ <div class="main">
+ 
 
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/vendor.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-<script src="js/modernizr.js"></script>
-<script src="js/pace.min.js"></script>
-
-<style>
-body {
-    background: #0b0b0b;
-    color: #e5e5e5;
-}
-
-.main {
-    font-family: Arial, sans-serif;
-    line-height: 1.3;
-    margin-top: 135px;
-    background: linear-gradient(180deg, #0b0b0b, #121212);
-    padding: 0 50px 50px;
-}
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        .main {
-        font-family: Arial, sans-serif;
-        line-height: 1.3;
-        margin-top: 135px;
-        background: linear-gradient(180deg, #0b0b0b, #121212);
-        padding: 0 15px 15px;
-        }
-    }
-    
-.selDisable { user-select: none; }
-
-.content {
-    max-width: 1500px;
-    margin: auto;
-}
-
-.main h1,
-.main h2,
-.main h4 {
-    color: #ff8c00;
-    font-weight: 700;
-}
-
-.main p,
-.main li {
-    color: #cfcfcf;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-.hero {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 50px;
-    align-items: center;
-    margin-bottom: 80px;
-}
-
-.hero img {
-    max-width: 100%;
-    border-radius: 14px;
-    box-shadow: 0 30px 80px rgba(255,140,0,0.15);
-}
-
-.action-buttons { margin-top: 30px; }
-
-.btn-action {
-    display: inline-block;
-    margin-right: 15px;
-    padding: 14px 34px;
-    border-radius: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, #ff8c00, #ff6a00);
-    color: #000;
-}
-
-.btn-secondary {
-    border: 2px solid #ff8c00;
-    color: #ff8c00;
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
-}
-
-.card {
-    background: #161616;
-    border-radius: 16px;
-    padding: 28px;
-    border: 1px solid rgba(255,140,0,0.15);
-}
-
-/* ICON STYLE */
-.card i {
-    font-size: 34px;
-    color: #ff8c00;
-    margin-bottom: 15px;
-    display: inline-block;
-}
-
-.fade-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.admin-image {
-    transform: scale(0.85);
-    opacity: 0;
-    transition: all 0.8s ease;
-}
-
-.admin-image.visible {
-    transform: scale(1);
-    opacity: 1;
-}
-    
-    .content {
-        max-width: 1500px; /* Maximum width for content */
-        margin: 0 auto; /* Center align horizontally */
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .content {
-          max-width: 100%; /* Adjust to full width on smaller screens */
-          border-radius: 0; /* Remove border radius on smaller screens */
-        }
-      }
-    
-    li {
-                margin-bottom: 5px; /* Added spacing between list items */
-            }
-</style>
-
-</head>
-
-<body id="top" class="selDisable">
-
-<header class="s-header">
-    <div class="row">
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="images/logo.png" alt="Homepage">
-                <span class="logo-text">Software Services</span>
-            </a>
-        </div>
-        <nav class="header-nav-wrap">
-            <ul class="header-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/#services">Services</a></li>
-                <li><a href="/#industries">Industries</a></li>
-                <li><a href="/#technologies">Technologies</a></li>
-                <li><a href="Hire-Us.html">Hire Us</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/#contact">Contact</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<div class="content">
-<div class="main">
 
 <!-- HERO -->
 <div class="hero">
