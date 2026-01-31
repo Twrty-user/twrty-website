@@ -130,6 +130,23 @@ body {
     transform: scale(1);
     opacity: 1;
 }
+    
+    .content {
+        max-width: 1500px; /* Maximum width for content */
+        margin: 0 auto; /* Center align horizontally */
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .content {
+          max-width: 100%; /* Adjust to full width on smaller screens */
+          border-radius: 0; /* Remove border radius on smaller screens */
+        }
+      }
+    
+    li {
+                margin-bottom: 5px; /* Added spacing between list items */
+            }
 </style>
 
 </head>
