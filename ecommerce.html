@@ -104,6 +104,27 @@
  box-shadow: 0 50px 80px rgba(255,140,0,0.15);
  }
  
+ 
+ @media (max-width: 768px) {
+     .hero {
+         grid-template-columns: 1fr;   /* stack vertically */
+         gap: 30px;
+         text-align: center;
+     }
+
+     .hero img {
+         width: 100%;
+         max-width: 420px;            /* keeps image readable */
+         margin: 0 auto;
+     }
+
+     .action-buttons {
+         display: flex;
+         justify-content: center;
+     }
+ }
+
+     
  /* BUTTONS */
  .action-buttons {
  margin-top: 30px;
