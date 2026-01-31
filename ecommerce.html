@@ -2,261 +2,313 @@
 <html class="no-js" lang="en">
 <head>
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Ecommerce Software Development</title>
-    <meta name="description" content="We specialize in creating powerful e-commerce websites and apps designed specifically for your business. Our goal is to help businesses succeed online by developing reliable and flexible digital solutions.">
+<meta charset="utf-8">
+<title>Ecommerce Software Development | twRty Software Services</title>
+<meta name="description" content="twRty Software Services provides scalable e-commerce web and app development with powerful admin management and secure integrations.">
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    
+<script src="js/modernizr.js"></script>
+<script src="js/pace.min.js"></script>
 
-    <!-- favicons
-    ================================================== -->
-<!--    <link rel="icon" href="favicon.ico">-->
-<!--    <link rel="apple-touch-icon" href="favicon.ico">-->
-<!--    <link rel="icon" type="image/x-icon" href="fav_android.png">-->
-        
 <style>
-    .main {
+body {
+    background: #0b0b0b;
+    color: #e5e5e5;
+}
+
+.main {
     font-family: Arial, sans-serif;
     line-height: 1.3;
     margin-top: 135px;
-    padding: 0;
-    background: white   ;
-    /* margin-left: 20px; */
-    padding-bottom: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-    
-    }
-    .selDisable{
-        -webkit-touch-callout: none; /* iOS Safari */
-          -webkit-user-select: none; /* Safari */
-           -khtml-user-select: none; /* Konqueror HTML */
-             -moz-user-select: none; /* Firefox */
-              -ms-user-select: none; /* Internet Explorer/Edge */
-                  user-select: none; /* Non-prefixed version, currently
-                                        supported by Chrome and Opera */
-    }
-    
-    .image-container {
-        
-        margin-bottom: 20px;
-    }
-    .image-container img {
-        width: auto;
-        max-height: 200px;
-        display: block;
-        height: auto;
-    }
-    
-    .container {
-        background: white;
-    }
-    
-    .content {
-        max-width: 1500px; /* Maximum width for content */
-        margin: 0 auto; /* Center align horizontally */
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .content {
-          max-width: 100%; /* Adjust to full width on smaller screens */
-          border-radius: 0; /* Remove border radius on smaller screens */
-        }
-      }
-    
-    li {
-                margin-bottom: 5px; /* Added spacing between list items */
-            }
-    
+    background: linear-gradient(180deg, #0b0b0b, #121212);
+    padding: 0 70px 30px;
+}
+
+.selDisable { user-select: none; }
+
+.content {
+    max-width: 1500px;
+    margin: auto;
+}
+
+.main h1,
+.main h2,
+.main h4 {
+    color: #ff8c00;
+    font-weight: 700;
+}
+
+.main p,
+.main li {
+    color: #cfcfcf;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.hero img {
+    max-width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 30px 80px rgba(255,140,0,0.15);
+}
+
+.action-buttons { margin-top: 30px; }
+
+.btn-action {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 14px 34px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #ff8c00, #ff6a00);
+    color: #000;
+}
+
+.btn-secondary {
+    border: 2px solid #ff8c00;
+    color: #ff8c00;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #161616;
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid rgba(255,140,0,0.15);
+}
+
+/* ICON STYLE */
+.card i {
+    font-size: 34px;
+    color: #ff8c00;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.admin-image {
+    transform: scale(0.85);
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+.admin-image.visible {
+    transform: scale(1);
+    opacity: 1;
+}
 </style>
+
 </head>
-<body id="top"; class="selDisable">
-    
-    <!-- preloader
-     ================================================== -->
-    <!-- <div id="preloader">
-        <div id="loader" class="dots-jump">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  -->
 
+<body id="top" class="selDisable">
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="row">
-
-            <div class="header-logo">
-                <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage">
-                    <span class="logo-text">Software Services</span>
-                </a>
-            </div>
-            
-            <nav class="header-nav-wrap">
-                <ul class="header-nav">
-                    <li> <a rel="canonical" href="/" title="home">Home
-                    </a></li>
-                    <li><a rel="canonical" href="/#services" title="services">Services</a></li>
-                    <li><a rel="canonical" href="/#industries" title="Industries">Industries</a></li>
-                    <li><a rel="canonical" href="/#technologies" title="Technologies">Technologies</a></li>
-                    <li><a rel="canonical" href="Hire-Us.html" title="Hire Us">Hire Us</a></li>
-                    <li><a rel="canonical" href="/#about" title="about">About</a></li>
-                    <li><a rel="canonical" href="/#contact"  title="contact">Contact</a></li>
-                    <li><a rel="canonical" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></li>
-                    
-                </ul>
-            </nav> <!-- end header-nav-wrap -->
-            
-            <a class="header-menu-toggle" href="#0">
-                <span class="header-menu-icon"></span>
+<header class="s-header">
+    <div class="row">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo.png" alt="Homepage">
+                <span class="logo-text">Software Services</span>
             </a>
+        </div>
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#industries">Industries</a></li>
+                <li><a href="/#technologies">Technologies</a></li>
+                <li><a href="Hire-Us.html">Hire Us</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
-        </div> <!-- end row -->
+<div class="content">
+<div class="main">
 
-    </header> <!-- end s-header -->
- <!-- Main Content Section -->
- <div class="container">
- <div class="content">
-     <div class="main">
-         <h1 style="padding-top: 22px; padding-left: 22px; padding-right: 22px; text-align=center">Ecommerce Solutions</h1>
-         
-         <p style="padding-left: 22px; padding-right: 22px;">Welcome to twRty, We specialize in creating powerful e-commerce websites and apps designed specifically for your business. Our goal is to help businesses succeed online by developing reliable and flexible digital solutions.</p>
-         
-         <div class="image-container">
-             <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/e-commerce.jpg" alt="Ecommerce Development">
-         </div>
-         
-         <h2 style="padding-left: 22px; padding-right: 22px;">Hire Expert App & Web Developers!</h2>
-         <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-             Contact Us
-         </a>
-         
-         <h2 style="padding-left: 22px; padding-right: 22px;">Our Services</h2>
-         <ul style="padding-left: 22px; padding-right: 22px;">
-             <li>Custom E-commerce Solutions</li>
-             <li>Mobile App Development</li>
-             <li>Custom Software Development</li>
-             <li>Payment Gateway Integration</li>
-             
-         </ul>
-         
-         <h2 style="padding-left: 22px; padding-right: 22px;">Our Development Process</h2>
-         <ul style="padding-left: 22px; padding-right: 22px;">
-             <li>Requirement Analysis</li>
-             <li>Design</li>
-             <li>Implementation (Coding)</li>
-             <li>Testing</li>
-             <li>Deployment</li>
-             <li>Maintenance</li>
-             
-         </ul>
-         
-         
-         
-         <h2 style="padding-left: 22px; padding-right: 22px;">Custom E-commerce Solutions</h2>
-         
-         <div class="image-container">
-             <div>
-                 <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/e-commerce-web.jpg" alt="Custom E-commerce Solutions">
-             </div>
-             
-             <div>
-                 
-                 <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Our team works closely with you to understand your business goals and challenges. Using the latest technology and best practices, we build e-commerce solutions that can grow as your business grows. From making the website easy to use to keeping everything running smoothly behind the scenes, we focus on making sure your website works well and helps your business succeed.</p>
-                 
-                 <p style="padding-left: 22px; padding-right: 22px;">And we don't stop there - we're here to support you after your website launches. We'll make sure your e-commerce platform stays secure, up-to-date, and running smoothly. Partner with us to turn your e-commerce ideas into reality and achieve success in the online marketplace.</p>
-                 
-                 </section>
-                 <h4 style="padding-top: 10px; padding-left: 25px; padding-right: 25px;">What We Offer:</h4>
-                 <ul style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">
-                     <li><strong>Customized Solutions:</strong> <p>We understand that every business is unique. Our team excels in developing bespoke e-commerce platforms that align perfectly with your brand identity and business goals.</p></li>
-                     <li><strong>Platform Expertise:</strong> <p>Whether you prefer leading platforms like Shopify, WooCommerce, Magento, or require a custom-built solution, we have the expertise to deliver. We help you choose the right platform based on scalability, customization needs, and budget.</p></li>
-                     <li><strong>Full-Cycle Development:</strong> <p>From concept to deployment, we handle every aspect of your e-commerce project. Our comprehensive services encompass front-end design, back-end development, database integration, and third-party API integrations.</p></li>
-                     <li><strong>User-Centric Design:</strong> <p>User experience is at the heart of what we do. Our team ensures intuitive navigation, responsive design, and seamless interactions to enhance customer engagement and satisfaction.</p></li>
-                     <li><strong>Security & Compliance:</strong> <p>We prioritize the security of your e-commerce platform. Our solutions include robust security measures such as SSL certificates, encryption techniques, and compliance with industry standards like PCI-DSS for payment processing.</p></li>
-                     <li><strong>Optimized Performance:</strong> <p>We optimize for speed and reliability. Our solutions are designed for scalability to handle increasing traffic and transactions without compromising performance.</p></li>
-                     <li><strong>SEO & Marketing Integration:</strong> <p>Enhance your online visibility and drive sales with our SEO-friendly e-commerce solutions. We integrate essential marketing tools like analytics, email marketing, and social media sharing to maximize your reach.</p></li>
-                     <li><strong>Mobile Responsiveness:</strong> <p>Capture the growing mobile market with our mobile-friendly e-commerce solutions. We ensure your platform performs seamlessly across devices and screen sizes.</p></li>
-                     <li><strong>Testing & Maintenance:</strong> <p>Rigorous testing ensures a bug-free launch. We provide ongoing maintenance and support to keep your e-commerce platform secure, updated, and optimized for peak performance.</p></li>
-                 </ul>
-                 <section>
-                     
-             </div>
-         </div>
-         
-         
-         <h2 style="padding-left: 22px; padding-right: 22px;">E-commerce Admin Management</h2>
-         
-         <div class="image-container">
-             <div>
-                 <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/e-commerce-data.jpg" alt="E-commerce Admin Management">
-             </div>
-             
-             <div>
-                 <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">E-commerce admin management involves creating a robust backend system that empowers administrators to efficiently manage various aspects of an online store. Here are key functionalities typically included in e-commerce admin management:</p>
-                 
-                 </section>
-                 <ul style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">
-                     <li><strong>Dashboard Overview:</strong> <p>A centralized dashboard providing an overview of key metrics such as sales performance, revenue trends, order status, and customer activity. It allows administrators to monitor the health of the e-commerce business at a glance.</p></li>
-                     <li><strong>Product Management:</strong> <p>Tools for adding, editing, and categorizing products. Administrators can upload product images, update descriptions, manage inventory levels, set pricing, and apply discounts or promotions.</p></li>
-                     <li><strong>Order Management:</strong> <p>Features for managing orders throughout their lifecycle. This includes viewing order details, processing orders (e.g., marking as shipped), handling returns and refunds, and generating order reports.</p></li>
-                     <li><strong>Customer Management:</strong> <p>Tools to manage customer accounts and interactions. Administrators can view customer profiles, track purchase history, manage addresses and payment methods, and provide customer support.</p></li>
-                     <li><strong>Inventory Management:</strong> <p>Systems for tracking and managing inventory levels. Administrators can update stock quantities, receive alerts for low inventory, manage product variants (e.g., sizes, colors), and synchronize inventory across multiple sales channels.</p></li>
-                     <li><strong>Payment and Billing Management:</strong> <p>Integration with payment gateways and tools for managing transactions and billing. Administrators can view payment statuses, manage refunds, generate invoices, and reconcile financial records.</p></li>
-                     <li><strong>Shipping and Fulfillment:</strong> <p>Tools for managing shipping options, carriers, and fulfillment processes. Administrators can set shipping rates, print shipping labels, track shipments, and manage fulfillment centers or dropshipping partners.</p></li>
-                     <li><strong>Analytics and Reporting:</strong> <p>Reporting tools to analyze sales performance, customer behavior, and marketing effectiveness. Administrators can generate custom reports, analyze trends, and make data-driven decisions to optimize business strategies.</p></li>
-                     <li><strong>Promotions and Discounts:</strong> <p>Tools to create and manage promotional campaigns, discount codes, and special offers. Administrators can set up rules for discounts (e.g., percentage off, free shipping) and schedule promotions to align with marketing initiatives.</p></li>
-                     <li><strong>Security and Permissions:</strong> <p>Implementation of role-based access control (RBAC) to ensure secure access to admin functionalities. Administrators can assign roles (e.g., super admin, sales manager, customer support) with specific permissions based on job responsibilities.</p></li>
-                     <li><strong>Content Management: </strong> <p>Tools for managing static content, banners, landing pages, and marketing materials displayed on the e-commerce site. Administrators can update content easily without needing technical expertise.</p></li>
-                     <li><strong>Customer Support Integration: </strong> <p>Integration with customer support tools (e.g., helpdesk software, live chat) to streamline communication and resolve customer inquiries efficiently.</p></li>
-                     <li><strong>Multi-channel Integration: </strong> <p>Capability to integrate with various sales channels (e.g., online marketplace integrations like Amazon, eBay) to manage products and orders from multiple platforms within a single admin interface.</p></li>
-                     <li><strong>Localization and Internationalization: </strong> <p>Features to support multiple languages, currencies, and regional preferences. Administrators can manage localization settings, translate content, and customize pricing for different markets.</p></li>
-                 </ul>
-                 <section>
-                     
-             </div>
-         </div>
-         
-         <h2 style="padding-left: 22px; padding-right: 22px;">Why Choose Us?</h2>
-         <p style="padding-top: 10px; padding-left: 22px; padding-right: 22px;">At twRty, we combine technical expertise with a deep understanding of business dynamics to deliver solutions that drive tangible results. Whether you’re launching a new online store or upgrading an existing platform, trust us to transform your vision into reality.</p>
-         
-         <h2 style="padding-left: 22px; padding-right: 22px;">Contact Us</h2>
-         <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-             Let's Talk
-         </a>
-         
-         <p></p>
-     </div>
- </div>
- </div>
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <h1>E-Commerce Web & App Development</h1>
+        <p>
+            At <strong>twRty Software Services</strong>, we build secure, scalable,
+            AI-powered e-commerce platforms designed for growth, performance,
+            and conversion in the modern digital economy.
+        </p>
+        <div class="action-buttons">
+            <a href="/#contact" class="btn-action btn-primary">Start Project</a>
+        </div>
+    </div>
+    <img src="images/portfolio/industries/e-commerce.jpg" alt="Ecommerce Development">
+</div>
+
+<!-- SERVICES -->
+<h2>Our Services</h2>
+<p class="fade-up">
+End-to-end e-commerce development covering strategy, UX, engineering,
+deployment, and long-term scalability.
+</p>
+
+<div class="card-grid">
+    <div class="card fade-up">
+        <i class="fa fa-shopping-cart"></i>
+        <h4>Custom Platforms</h4>
+        <p>Shopify, WooCommerce, Magento & custom builds.</p>
+    </div>
+
+    <div class="card fade-up">
+        <i class="fa fa-mobile"></i>
+        <h4>Mobile Commerce</h4>
+        <p>High-performance Android & iOS apps.</p>
+    </div>
+
+    <div class="card fade-up">
+        <i class="fa fa-credit-card"></i>
+        <h4>Payment Integration</h4>
+        <p>Secure gateways with compliance.</p>
+    </div>
+
+    <div class="card fade-up">
+        <i class="fa fa-line-chart"></i>
+        <h4>Optimization</h4>
+        <p>Fast, scalable infrastructure.</p>
+    </div>
+</div>
+
+<!-- AI SECTION -->
+<h2 class="fade-up">AI-Powered Commerce</h2>
+<p class="fade-up">
+We embed artificial intelligence into every layer of your store to automate,
+personalize, and scale faster.
+</p>
+
+<div class="card-grid">
+    <div class="card fade-up">
+        <i class="fa fa-magic"></i>
+        <h4>AI Recommendations</h4>
+        <p>Behavior-driven product suggestions.</p>
+    </div>
+
+    <div class="card fade-up">
+        <i class="fa fa-search"></i>
+        <h4>Smart Search</h4>
+        <p>NLP-based search & filters.</p>
+    </div>
+
+    <div class="card fade-up">
+        <i class="fa fa-tags"></i>
+        <h4>Dynamic Pricing</h4>
+        <p>AI-driven pricing intelligence.</p>
+    </div>
+
+    <div class="card fade-up">
+        <i class="fa fa-comments"></i>
+        <h4>AI Chatbots</h4>
+        <p>24/7 virtual shopping assistants.</p>
+    </div>
+</div>
+
+<!-- PROCESS -->
+<h2>Our Development Process</h2>
+<ul class="fade-up">
+    <li><i class="fa fa-lightbulb-o"></i> Business & Requirement Analysis</li>
+    <li><i class="fa fa-pencil-square-o"></i> UX/UI Design & Prototyping</li>
+    <li><i class="fa fa-code"></i> Frontend & Backend Development</li>
+    <li><i class="fa fa-shield"></i> Security Testing & QA</li>
+    <li><i class="fa fa-cloud-upload"></i> Deployment & Scaling</li>
+    <li><i class="fa fa-refresh"></i> Continuous Enhancements</li>
+</ul>
+
+<!-- ADMIN -->
+<h2 class="fade-up">Admin Management & Analytics</h2>
+<img class="admin-image" src="images/portfolio/industries/e-commerce-data.jpg" alt="Admin Dashboard">
+
+<p class="fade-up">
+Advanced admin dashboards with AI insights, real-time monitoring,
+and complete operational control.
+</p>
+
+<ul class="fade-up">
+    <li><i class="fa fa-bar-chart"></i> Sales analytics & forecasting</li>
+    <li><i class="fa fa-cubes"></i> Inventory & order automation</li>
+    <li><i class="fa fa-users"></i> Customer behavior insights</li>
+    <li><i class="fa fa-lock"></i> Role-based security</li>
+</ul>
+
+<!-- INDUSTRIES -->
+<h2 class="fade-up">Industries We Serve</h2>
+<div class="card-grid">
+    <div class="card fade-up"><i class="fa fa-tags"></i><h4>Retail & Fashion</h4></div>
+    <div class="card fade-up"><i class="fa fa-plug"></i><h4>Electronics</h4></div>
+    <div class="card fade-up"><i class="fa fa-medkit"></i><h4>Healthcare</h4></div>
+    <div class="card fade-up"><i class="fa fa-shopping-basket"></i><h4>Grocery & FMCG</h4></div>
+    <div class="card fade-up"><i class="fa fa-briefcase"></i><h4>B2B Commerce</h4></div>
+    <div class="card fade-up"><i class="fa fa-repeat"></i><h4>Subscriptions</h4></div>
+</div>
+
+<!-- WHY US -->
+<h2 class="fade">Why Choose Us?</h2>
+<p class="fade">
+At twRty Software Services, we combine technical expertise with real-world
+business understanding. Whether you are launching a new online store or
+enhancing an existing platform, our solutions are built for long-term success.
+</p>
+
+<!-- FINAL CTA -->
+<h2>Let’s Build Something Powerful</h2>
+<p>
+From AI personalization to enterprise scalability — we build platforms
+designed for tomorrow.
+</p>
+
+<div class="action-buttons">
+    <a href="/#contact" class="btn-action btn-secondary">Let’s Talk</a>
+</div>
+
+</div>
+</div>
 
 <footer>
     <div class="row">
         <div class="col-full cl-copyright">
-            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <span>
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty | All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </span>
         </div>
     </div>
@@ -266,16 +318,21 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty
     </div>
 </footer>
 
-
-
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
+<script>
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+},{ threshold: 0.3 });
 
-
-
+document.querySelectorAll('.fade-up, .admin-image').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
-
