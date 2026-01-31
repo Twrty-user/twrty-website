@@ -4001,6 +4001,94 @@ footer a:visited {
     transition: background-color 0.3s ease;
 }
 
-.cookie-consent button:hover {
-    background-color: #a93502;
+/* Left vertical links */
+.footer-links-vertical ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-vertical li {
+    margin-bottom: 10px;
+}
+
+.footer-links-vertical a {
+    font-size: 14px;
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
+.footer-links-vertical a:hover {
+    color: #ffffff;
+}
+
+/* Right horizontal links */
+.footer-links-horizontal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.footer-links-horizontal li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.footer-links-horizontal a {
+    font-size: 14px;
+    color: #bdbdbd;
+    text-decoration: none;
+}
+
+.footer-links-horizontal a:hover {
+    color: #ffffff;
+}
+
+/* Copyright spacing */
+.footer-links-horizontal .cl-copyright {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #888;
+}
+
+
+/* ================================
+   CONTACT SECTION SPACING FIX
+   ================================ */
+
+/* Reduce overall contact section height */
+.s-contact {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+}
+
+/* Tighten contact info block */
+.contact-infos {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Reduce heading spacing */
+.contact-infos h4 {
+  margin-bottom: 1.2rem;
+}
+
+/* Reduce column spacing */
+.contact-infos [class*="contact-"] {
+  padding-bottom: 1.2rem;
+}
+
+/* Reduce list spacing */
+.contact-list li {
+  margin-bottom: 0.6rem;
+}
+
+/* Reduce CTA section gap */
+.contact-button {
+  padding-top: 2rem;
+}
+
+/* Reduce divider line spacing */
+.contact-button::before {
+  top: 0;
 }
