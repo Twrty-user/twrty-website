@@ -4072,3 +4072,16 @@ footer a:visited {
 .page-privacy .nav-privacy a {
     color: #F26522 !important
 }
+
+
+.contact-list li,
+.contact-list a {
+  color: #ffffff;
+}
+
+.trust-badges a {
+  color: #ffffff;
+  margin-right: 15px;
+  text-decoration: none;
+  display: block;
+}
