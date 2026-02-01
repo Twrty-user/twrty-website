@@ -308,6 +308,41 @@
 
     };
 
+    /* Highlight nav item on separate pages
+     * ----------------------------------- */
+    var clPageNavHighlight = function () {
+
+        var navLinks = $('.header-nav li a');
+        var currentPath = window.location.pathname.replace(/\/$/, '');
+        var currentHash = window.location.hash;
+
+        navLinks.parent().removeClass('current');
+
+        navLinks.each(function () {
+            var link = $(this);
+            var href = link.attr('href');
+
+            if (!href) return;
+
+            // Match full pages (Contact, Privacy)
+            if (href.indexOf('.html') !== -1 && currentPath.endsWith(href.replace('/', ''))) {
+                link.parent().addClass('current');
+            }
+
+            // Match one-page sections (/ #services)
+            if (currentHash && href.indexOf(currentHash) !== -1) {
+                link.parent().addClass('current');
+            }
+
+            // Home page
+            if (currentPath === '' || currentPath === '/') {
+                if (href === '/' || href === '/#') {
+                    link.parent().addClass('current');
+                }
+            }
+        });
+    };
+
 
    /* Placeholder Plugin Settings
     * ------------------------------------------------------ */
@@ -384,6 +419,7 @@
         clMoveHeader();
         clMobileMenu();
         clWaypoints();
+        clPageNavHighlight();
        // clPhotoswipe();
         clStatCount();
         clSlickSlider();
