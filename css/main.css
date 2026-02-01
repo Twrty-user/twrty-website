@@ -3479,79 +3479,51 @@ line-height: 1.5;
  * # contact
  *
  * ------------------------------------------------------------------- */
-.s-contact {
-  padding-top: 5rem;
-  /* padding-bottom: 12rem; */
-  background-color: #F0F0F0;
-  position: relative;
+.contact-cta {
+    background: #1f2323; /* dark background like image */
+    padding: 120px 20px;
+    text-align: center;
 }
 
-.s-contact .display-1 a {
-  color: #035D5C;
+.contact-cta h1 {
+    color: #ffffff;
+    font-size: 56px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 25px;
 }
 
-.s-contact .display-1 a:hover,
-.s-contact .display-1 a:focus,
-.s-contact .display-1 a:active {
-  color: #F26522;
+.contact-cta p {
+    color: rgba(255,255,255,0.8);
+    max-width: 700px;
+    margin: 0 auto 45px;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
-.s-contact h4 {
-  margin-top: 0;
-  margin-bottom: 4.5rem;
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 1.6rem;
-  line-height: 1.3125;
-  text-transform: uppercase;
-  letter-spacing: .2rem;
+.cta-btn {
+    display: inline-block;
+    padding: 16px 42px;
+    border: 2px solid rgba(255,255,255,0.6);
+    border-radius: 50px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-.contact-infos h4 {
-  margin-top: 0;
-  margin-bottom: 4.5rem;
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 1.6rem;
-  line-height: 1.3125;
-  text-transform: uppercase;
-  letter-spacing: .2rem;
+.cta-btn:hover {
+    background: #ffffff;
+    color: #1f2323;
 }
+@media (max-width: 768px) {
+    .contact-cta h1 {
+        font-size: 36px;
+    }
 
-
-.s-contact a {
-  color: #F26522;
-}
-
-.s-contact a:hover,
-.s-contact a:focus,
-.s-contact a:active {
-  color: #FFFFFF;
-}
-
-.contact-infos {
-  margin-top: 5rem;
-  margin-bottom: 3rem;
-  font-family: "Montserrat", sans-serif;
-  font-weight: normal;
-  font-size: 2.8rem;
-  line-height: 1.714;
-  color: white;
-}
-
-.contact-infos [class*="contact-"] {
-  padding-bottom: 3rem;
-}
-
-.contact-list {
-  list-style: none;
-  margin-left: 0;
-}
-
-.contact-list a {
-  color: #FFFFFF;
-}
-
-.contact-list li {
-  padding-left: 0;
+    .contact-cta p {
+        font-size: 16px;
+    }
 }
 
 /* ------------------------------------------------------------------- 
@@ -3895,7 +3867,7 @@ footer a:visited {
   }
 
   .cl-go-top {
-    right: 50%;
+    right: 10%;
     margin-right: -30px;
   }
 
