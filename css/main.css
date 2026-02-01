@@ -4064,3 +4064,10 @@ footer a:visited {
 .contact-button::before {
   top: 0;
 }
+
+
+.page-home .nav-home a,
+.page-contact .nav-contact a,
+.page-privacy .nav-privacy a {
+    color: #F26522 !important
+}
