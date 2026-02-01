@@ -313,33 +313,35 @@
     var clPageNavHighlight = function () {
 
         var navLinks = $('.header-nav li a');
-        var currentPage = window.location.pathname.toLowerCase().split('/').pop();
-        var currentHash = window.location.hash;
+        var currentUrl = window.location.href.toLowerCase();
 
         navLinks.parent().removeClass('current');
 
         navLinks.each(function () {
             var link = $(this);
-            var href = link.attr('href').toLowerCase();
+            var href = link.attr('href');
 
             if (!href) return;
 
+            href = href.toLowerCase();
+
             // Match full pages (contact-us.html, privacy-policy.html)
-            if (href.indexOf('.html') !== -1 && href === currentPage) {
+            if (href.indexOf('.html') !== -1 && currentUrl.indexOf(href) !== -1) {
                 link.parent().addClass('current');
             }
 
-            // Match one-page sections (#services etc)
-            if (currentHash && href.indexOf(currentHash) !== -1) {
+            // Match one-page hash sections
+            if (href.indexOf('#') !== -1 && currentUrl.indexOf(href.split('#')[1]) !== -1) {
                 link.parent().addClass('current');
             }
 
             // Home page
-            if ((currentPage === '' || currentPage === 'index.html') && href === '/') {
+            if ((currentUrl.endsWith('/') || currentUrl.indexOf('index.html') !== -1) && href === '/') {
                 link.parent().addClass('current');
             }
         });
     };
+
 
 
 
@@ -417,7 +419,9 @@
         clPreloader();
         clMoveHeader();
         clMobileMenu();
-        clWaypoints();
+        if ($('.target-section').length) {
+            clWaypoints();
+        }
         clPageNavHighlight();
        // clPhotoswipe();
         clStatCount();
