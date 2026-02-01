@@ -313,35 +313,34 @@
     var clPageNavHighlight = function () {
 
         var navLinks = $('.header-nav li a');
-        var currentPath = window.location.pathname.replace(/\/$/, '');
+        var currentPage = window.location.pathname.toLowerCase().split('/').pop();
         var currentHash = window.location.hash;
 
         navLinks.parent().removeClass('current');
 
         navLinks.each(function () {
             var link = $(this);
-            var href = link.attr('href');
+            var href = link.attr('href').toLowerCase();
 
             if (!href) return;
 
-            // Match full pages (Contact, Privacy)
-            if (href.indexOf('.html') !== -1 && currentPath.endsWith(href.replace('/', ''))) {
+            // Match full pages (contact-us.html, privacy-policy.html)
+            if (href.indexOf('.html') !== -1 && href === currentPage) {
                 link.parent().addClass('current');
             }
 
-            // Match one-page sections (/ #services)
+            // Match one-page sections (#services etc)
             if (currentHash && href.indexOf(currentHash) !== -1) {
                 link.parent().addClass('current');
             }
 
             // Home page
-            if (currentPath === '' || currentPath === '/') {
-                if (href === '/' || href === '/#') {
-                    link.parent().addClass('current');
-                }
+            if ((currentPage === '' || currentPage === 'index.html') && href === '/') {
+                link.parent().addClass('current');
             }
         });
     };
+
 
 
    /* Placeholder Plugin Settings
