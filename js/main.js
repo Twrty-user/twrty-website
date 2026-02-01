@@ -313,7 +313,7 @@
     var clPageNavHighlight = function () {
 
         var navLinks = $('.header-nav li a');
-        var currentURL = window.location.href.toLowerCase();
+        var currentPath = window.location.pathname.replace(/\/$/, '').toLowerCase();
 
         navLinks.parent().removeClass('current');
 
@@ -321,24 +321,27 @@
             var href = $(this).attr('href');
             if (!href) return;
 
-            href = href.toLowerCase();
+            href = href.replace(/\/$/, '').toLowerCase();
 
-            // full page match
-            if (href.endsWith('.html') && currentURL.indexOf(href) !== -1) {
+            // Match clean URLs (/privacy-policy, /contact-us)
+            if (href === currentPath) {
                 $(this).parent().addClass('current');
             }
 
-            // hash sections
-            if (href.indexOf('#') !== -1 && currentURL.indexOf(href.split('#')[1]) !== -1) {
+            // Match one-page sections
+            if (href.indexOf('#') !== -1 && currentPath === '/' && window.location.hash === href.replace('/', '')) {
                 $(this).parent().addClass('current');
             }
 
-            // home
-            if ((currentURL.endsWith('/') || currentURL.indexOf('index.html') !== -1) && href === '/') {
-                $(this).parent().addClass('current');
+            // Home
+            if (currentPath === '' || currentPath === '/') {
+                if (href === '/' || href === '') {
+                    $(this).parent().addClass('current');
+                }
             }
         });
     };
+
 
 
 
@@ -418,7 +421,7 @@
         clPreloader();
         clMoveHeader();
         clMobileMenu();
-        if ($('.target-section').length) {
+        if (window.location.pathname === '/' || window.location.pathname === '') {
             clWaypoints();
         }
         clPageNavHighlight();
