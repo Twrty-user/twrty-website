@@ -311,9 +311,31 @@
     /* Highlight nav item on separate pages
      * ----------------------------------- */
     var clPageNavHighlight = function () {
-
         var navLinks = $('.header-nav li a');
-        var currentPath = window.location.pathname.replace(/\/$/, '').toLowerCase();
+        
+        // Get current location parts
+        var currentPath = window.location.pathname;
+        var currentHash = window.location.hash;
+
+        /**
+         * Normalizes a path/URL for comparison.
+         * 1. Lowercase (handles Case Sensitivity)
+         * 2. Removes file extensions like .html, .php, .aspx
+         * 3. Removes trailing slashes
+         * 4. Standardizes root paths (index.html -> /)
+         */
+        var normalize = function (path) {
+            if (!path) return '';
+            return path
+                .toLowerCase()
+                .split('#')[0]             // Ignore hash for path matching
+                .replace(/\.(html|php|aspx)$/, '') // Strip common extensions
+                .replace(/\/index$/, '')           // Handle /index
+                .replace(/\/$/, '')                // Strip trailing slash
+                || '/';                            // Default to root
+        };
+
+        var cleanCurrentPath = normalize(currentPath);
 
         navLinks.parent().removeClass('current');
 
@@ -321,22 +343,21 @@
             var href = $(this).attr('href');
             if (!href) return;
 
-            href = href.replace(/\/$/, '').toLowerCase();
+            var cleanHref = normalize(href);
+            var hrefHash = href.includes('#') ? '#' + href.split('#')[1] : '';
 
-            // Match clean URLs (/privacy-policy, /contact-us)
-            if (href === currentPath) {
+            // CASE 1: Standard Page Match (e.g., /privacy-policy)
+            if (cleanHref === cleanCurrentPath && !hrefHash) {
                 $(this).parent().addClass('current');
             }
-
-            // Match one-page sections
-            if (href.indexOf('#') !== -1 && currentPath === '/' && window.location.hash === href.replace('/', '')) {
+            // CASE 2: One-Page Section Match (e.g., /#contact or #contact)
+            else if (hrefHash && (cleanHref === cleanCurrentPath || cleanHref === '/') && hrefHash === currentHash) {
                 $(this).parent().addClass('current');
             }
-
-            // Home
-            if (currentPath === '' || currentPath === '/') {
-                if (href === '/' || href === '') {
-                    $(this).parent().addClass('current');
+            // CASE 3: Absolute Home Match (handles /, /index.html, empty string)
+            else if (cleanCurrentPath === '/' && (cleanHref === '/' || cleanHref === '')) {
+                if (!currentHash || hrefHash === currentHash) {
+                     $(this).parent().addClass('current');
                 }
             }
         });
@@ -421,9 +442,7 @@
         clPreloader();
         clMoveHeader();
         clMobileMenu();
-        if (window.location.pathname === '/' || window.location.pathname === '') {
-            clWaypoints();
-        }
+        clWaypoints();
         clPageNavHighlight();
        // clPhotoswipe();
         clStatCount();
