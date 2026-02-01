@@ -705,6 +705,18 @@
 
     </section> <!-- end s-about -->
 
+    <section class="blog-section">
+      <h2 class="blog-title">From Our Blog</h2>
+
+      <div class="slider-wrapper">
+        <button class="nav-btn nav-left" id="prev">‹</button>
+
+        <div class="blog-slider" id="blogSlider"></div>
+
+        <button class="nav-btn nav-right" id="next">›</button>
+      </div>
+    </section>
+
 
     <section id="contact-cta" class="contact-cta">
         <div class="cta-content">
@@ -940,6 +952,57 @@
             hideCookieConsent(); // Hide the cookie consent popup after consent is given
         }
 
+    </script>
+    
+   
+    
+    <script>
+    const mediumUsername = "twrty.connect";
+    const feedUrl =
+      "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@"
+      + mediumUsername;
+
+    const slider = document.getElementById("blogSlider");
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+        
+    function extractImage(html) {
+      const img = html.match(/<img[^>]+src="([^">]+)"/);
+      return img ? img[1] : "https://via.placeholder.com/600x400";
+    }
+
+    fetch(feedUrl)
+      .then(res => res.json())
+      .then(data => {
+          shuffleArray(data.items).slice(0, 12).forEach(item => {
+          const image = extractImage(item.description);
+          const text = item.description.replace(/<[^>]*>/g, "").slice(0, 110) + "...";
+
+          slider.innerHTML += `
+            <div class="blog-card">
+              <img src="${image}" loading="lazy">
+              <div class="blog-content">
+                <h3>${item.title}</h3>
+                <p>${text}</p>
+                <a href="${item.link}" target="_blank">Read article →</a>
+              </div>
+            </div>
+          `;
+        });
+      });
+
+    document.getElementById("prev").onclick = () => {
+      slider.scrollBy({ left: -320, behavior: "smooth" });
+    };
+    document.getElementById("next").onclick = () => {
+      slider.scrollBy({ left: 320, behavior: "smooth" });
+    };
     </script>
     
 </body>
