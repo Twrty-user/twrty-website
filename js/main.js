@@ -313,34 +313,33 @@
     var clPageNavHighlight = function () {
 
         var navLinks = $('.header-nav li a');
-        var currentUrl = window.location.href.toLowerCase();
+        var currentURL = window.location.href.toLowerCase();
 
         navLinks.parent().removeClass('current');
 
         navLinks.each(function () {
-            var link = $(this);
-            var href = link.attr('href');
-
+            var href = $(this).attr('href');
             if (!href) return;
 
             href = href.toLowerCase();
 
-            // Match full pages (contact-us.html, privacy-policy.html)
-            if (href.indexOf('.html') !== -1 && currentUrl.indexOf(href) !== -1) {
-                link.parent().addClass('current');
+            // full page match
+            if (href.endsWith('.html') && currentURL.indexOf(href) !== -1) {
+                $(this).parent().addClass('current');
             }
 
-            // Match one-page hash sections
-            if (href.indexOf('#') !== -1 && currentUrl.indexOf(href.split('#')[1]) !== -1) {
-                link.parent().addClass('current');
+            // hash sections
+            if (href.indexOf('#') !== -1 && currentURL.indexOf(href.split('#')[1]) !== -1) {
+                $(this).parent().addClass('current');
             }
 
-            // Home page
-            if ((currentUrl.endsWith('/') || currentUrl.indexOf('index.html') !== -1) && href === '/') {
-                link.parent().addClass('current');
+            // home
+            if ((currentURL.endsWith('/') || currentURL.indexOf('index.html') !== -1) && href === '/') {
+                $(this).parent().addClass('current');
             }
         });
     };
+
 
 
 
