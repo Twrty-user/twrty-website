@@ -2,257 +2,327 @@
 <html class="no-js" lang="en">
 <head>
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Education Software Services</title>
-    <meta name="description" content="Transform your educational institution with our comprehensive education software services. At twRty, we specialize in providing customized solutions to enhance teaching, learning, and administrative processes.">
-   
+<meta charset="utf-8">
+<title>Education Software Development | twRty Software Services</title>
+<meta name="description" content="AI-powered education software, LMS platforms, virtual classrooms, and smart campus solutions by twRty Software Services.">
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    
+<script src="js/modernizr.js"></script>
+<script src="js/pace.min.js"></script>
 
-    <!-- favicons
-    ================================================== -->
-<!--    <link rel="icon" href="favicon.ico">-->
-<!--    <link rel="apple-touch-icon" href="favicon.ico">-->
-<!--    <link rel="icon" type="image/x-icon" href="fav_android.png">-->
-        
 <style>
-    .main {
-    font-family: Arial, sans-serif;
-    line-height: 1.3;
+body {
+    background: #0b0b0b;
+    color: #e5e5e5;
+}
+
+.main {
     margin-top: 135px;
-    padding: 0;
-    background: white   ;
-    /* margin-left: 20px; */
-    padding-bottom: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-    
-    }
-    .selDisable{
-        -webkit-touch-callout: none; /* iOS Safari */
-          -webkit-user-select: none; /* Safari */
-           -khtml-user-select: none; /* Konqueror HTML */
-             -moz-user-select: none; /* Firefox */
-              -ms-user-select: none; /* Internet Explorer/Edge */
-                  user-select: none; /* Non-prefixed version, currently
-                                        supported by Chrome and Opera */
-    }
-    
-    .image-container {
-        
-        margin-bottom: 20px;
-    }
-    .image-container img {
-        width: auto;
-        max-height: 200px;
-        display: block;
-        height: auto;
-    }
-    
-    .container {
-        background: white;
-    }
-    
-    .content {
-        max-width: 1500px; /* Maximum width for content */
-        margin: 0 auto; /* Center align horizontally */
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .content {
-          max-width: 100%; /* Adjust to full width on smaller screens */
-          border-radius: 0; /* Remove border radius on smaller screens */
-        }
-      }
-    
-    li {
-                margin-bottom: 5px; /* Added spacing between list items */
-            }
-    
+    padding: 70px;
+    background: linear-gradient(180deg, #0b0b0b, #121212);
+}
+
+@media (max-width: 768px) {
+    .main { padding: 25px; }
+}
+
+.main h1,
+.main h2,
+.main h4 {
+    color: #ff8c00;
+    font-weight: 700;
+}
+
+.main p,
+.main li {
+    color: #cfcfcf;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* HERO */
+.edu-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 90px;
+}
+
+.edu-hero img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 40px 80px rgba(255,140,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .edu-hero { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* BUTTON */
+.btn-main {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 36px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff8c00, #ff6a00);
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* GRID */
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.edu-card {
+    background: #161616;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,140,0,0.15);
+    transition: transform .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.edu-card:hover { transform: translateY(-6px); }
+
+.edu-card i {
+    font-size: 34px;
+    color: #ff8c00;
+    margin-bottom: 15px;
+}
+
+/* AI FLOW ANIMATION */
+.edu-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,140,0,0.12), transparent);
+    animation: shimmer 3.8s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* STATS */
+.edu-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin: 100px 0;
+    text-align: center;
+}
+
+.stat-box {
+    background: #161616;
+    padding: 35px 20px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,140,0,0.15);
+}
+
+.stat-text {
+    font-size: 20px;
+    color: #ff8c00;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* AUDIENCE */
+.audience {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    margin: 90px 0;
+}
+
+.audience:nth-child(even) { flex-direction: row-reverse; }
+
+.audience img {
+    width: 45%;
+    border-radius: 18px;
+}
+
+@media (max-width: 768px) {
+    .audience { flex-direction: column !important; }
+    .audience img { width: 100%; }
+}
+
+/* FEATURE STRIP */
+.feature-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.feature-row span {
+    color: #ff8c00;
+    font-weight: 700;
+}
+
+/* TIMELINE */
+.timeline {
+    margin: 100px 0;
+    border-left: 3px solid #ff8c00;
+    padding-left: 40px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -52px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: #ff8c00;
+    border-radius: 50%;
+}
 </style>
 </head>
-<body id="top"; class="selDisable">
-    
-    <!-- preloader
-     ================================================== -->
-    <!-- <div id="preloader">
-        <div id="loader" class="dots-jump">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  -->
 
+<body id="top">
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="row">
-
-            <div class="header-logo">
-                <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage">
-                    <span class="logo-text">Software Services</span>
-                </a>
-            </div>
-            
-            <nav class="header-nav-wrap">
-                <ul class="header-nav">
-                    <li> <a rel="canonical" href="/" title="home">Home
-                    </a></li>
-                    <li><a rel="canonical" href="/#services" title="services">Services</a></li>
-                    <li><a rel="canonical" href="/#industries" title="Industries">Industries</a></li>
-                    <li><a rel="canonical" href="/#technologies" title="Technologies">Technologies</a></li>
-                    <li><a rel="canonical" href="about.html" title="about">About</a></li>
-                    <li><a rel="canonical" href="Contact-Us.html" title="Contact Us">Contact Us</a></li>
-                    <li><a rel="canonical" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></li>
-                    
-                </ul>
-            </nav> <!-- end header-nav-wrap -->
-            
-            <a class="header-menu-toggle" href="#0">
-                <span class="header-menu-icon"></span>
+<header class="s-header">
+    <div class="row">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo.png" alt="">
+                <span class="logo-text">Software Services</span>
             </a>
+        </div>
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#industries">Industries</a></li>
+                <li><a href="/#technologies">Technologies</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Contact-Us.html">Contact Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+        <a class="header-menu-toggle" href="#0"><span class="header-menu-icon"></span></a>
+    </div>
+</header>
 
-        </div> <!-- end row -->
+<div class="content">
+<div class="main">
 
-    </header> <!-- end s-header -->
- <!-- Main Content Section -->
- <div class="container">
-     <div class="content">
-         <div class="main">
-             <h1 style="padding-top: 22px; padding-left: 22px; padding-right: 22px; text-align=center">Education Software Services</h1>
-             
-             <p style="padding-left: 22px; padding-right: 22px;">Transform your educational institution with our comprehensive education software services. At twRty, we specialize in providing customized solutions to enhance teaching, learning, and administrative processes.</p>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Hire Expert App & Web Developers!</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-                 Contact Us
-             </a>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Services</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Mobile App Development</li>
-                 <li>Custom Software Development</li>
-                 <li>e-Learning Application Development</li>
-                 <li>Staff Management Software Development</li>
-             </ul>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Development Process</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Requirement Analysis</li>
-                 <li>Design</li>
-                 <li>Implementation (Coding)</li>
-                 <li>Testing</li>
-                 <li>Deployment</li>
-                 <li>Maintenance</li>
-                 
-             </ul>
-             
-             
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Virtual Classroom Solutions</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/learning.jpg" alt="Virtual Classroom App Development">
-                 </div>
-                 <div>
-                     
-                     <p style="padding-top: 15px; padding-left: 25px; padding-right: 25px;">Empower your educational institution with our advanced virtual classroom solutions. At twRty, we specialize in delivering innovative technologies that enhance online learning experiences.</p>
-                     
-                     <h4 style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">Key Features of Our Virtual Classroom Solutions:</h4>
-                     <ul style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">
-                         <li><strong>Interactive Learning Tools:</strong> Engage students with interactive whiteboards, polls, and quizzes.</li>
-                         <li><strong>Live Video Conferencing:</strong> Conduct real-time classes and discussions with seamless video and audio integration.</li>
-                         <li><strong>Content Management:</strong> Organize and share learning materials such as presentations, documents, and videos.</li>
-                         <li><strong>Attendance Tracking:</strong> Monitor student attendance and participation with integrated tracking features.</li>
-                     </ul>
-                 </div>
-             </div>
-             
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">e-Learning Application Development</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/virtual.jpg" alt="e-Learning Application Development">
-                 </div>
-                 <div>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Enable your educational initiatives with our expert e-Learning application development services. We specialize in creating intuitive and robust applications tailored for modern learning needs.</p>
-                     
-                     <h4 style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">Key Features of Our e-Learning Applications:</h4>
-                     <ul style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">
-                         <li><strong>User-friendly Interface:</strong> Intuitive design for seamless navigation and accessibility.</li>
-                         <li><strong>Interactive Learning Tools:</strong> Engaging features such as quizzes, simulations, and interactive content.</li>
-                         <li><strong>Multi-device Compatibility:</strong> Responsive design for access on desktops, tablets, and smartphones.</li>
-                         <li><strong>Secure and Scalable:</strong> Robust architecture ensuring data security and scalability for growing user base.</li>
-                         <li><strong>Learning Analytics:</strong> Insights into learner progress and performance for personalized learning experiences.</li>
-                     </ul>
-                     
-                 </div>
-             </div>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Staff Management Software</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/school.jpg" alt="Staff Management Software">
-                 </div>
-                 <div>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Optimize your workforce management with our advanced staff management software solutions. At twRty, we offer comprehensive tools to streamline HR processes, improve efficiency, and empower your team.</p>
-                     
-                     <h4 style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">Key Features:</h4>
-                     <ul style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">
-                         <li><strong>Employee Database:</strong> Centralized repository for storing and managing employee information.</li>
-                         <li><strong>Attendance Tracking:</strong> Real-time monitoring of attendance and leave management.</li>
-                         <li><strong>Shift Scheduling:</strong> Automated scheduling of shifts and assignments.</li>
-                         <li><strong>Performance Evaluation:</strong> Tools for performance reviews and goal setting.</li>
-                         <li><strong>Reporting and Analytics:</strong> Data-driven insights to support decision-making and workforce planning.</li>
-                     </ul>
-                     
-                     <p style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">Enhance productivity and streamline operations with our customizable staff management software. Contact us today to learn more about how we can meet your organization's specific needs.</p>
-                     
-                 </div>
-             </div>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Contact Us</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-                 Let's Talk
-             </a>
-             
-             <p></p>
-         </div>
-     </div>
- </div>
+<div class="edu-hero">
+    <div>
+        <h1>Education Software & Digital Learning Platforms</h1>
+        <p>
+            We design AI-powered education systems that enhance learning outcomes,
+            automate operations, and help institutions scale digitally with confidence.
+        </p>
+        <a href="/#contact" class="btn-main">Start Project</a>
+    </div>
+    <img src="images/portfolio/industries/learning.jpg" alt="">
+</div>
 
+<h2>Education Technology Solutions</h2>
+<div class="edu-grid">
+    <div class="edu-card">
+        <i class="fa fa-graduation-cap"></i>
+        <h4>LMS Platforms</h4>
+        <p>Advanced LMS with automation, analytics, assessments, and AI-driven learner insights.</p>
+    </div>
+    <div class="edu-card">
+        <i class="fa fa-video-camera"></i>
+        <h4>Virtual Classrooms</h4>
+        <p>Live classes, recordings, attendance tracking, collaboration tools, and smart engagement.</p>
+    </div>
+    <div class="edu-card">
+        <i class="fa fa-mobile"></i>
+        <h4>Mobile Learning</h4>
+        <p>Powerful Android and iOS apps for students, educators, parents, and administrators.</p>
+    </div>
+    <div class="edu-card">
+        <i class="fa fa-users"></i>
+        <h4>Admin Automation</h4>
+        <p>Admissions, HR, exams, payroll, reports, compliance, and academic workflows.</p>
+    </div>
+</div>
+
+<!-- UPDATED TEXT-BASED STATS -->
+<div class="edu-stats">
+    <div class="stat-box">
+        <div class="stat-text">Proven Delivery</div>
+        <p>Multiple education platforms successfully delivered</p>
+    </div>
+    <div class="stat-box">
+        <div class="stat-text">Scalable Systems</div>
+        <p>Designed to support growing institutions</p>
+    </div>
+    <div class="stat-box">
+        <div class="stat-text">Education Focus</div>
+        <p>Built specifically for academic workflows</p>
+    </div>
+    <div class="stat-box">
+        <div class="stat-text">Enterprise Reliability</div>
+        <p>High availability, security, and performance</p>
+    </div>
+</div>
+
+<div class="audience">
+    <img src="images/portfolio/industries/school.jpg">
+    <div>
+        <h2>Schools & Universities</h2>
+        <p>Digitize academics, simplify administration, and empower educators with AI insights.</p>
+    </div>
+</div>
+
+<div class="audience">
+    <img src="images/portfolio/industries/virtual.jpg">
+    <div>
+        <h2>Ed-Tech Startups</h2>
+        <p>Build scalable platforms with subscriptions, AI personalization, and analytics.</p>
+    </div>
+</div>
+
+<h2>Platform Capabilities</h2>
+<div class="feature-row"><span>Online Exams</span><p>Timed tests, evaluation & proctoring</p></div>
+<div class="feature-row"><span>Payments</span><p>Fees, subscriptions & installments</p></div>
+<div class="feature-row"><span>Security</span><p>Role-based access & compliance</p></div>
+
+<div class="timeline">
+    <h2>Digital Transformation Journey</h2>
+    <div class="timeline-item"><h4>Discovery</h4><p>Understanding academic workflows</p></div>
+    <div class="timeline-item"><h4>Design</h4><p>Student-first UX & admin dashboards</p></div>
+    <div class="timeline-item"><h4>Development</h4><p>Secure scalable platforms</p></div>
+    <div class="timeline-item"><h4>Launch</h4><p>Deployment, training & growth</p></div>
+</div>
+
+<h2>Build the Future of Learning</h2>
+<p>Let’s create scalable, AI-driven education platforms together.</p>
+<a href="/#contact" class="btn-main">Let’s Talk</a>
+
+</div>
+</div>
 
 <footer>
     <div class="row">
         <div class="col-full cl-copyright">
-            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <span>
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty | All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </span>
         </div>
     </div>
@@ -262,17 +332,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty
     </div>
 </footer>
 
-
-
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
-
-
-
+<script>
+document.querySelectorAll('.stat-number').forEach(counter=>{
+    let target=+counter.dataset.count, c=0;
+    let i=setInterval(()=>{
+        c+=Math.ceil(target/80);
+        if(c>=target){counter.innerText=target;clearInterval(i);}
+        else counter.innerText=c;
+    },20);
+});
+</script>
 
 </body>
 </html>
-
-
