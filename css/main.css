@@ -4215,3 +4215,63 @@ footer a:visited {
   .blog-card { width: 240px; }
   .nav-btn { display: none; }
 }
+
+
+/* ===== TECHNOLOGIES MEGA MENU ===== */
+
+.header-nav li {
+    position: relative;
+}
+
+.nav-arrow {
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+/* Mega container */
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+
+    background: #111;
+    padding: 25px 30px;
+    min-width: 420px;
+
+    border-radius: 14px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: all 0.25s ease;
+    z-index: 999;
+}
+
+.mega-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu li a {
+    display: block;
+    padding: 10px 0;
+    color: #ddd;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.mega-menu li a:hover {
+    color: #ff8c00;
+}
+
+/* Show mega menu */
+.header-nav li.has-mega:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
