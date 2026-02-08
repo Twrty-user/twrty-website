@@ -28,17 +28,26 @@
     };
 
     var clMoveHeader = function () {
-        var hero = $('.page-hero'),
-            hdr = $('header'),
+
+        var hdr = $('header'),
+            hero = $('.page-hero'),
+            triggerHeight = 0;
+
+        // ✅ If hero exists and has height, use it
+        if (hero.length && hero.outerHeight() > 0) {
             triggerHeight = hero.outerHeight() - 170;
+        }
 
         $WIN.on('scroll', function () {
             var loc = $WIN.scrollTop();
+
             hdr.toggleClass('sticky', loc > triggerHeight);
             hdr.toggleClass('offset', loc > triggerHeight + 20);
             hdr.toggleClass('scrolling', loc > triggerHeight + 150);
         });
     };
+
+
 
     var clMobileMenu = function() {
         var toggleButton = $('.header-menu-toggle'),

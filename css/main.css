@@ -4280,3 +4280,10 @@ footer a:visited {
     color: #F26522 !important
 }
 
+.s-header,
+.s-header.offset,
+.s-header.scrolling {
+    transform: none !important;
+}
+
+
