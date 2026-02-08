@@ -4330,13 +4330,31 @@ footer a:visited {
     }
 }
 
-/* Hide Google Translate UI */
-.goog-te-banner-frame,
+/* ---- Hide Google Translate UI completely ---- */
+
+/* Top banner iframe */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+/* Google widget text/logo */
 .goog-te-gadget,
 .goog-logo-link {
     display: none !important;
 }
 
+/* Prevent page shift caused by Google */
 body {
-    top: 0 !important;
+    top: 0px !important;
+}
+
+/* Fix html element being pushed down */
+html {
+    margin-top: 0px !important;
+}
+
+/* Hide injected iframe */
+iframe.goog-te-banner-frame {
+    display: none !important;
 }
