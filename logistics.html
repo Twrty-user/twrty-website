@@ -2,262 +2,321 @@
 <html class="no-js" lang="en">
 <head>
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Logistics Software Development</title>
-    <meta name="description" content="We create custom software for managing logistics that improves how you handle shipments and deliveries.">
-    
+<meta charset="utf-8">
+<title>Logistics Software Development</title>
+<meta name="description" content="We create custom software for managing logistics that improves how you handle shipments and deliveries.">
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    
+<script src="js/modernizr.js"></script>
+<script src="js/pace.min.js"></script>
 
-    <!-- favicons
-    ================================================== -->
-<!--    <link rel="icon" href="favicon.ico">-->
-<!--    <link rel="apple-touch-icon" href="favicon.ico">-->
-<!--    <link rel="icon" type="image/x-icon" href="fav_android.png">-->
-        
 <style>
-    .main {
-    font-family: Arial, sans-serif;
-    line-height: 1.3;
-    margin-top: 135px;
-    padding: 0;
-    background: white   ;
-    /* margin-left: 20px; */
-    padding-bottom: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-    
-    }
+body{
+    background:#0b0b0b;
+    color:#e5e5e5;
+}
+
+.main{
+    margin-top:135px;
+    padding:70px;
+    background:linear-gradient(180deg,#0b0b0b,#121212);
+}
+
+@media(max-width:768px){
+    .main{padding:25px;}
+}
+
+.main h1,
+.main h2{
+    color:#ff8c00;
+    font-weight:700;
+}
+
+.main p,
+.main li{
+    color:#cfcfcf;
+    font-size:16px;
+    line-height:1.7;
+}
+
     .selDisable{
-        -webkit-touch-callout: none; /* iOS Safari */
-          -webkit-user-select: none; /* Safari */
-           -khtml-user-select: none; /* Konqueror HTML */
-             -moz-user-select: none; /* Firefox */
-              -ms-user-select: none; /* Internet Explorer/Edge */
-                  user-select: none; /* Non-prefixed version, currently
-                                        supported by Chrome and Opera */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome and Opera */
     }
     
-    .image-container {
-        
-        margin-bottom: 20px;
-    }
-    .image-container img {
-        width: auto;
-        max-height: 200px;
-        display: block;
-        height: auto;
-    }
-    
-    .container {
-        background: white;
-    }
-    
-    .content {
-        max-width: 1500px; /* Maximum width for content */
-        margin: 0 auto; /* Center align horizontally */
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .content {
-          max-width: 100%; /* Adjust to full width on smaller screens */
-          border-radius: 0; /* Remove border radius on smaller screens */
-        }
-      }
-    
-    li {
-                margin-bottom: 5px; /* Added spacing between list items */
-            }
-    
+/* HERO */
+.hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+    margin-bottom:90px;
+}
+
+.hero img{
+    width:100%;
+    border-radius:18px;
+    box-shadow:0 40px 80px rgba(255,140,0,.15);
+}
+
+@media(max-width:768px){
+    .hero{grid-template-columns:1fr;text-align:center;}
+}
+
+/* BUTTON */
+.btn-main{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 36px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#ff8c00,#ff6a00);
+    color:#000;
+    font-weight:700;
+    text-transform:uppercase;
+}
+
+/* CARD GRID */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    margin-top:35px;
+}
+
+.card{
+    background:#161616;
+    padding:28px;
+    border-radius:16px;
+    border:1px solid rgba(255,140,0,.15);
+    position:relative;
+    overflow:hidden;
+    transition:transform .3s;
+}
+
+.card:hover{transform:translateY(-6px);}
+
+.card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(120deg,transparent,rgba(255,140,0,.12),transparent);
+    animation:shimmer 4s infinite;
+}
+
+@keyframes shimmer{
+    0%{transform:translateX(-100%);}
+    100%{transform:translateX(100%);}
+}
+
+/* IMAGE + TEXT */
+.section{
+    display:flex;
+    gap:60px;
+    align-items:center;
+    margin:90px 0;
+}
+
+.section:nth-child(even){flex-direction:row-reverse;}
+
+.section img{
+    width:45%;
+    border-radius:18px;
+}
+
+@media(max-width:768px){
+    .section{flex-direction:column!important;}
+    .section img{width:100%;}
+}
+
+/* TIMELINE */
+.timeline{
+    margin:100px 0;
+    border-left:3px solid #ff8c00;
+    padding-left:40px;
+}
+
+.timeline-item{
+    margin-bottom:35px;
+    position:relative;
+}
+
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    left:-52px;
+    top:5px;
+    width:16px;
+    height:16px;
+    background:#ff8c00;
+    border-radius:50%;
+}
 </style>
 </head>
-<body id="top"; class="selDisable">
-    
-    <!-- preloader
-     ================================================== -->
-    <!-- <div id="preloader">
-        <div id="loader" class="dots-jump">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  -->
 
+<body id="top">
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="row">
-
-            <div class="header-logo">
-                <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage">
-                    <span class="logo-text">Software Services</span>
-                </a>
-            </div>
-            
-            <nav class="header-nav-wrap">
-                <ul class="header-nav">
-                    <li> <a rel="canonical" href="/" title="home">Home
-                    </a></li>
-                    <li><a rel="canonical" href="/#services" title="services">Services</a></li>
-                    <li><a rel="canonical" href="/#industries" title="Industries">Industries</a></li>
-                    <li><a rel="canonical" href="/#technologies" title="Technologies">Technologies</a></li>
-                    <li><a rel="canonical" href="about.html" title="about">About</a></li>
-                    <li><a rel="canonical" href="Contact-Us.html" title="Contact Us">Contact Us</a></li>
-                    <li><a rel="canonical" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></li>
-                    
-                </ul>
-            </nav> <!-- end header-nav-wrap -->
-            
-            <a class="header-menu-toggle" href="#0">
-                <span class="header-menu-icon"></span>
+<header class="s-header">
+    <div class="row">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo.png" alt="">
+                <span class="logo-text">Software Services</span>
             </a>
+        </div>
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li class="has-mega">
+                    <a href="/#industries">
+                        Industries <span class="nav-arrow">▾</span>
+                    </a>
 
-        </div> <!-- end row -->
+                    <div class="mega-menu">
+                        <ul>
+                            <li><a href="healthcare.html">Healthcare</a></li>
+                            <li><a href="fintech.html">Fintech Applications</a></li>
+                            <li><a href="education.html">Education</a></li>
+                            <li><a href="media.html">Media & Entertainment</a></li>
+                        </ul>
 
-    </header> <!-- end s-header -->
- <!-- Main Content Section -->
- <div class="container">
-     <div class="content">
-         <div class="main">
-             <h1 style="padding-top: 22px; padding-left: 22px; padding-right: 22px; text-align=center">Logistics Software Development</h1>
-             
-             <p style="padding-left: 22px; padding-right: 22px;">We create custom software for managing logistics that improves how you handle shipments and deliveries.</p>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Hire Expert App & Web Developers!</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-                 Contact Us
-             </a>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Services</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Mobile App Development</li>
-                 <li>Custom Software Development</li>
-                 <li>Routing and Scheduling Software Development</li>
-                 <li>Warehouse Management Systems(WMS) Development</li>
-                 <li>Driver Management Software Development</li>
-                 <li>SaaS-based Order & Inventory Management Software Development</li>
-                 
-                 
-             </ul>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Development Process</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Requirement Analysis</li>
-                 <li>Design</li>
-                 <li>Implementation (Coding)</li>
-                 <li>Testing</li>
-                 <li>Deployment</li>
-                 <li>Maintenance</li>
-                 
-             </ul>
-             
-             
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Logistics and Transportation Management System</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/logistics.jpg" alt="Logistics and Transportation Management">
-                 </div>
-                 <div>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Transportation software encompasses a broad range of applications designed to streamline and optimize various aspects of transportation and logistics.</p>
-                     
-                     <p style="padding-left: 22px; padding-right: 22px;">These software solutions can be integrated into larger ERP systems or provided as standalone applications by specialized vendors. They are essential for enhancing efficiency, reducing costs, and improving customer service across the transportation and logistics industry.</p>
-                     
-                     <p style="padding-left: 22px; padding-right: 22px;">Transportation Management Systems (TMS): Provides end-to-end logistics management, covering everything from order management and procurement to freight billing and reporting.</p>
-                 </div>
-             </div>
-             
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Shipment Tracking Application</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/tracking.jpg" alt="Shipment Tracking Application">
-                 </div>
-                 <div>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Shipment Tracker is your ultimate companion for managing and monitoring shipments of all kinds, from parcels to freight. Designed with simplicity and efficiency in mind, our application provides real-time updates and detailed insights into the status and location of your packages. Whether you're sending goods across the globe or awaiting a delivery, Shipment Tracker ensures you stay informed every step of the way.</p>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Instantly track the current status and location of your shipments using live updates directly from carriers and logistics partners. Predicted delivery times based on current tracking data, helping you plan ahead and manage expectations.</p>
-                     
-                 </div>
-             </div>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Driver Management Software</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/delivery.jpg" alt="Driver Management Software">
-                 </div>
-                 <div>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Logistics driver management involves the coordination and oversight of all aspects related to the drivers within a logistics operation. This role is crucial in ensuring that goods are transported efficiently and safely from one location to another.</p>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Driver management software is a specialized tool designed to streamline and optimize the management of drivers in computer systems. It primarily serves to maintain and update device drivers, which are essential software components that allow hardware devices to communicate effectively with the operating system and other software applications.</p>
-                     
-                     
-                 </div>
-             </div>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Contact Us</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-                 Let's Talk
-             </a>
-             
-             <p></p>
-         </div>
-     </div>
- </div>
+                        <ul>
+                            <li><a href="logistics.html">Logistics</a></li>
+                            <li><a href="ecommerce.html">Ecommerce</a></li>
+                            <li><a href="sports.html">Sports & Gaming</a></li>
+                            <li><a href="ondemand.html">On-Demand Services</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/#technologies">Technologies</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Contact-Us.html">Contact Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+        <a class="header-menu-toggle" href="#0"><span class="header-menu-icon"></span></a>
+    </div>
+</header>
 
+<div class="content">
+<div class="main">
+
+<div class="hero">
+    <div>
+        <h1>Logistics Software Development</h1>
+        <p>We create custom software for managing logistics that improves how you handle shipments and deliveries.</p>
+
+        <h2>Hire Expert App & Web Developers!</h2>
+        <a href="Contact-Us.html" class="btn-main">Contact Us</a>
+    </div>
+    <img src="images/portfolio/industries/logistic_main.jpg" alt="">
+</div>
+
+<h2>Our Services</h2>
+<ul>
+    <li>Mobile App Development</li>
+    <li>Custom Software Development</li>
+    <li>Routing and Scheduling Software Development</li>
+    <li>Warehouse Management Systems(WMS) Development</li>
+    <li>Driver Management Software Development</li>
+    <li>SaaS-based Order & Inventory Management Software Development</li>
+</ul>
+
+<h2>Our Development Process</h2>
+<div class="timeline">
+    <div class="timeline-item">Requirement Analysis</div>
+    <div class="timeline-item">Design</div>
+    <div class="timeline-item">Implementation (Coding)</div>
+    <div class="timeline-item">Testing</div>
+    <div class="timeline-item">Deployment</div>
+    <div class="timeline-item">Maintenance</div>
+</div>
+
+<h2>Logistics and Transportation Management System</h2>
+<div class="section">
+    <img src="images/portfolio/industries/logistics.jpg" alt="">
+    <div>
+        <p>Transportation software encompasses a broad range of applications designed to streamline and optimize various aspects of transportation and logistics.</p>
+
+        <p>These software solutions can be integrated into larger ERP systems or provided as standalone applications by specialized vendors. They are essential for enhancing efficiency, reducing costs, and improving customer service across the transportation and logistics industry.</p>
+
+        <p>Transportation Management Systems (TMS): Provides end-to-end logistics management, covering everything from order management and procurement to freight billing and reporting.</p>
+    </div>
+</div>
+
+<h2>Shipment Tracking Application</h2>
+<div class="section">
+    <img src="images/portfolio/industries/tracking.jpg" alt="">
+    <div>
+        <p>Shipment Tracker is your ultimate companion for managing and monitoring shipments of all kinds, from parcels to freight. Designed with simplicity and efficiency in mind, our application provides real-time updates and detailed insights into the status and location of your packages.</p>
+
+        <p>Whether you're sending goods across the globe or awaiting a delivery, Shipment Tracker ensures you stay informed every step of the way.</p>
+
+        <p>Instantly track the current status and location of your shipments using live updates directly from carriers and logistics partners. Predicted delivery times based on current tracking data, helping you plan ahead and manage expectations.</p>
+    </div>
+</div>
+
+<h2>Driver Management Software</h2>
+<div class="section">
+    <img src="images/portfolio/industries/delivery.jpg" alt="">
+    <div>
+        <p>Logistics driver management involves the coordination and oversight of all aspects related to the drivers within a logistics operation.</p>
+
+        <p>This role is crucial in ensuring that goods are transported efficiently and safely from one location to another.</p>
+
+        <p>Driver management software is a specialized tool designed to streamline and optimize the management of drivers in computer systems.</p>
+    </div>
+</div>
+
+
+<!-- WHY US -->
+<h2 class="fade">Why Choose Us?</h2>
+<p class="fade">
+At twRty Software Services, we combine technical expertise with real-world
+business understanding. Whether you are launching a new online store or
+enhancing an existing platform, our solutions are built for long-term success.
+</p>
+
+<!-- FINAL CTA -->
+<h2>Let’s Build Something Powerful</h2>
+<p>
+From AI personalization to enterprise scalability — we build platforms
+designed for tomorrow.
+</p>
+
+<a href="Contact-Us.html" class="btn-main">Let's Talk</a>
+
+</div>
+</div>
 
 <footer>
     <div class="row">
         <div class="col-full cl-copyright">
-            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty | All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <span>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+twRty | All rights reserved
 </span>
         </div>
     </div>
-
     <div class="cl-go-top">
         <a class="smoothscroll" title="Back to Top" href="#top"></a>
     </div>
 </footer>
 
-
-
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
-
-
-
-
 </body>
 </html>
-
-

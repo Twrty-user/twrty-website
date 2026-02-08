@@ -2,272 +2,354 @@
 <html class="no-js" lang="en">
 <head>
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>Fintech Software Development</title>
-    <meta name="description" content="twRty is a leading provider of innovative technology solutions for the fintech industry. With a focus on creating apps for things like banking, payments, investing, and insurance.">
+<meta charset="utf-8">
+<title>Fintech Software Development | twRty Software Services</title>
+<meta name="description" content="Fintech software development services by twRty. Banking, Crypto, AI-powered fintech solutions.">
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    
+<script src="js/modernizr.js"></script>
+<script src="js/pace.min.js"></script>
 
-    <!-- favicons
-    ================================================== -->
-<!--    <link rel="icon" href="favicon.ico">-->
-<!--    <link rel="apple-touch-icon" href="favicon.ico">-->
-<!--    <link rel="icon" type="image/x-icon" href="fav_android.png">-->
-        
 <style>
-    .main {
-    font-family: Arial, sans-serif;
-    line-height: 1.3;
+/* SAME THEME AS EDUCATION */
+
+body {
+    background: #0b0b0b;
+    color: #e5e5e5;
+}
+
+.main {
     margin-top: 135px;
-    padding: 0;
-    background: white   ;
-    /* margin-left: 20px; */
-    padding-bottom: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-    
+    padding: 70px;
+    background: linear-gradient(180deg, #0b0b0b, #121212);
+}
+
+@media (max-width: 768px) {
+    .main { padding: 25px; }
+}
+
+    .main h1,
+    .main h2,
+    .main h4 {
+        color: #ff8c00;
+        font-weight: 700;
     }
+
+    .main p,
+    .main li {
+        color: #cfcfcf;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+    
     .selDisable{
-        -webkit-touch-callout: none; /* iOS Safari */
-          -webkit-user-select: none; /* Safari */
-           -khtml-user-select: none; /* Konqueror HTML */
-             -moz-user-select: none; /* Firefox */
-              -ms-user-select: none; /* Internet Explorer/Edge */
-                  user-select: none; /* Non-prefixed version, currently
-                                        supported by Chrome and Opera */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+    supported by Chrome and Opera */
     }
-    
-    .image-container {
-        
-        margin-bottom: 20px;
+
+/* HERO */
+.edu-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 90px;
+}
+
+.edu-hero img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 40px 80px rgba(255,140,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .edu-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-    .image-container img {
-        width: auto;
-        max-height: 200px;
-        display: block;
-        height: auto;
+}
+
+/* BUTTON */
+.btn-main {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 36px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff8c00, #ff6a00);
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* GRID */
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.edu-card {
+    background: #161616;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,140,0,0.15);
+    transition: transform .3s;
+}
+
+.edu-card:hover {
+    transform: translateY(-6px);
+}
+
+.edu-card i {
+    font-size: 34px;
+    color: #ff8c00;
+    margin-bottom: 15px;
+}
+
+/* CONTENT ROW (FIXED IMAGE SIZE & ALIGNMENT) */
+.content-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    margin: 80px 0;
+}
+
+.content-row img {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 16px;
+    box-shadow: 0 30px 60px rgba(255,140,0,0.12);
+}
+
+@media (max-width: 768px) {
+    .content-row {
+        grid-template-columns: 1fr;
     }
-    
-    .container {
-        background: white;
-    }
-    
-    .content {
-        max-width: 1500px; /* Maximum width for content */
-        margin: 0 auto; /* Center align horizontally */
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .content {
-          max-width: 100%; /* Adjust to full width on smaller screens */
-          border-radius: 0; /* Remove border radius on smaller screens */
-        }
-      }
-    
-    li {
-                margin-bottom: 5px; /* Added spacing between list items */
-            }
-    
+}
+
+/* TIMELINE */
+.timeline {
+    margin: 100px 0;
+    border-left: 3px solid #ff8c00;
+    padding-left: 40px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -52px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: #ff8c00;
+    border-radius: 50%;
+}
 </style>
+
 </head>
-<body id="top"; class="selDisable">
-    
-    <!-- preloader
-     ================================================== -->
-    <!-- <div id="preloader">
-        <div id="loader" class="dots-jump">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  -->
 
+<body id="top">
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="row">
-
-            <div class="header-logo">
-                <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage">
-                    <span class="logo-text">Software Services</span>
-                </a>
-            </div>
-            
-            <nav class="header-nav-wrap">
-                <ul class="header-nav">
-                    <li> <a rel="canonical" href="/" title="home">Home
-                    </a></li>
-                    <li><a rel="canonical" href="/#services" title="services">Services</a></li>
-                    <li><a rel="canonical" href="/#industries" title="Industries">Industries</a></li>
-                    <li><a rel="canonical" href="/#technologies" title="Technologies">Technologies</a></li>
-                    <li><a rel="canonical" href="about.html" title="about">About</a></li>
-                    <li><a rel="canonical" href="Contact-Us.html" title="Contact Us">Contact Us</a></li>
-                    <li><a rel="canonical" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></li>
-                    
-                </ul>
-            </nav> <!-- end header-nav-wrap -->
-            
-            <a class="header-menu-toggle" href="#0">
-                <span class="header-menu-icon"></span>
+<!-- HEADER (SAME AS EDUCATION) -->
+<header class="s-header">
+    <div class="row">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo.png" alt="">
+                <span class="logo-text">Software Services</span>
             </a>
+        </div>
 
-        </div> <!-- end row -->
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li class="has-mega">
+                    <a href="/#industries">
+                        Industries <span class="nav-arrow">▾</span>
+                    </a>
 
-    </header> <!-- end s-header -->
- <!-- Main Content Section -->
- <div class="container">
-     <div class="content">
-         <div class="main">
-             <h1 style="padding-top: 22px; padding-left: 22px; padding-right: 22px; text-align=center">Fintech Software Services</h1>
-             
-             <p style="padding-left: 22px; padding-right: 22px;">twRty is a leading provider of innovative technology solutions for the fintech industry. With a focus on creating apps for things like banking, payments, investing, and insurance.</p>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Hire Expert App & Web Developers!</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-                 Contact Us
-             </a>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Services</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Mobile Payment Solutions</li>
-                 <li>Cryptocurrency Exchange & Wallet Development</li>
-                 <li>Custom Software Development</li>
-                 <li>Insurance Technology</li>
-                 
-             </ul>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Development Process</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Requirement Analysis</li>
-                 <li>Design</li>
-                 <li>Implementation (Coding)</li>
-                 <li>Testing</li>
-                 <li>Deployment</li>
-                 <li>Maintenance</li>
-                 
-             </ul>
-             
-             
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Banking Software Development</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/banking_app.jpg" alt="banking App Development">
-                 </div>
-                 
-                 <div>
-                     
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Our team of fintech software developers is dedicated to helping you modernize your core infrastructure and optimize your banking processes to adapt swiftly to industry advancements.</p>
-                     
-                     <p style="padding-left: 22px; padding-right: 22px;">Banking app development is about making mobile apps for banking and finance. These apps let users do lots of financial tasks on their phones or tablets. They include features like managing accounts, transferring funds, paying bills, depositing checks using mobile cameras, tracking budgets, and getting instant notifications. The goal of banking app development is to make sure these apps are secure, easy to use, and work smoothly with banking systems. This helps customers have convenient, efficient, and safe banking experiences wherever they are.</p>
-                     
-                 </div>
-             </div>
-             
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Cryptocurrency Exchange & Wallet Development</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/crypto.jpg" alt="crypto">
-                 </div>
-                 
-                 <div>
-                     <p style="padding-top: 15px; padding-left: 22px; padding-right: 22px;">Cryptocurrency exchange and wallet app development involves creating mobile applications that enable users to buy, sell, and trade cryptocurrencies. These apps also serve as digital wallets, allowing users to securely store their crypto assets and manage transactions directly from their smartphones or tablets. Key features typically include real-time trading, price alerts, transaction history, multi-currency support, and secure authentication methods like biometrics or two-factor authentication (2FA). Cryptocurrency exchange and wallet app development focuses on providing a user-friendly interface, robust security measures, and seamless integration with blockchain networks to offer users a reliable platform for managing their digital assets.</p>
-                     
-                     <section>
-                         <h4 style="padding-top: 10px; padding-left: 25px; padding-right: 25px;">At twRty, we specialize in crafting advanced solutions for the crypto industry.</h4>
-                         <p style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">Whether you're launching a new cryptocurrency, developing a secure wallet app, or creating a decentralized exchange platform, our expert team is here to turn your ideas into functional and scalable realities.</p>
-                     </section>
-                     <h4 style="padding-top: 10px; padding-left: 25px; padding-right: 25px;">Our Services Include:</h4>
-                     <ul style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">
-                         <li><strong>Cryptocurrency Development:</strong> From concept to deployment, we build custom cryptocurrencies tailored to your specific needs.</li>
-                         <li><strong>Wallet App Development:</strong> Secure and user-friendly mobile wallet apps that enable seamless management of digital assets.</li>
-                         <li><strong>Decentralized Exchange (DEX) Development:</strong> Creating robust platforms for secure and efficient trading of cryptocurrencies.</li>
-                     </ul>
-                     <section>
-                         <h4 style="padding-top: 10px; padding-left: 25px; padding-right: 25px;">Why Choose Us?</h4>
-                         <p style="padding-top: 5px; padding-left: 25px; padding-right: 25px;">With years of experience and a passion for innovation, we are committed to delivering high-quality solutions that meet industry standards and exceed client expectations. Partner with us and embark on your journey to revolutionize the future of finance with blockchain technology.</p>
-                         <p style="padding-top: 10px; padding-left: 25px; padding-right: 25px;">Contact us today to discuss how we can collaborate on your next crypto project.</p>
-                     </section>
-                 </div>
-             </div>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">AI-enabled Fintech Solutions</h2>
-             <div class="image-container">
-                 <div>
-                     <img style="padding-left: 22px; padding-right: 22px;" src="images/portfolio/industries/ai_fintech.jpg" alt="ai_crypto">
-                 </div>
-                 <p style="padding-top: 10px; padding-left: 22px; padding-right: 22px;">Transform your financial services with our AI-enabled fintech solutions. At twRty, we specialize in deploying artificial intelligence to revolutionize banking, payments, investments, insurance, and more.</p>
-                 
-                 <h4 style="padding-top: 10px; padding-left: 22px; padding-right: 22px;">Our AI-powered Solutions:</h4>
-                 <ul style="padding-top: 10px; padding-left: 22px; padding-right: 22px;">
-                     <li><strong>Automated Customer Support:</strong> Enhance customer service with AI-powered chatbots and virtual assistants.</li>
-                     <li><strong>Algorithmic Trading:</strong> Utilize AI algorithms for predictive analytics and automated trading strategies.</li>
-                     <li><strong>Risk Management:</strong> Implement AI models for real-time risk assessment and fraud detection.</li>
-                     <li><strong>Personalized Recommendations:</strong> Offer tailored financial advice and product recommendations based on AI-driven insights.</li>
-                 </ul>
-                 <section>
-                     <p style="padding-top: 10px; padding-left: 22px; padding-right: 22px;">Partner with us to leverage the power of artificial intelligence and stay ahead in the competitive fintech landscape. Contact us today to explore how AI can transform your financial services.</p>
-                 </section>
-             </div>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Contact Us</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-                 Let's Talk
-             </a>
-             
-             <p></p>
-         </div>
-     </div>
- </div>
+                    <div class="mega-menu">
+                        <ul>
+                            <li><a href="healthcare.html">Healthcare</a></li>
+                            <li><a href="fintech.html">Fintech Applications</a></li>
+                            <li><a href="education.html">Education</a></li>
+                            <li><a href="media.html">Media & Entertainment</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="logistics.html">Logistics</a></li>
+                            <li><a href="ecommerce.html">Ecommerce</a></li>
+                            <li><a href="sports.html">Sports & Gaming</a></li>
+                            <li><a href="ondemand.html">On-Demand Services</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/#technologies">Technologies</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Contact-Us.html">Contact Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span class="header-menu-icon"></span></a>
+    </div>
+</header>
+
+<div class="content">
+<div class="main">
+
+<!-- HERO -->
+<div class="edu-hero">
+    <div>
+        <h1>Fintech Software Services</h1>
+        <p>
+            twRty works with fintech companies to design and develop reliable software solutions for banking, payments, investments, and insurance platforms.
+        </p>
+        <a href="Contact-Us.html" class="btn-main">Contact Us</a>
+    </div>
+    <img src="images/portfolio/industries/banking_app.jpg" alt="Fintech">
+</div>
+
+<!-- SERVICES -->
+<h2>Our Services</h2>
+<div class="edu-grid">
+    <div class="edu-card">
+        <i class="fa fa-credit-card"></i>
+        <h4>Mobile Payment Solutions</h4>
+    </div>
+    <div class="edu-card">
+        <i class="fa fa-bitcoin"></i>
+        <h4>Cryptocurrency Exchange & Wallet</h4>
+    </div>
+    <div class="edu-card">
+        <i class="fa fa-code"></i>
+        <h4>Custom Fintech Software</h4>
+    </div>
+    <div class="edu-card">
+        <i class="fa fa-shield"></i>
+        <h4>Insurance Technology</h4>
+    </div>
+</div>
+
+<!-- BANKING -->
+<div class="timeline">
+    <h2>Banking Software Development</h2>
+
+    <div class="timeline-item">
+        <p>
+            Our team of fintech software developers is dedicated to helping you modernize your core infrastructure
+            and optimize your banking processes to adapt swiftly to industry advancements.
+        </p>
+    </div>
+
+    <div class="timeline-item">
+        <p>
+            Banking app development is about making mobile apps for banking and finance. These apps let users
+            manage accounts, transfer funds, pay bills, deposit checks, track budgets, and receive instant notifications.
+        </p>
+    </div>
+</div>
+
+<!-- CRYPTO (IMAGE LEFT) -->
+<h2>Cryptocurrency Exchange & Wallet Development</h2>
+<div class="content-row">
+    <img src="images/portfolio/industries/crypto.jpg" alt="Crypto">
+
+    <div>
+        <p>
+            Cryptocurrency exchange and wallet app development involves creating mobile applications that enable users
+            to buy, sell, and trade cryptocurrencies while securely storing digital assets.
+        </p>
+
+        <h4>At twRty, we specialize in crafting advanced solutions for the crypto industry.</h4>
+        <p>
+            Whether you're launching a new cryptocurrency, developing a secure wallet app, or creating a decentralized exchange.
+        </p>
+
+        <h4>Our Services Include:</h4>
+        <ul>
+            <li><strong>Cryptocurrency Development:</strong> Custom blockchain solutions.</li>
+            <li><strong>Wallet App Development:</strong> Secure digital wallets.</li>
+            <li><strong>DEX Development:</strong> Decentralized trading platforms.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- AI FINTECH (IMAGE RIGHT) -->
+<h2>AI-enabled Fintech Solutions</h2>
+<div class="content-row">
+    <div>
+        <p>
+            Transform your financial services with our AI-enabled fintech solutions.
+            We deploy artificial intelligence to revolutionize banking, payments, and investments.
+        </p>
+
+        <h4>Our AI-powered Solutions:</h4>
+        <ul>
+            <li><strong>Automated Customer Support:</strong> AI chatbots.</li>
+            <li><strong>Algorithmic Trading:</strong> Predictive analytics.</li>
+            <li><strong>Risk Management:</strong> Fraud detection.</li>
+            <li><strong>Personalized Recommendations:</strong> AI-driven insights.</li>
+        </ul>
+    </div>
+
+    <img src="images/portfolio/industries/ai_fintech.jpg" alt="AI Fintech">
+</div>
+
+<!-- WHY US -->
+<h2 class="fade">Why Choose Us?</h2>
+<p class="fade">
+At twRty Software Services, we combine technical expertise with real-world
+business understanding. Whether you are launching a new online store or
+enhancing an existing platform, our solutions are built for long-term success.
+</p>
+
+<!-- FINAL CTA -->
+<h2>Let’s Build Something Powerful</h2>
+<p>
+From AI personalization to enterprise scalability — we build platforms
+designed for tomorrow.
+</p>
+
+<a href="Contact-Us.html" class="btn-main">Let's Talk</a>
+
+</div>
+</div>
 
 <footer>
     <div class="row">
         <div class="col-full cl-copyright">
-            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty | All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</span>
+            <span>
+                Copyright &copy;
+                <script>document.write(new Date().getFullYear());</script>
+                twRty | All rights reserved
+            </span>
         </div>
     </div>
-
-    <div class="cl-go-top">
-        <a class="smoothscroll" title="Back to Top" href="#top"></a>
-    </div>
 </footer>
-
-
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
-
-
-
-
 </body>
 </html>
-
