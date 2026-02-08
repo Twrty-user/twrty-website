@@ -76,18 +76,6 @@
     ================================================== -->
     <header class="s-header">
 
-        <div class="lang-switcher global-lang">
-            🌐
-            <select id="languageSwitcher" aria-label="Select language">
-                <option value="en">English</option>
-                <option value="fr">Français</option>
-                <option value="de">Deutsch</option>
-                <option value="es">Español</option>
-                <option value="ar">العربية</option>
-                <option value="hi">हिन्दी</option>
-            </select>
-        </div>
-        
         <div class="row">
 
             <div class="header-logo">
@@ -1034,64 +1022,5 @@
     };
     </script>
     
-    <div id="google_translate_element" style="display:none;"></div>
-
-    <script>
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement(
-            {
-                pageLanguage: 'en',
-                autoDisplay: false
-            },
-            'google_translate_element'
-        );
-    }
-    </script>
-
-    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-    <script>
-    const langSwitcher = document.getElementById('languageSwitcher');
-
-    function translatePage(lang) {
-        const googleSelect = document.querySelector('.goog-te-combo');
-        if (!googleSelect) return;
-
-        googleSelect.value = lang;
-        googleSelect.dispatchEvent(new Event('change'));
-        localStorage.setItem('siteLang', lang);
-    }
-
-    // When user selects language
-    langSwitcher.addEventListener('change', e => {
-        translatePage(e.target.value);
-    });
-
-    // Restore language on reload
-    window.addEventListener('load', () => {
-        const savedLang = localStorage.getItem('siteLang');
-        if (savedLang && savedLang !== 'en') {
-            setTimeout(() => translatePage(savedLang), 800);
-            langSwitcher.value = savedLang;
-        }
-    });
-    </script>
-
-    <script>
-    (function () {
-        const hideGoogleBar = () => {
-            const frame = document.querySelector('.goog-te-banner-frame');
-            if (frame) {
-                frame.style.display = 'none';
-            }
-            document.body.style.top = '0px';
-            document.documentElement.style.marginTop = '0px';
-        };
-
-        setTimeout(hideGoogleBar, 500);
-        setTimeout(hideGoogleBar, 1500);
-    })();
-    </script>
-
 </body>
 

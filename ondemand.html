@@ -2,219 +2,375 @@
 <html class="no-js" lang="en">
 <head>
 
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>On-Demand Services</title>
-    <meta name="description" content="At twRty, where we specialize in developing personalized On-Demand Services applications. Our expertise lies in creating robust platforms that connect service providers with customers seamlessly.">
-  
+<meta charset="utf-8">
+<title>On-Demand Services | twRty Software Services</title>
+<meta name="description" content="At twRty, where we specialize in developing personalized On-Demand Services applications. Our expertise lies in creating robust platforms that connect service providers with customers seamlessly.">
 
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/vendor.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-    
+<script src="js/modernizr.js"></script>
+<script src="js/pace.min.js"></script>
 
-    <!-- favicons
-    ================================================== -->
-<!--    <link rel="icon" href="favicon.ico">-->
-<!--    <link rel="apple-touch-icon" href="favicon.ico">-->
-<!--    <link rel="icon" type="image/x-icon" href="fav_android.png">-->
-        
 <style>
-    .main {
-    font-family: Arial, sans-serif;
-    line-height: 1.3;
+body {
+    background: #0b0b0b;
+    color: #e5e5e5;
+}
+
+.main {
     margin-top: 135px;
-    padding: 0;
-    background: white   ;
-    /* margin-left: 20px; */
-    padding-bottom: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-    
-    }
-    .selDisable{
-        -webkit-touch-callout: none; /* iOS Safari */
-          -webkit-user-select: none; /* Safari */
-           -khtml-user-select: none; /* Konqueror HTML */
-             -moz-user-select: none; /* Firefox */
-              -ms-user-select: none; /* Internet Explorer/Edge */
-                  user-select: none; /* Non-prefixed version, currently
-                                        supported by Chrome and Opera */
-    }
-    
-    .image-container {
-        
-        margin-bottom: 20px;
-    }
-    .image-container img {
-        width: auto;
-        max-height: 200px;
-        display: block;
-        height: auto;
-    }
-    
-    .container {
-        background: white;
-    }
-    
-    .content {
-        max-width: 1500px; /* Maximum width for content */
-        margin: 0 auto; /* Center align horizontally */
-      }
-      
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .content {
-          max-width: 100%; /* Adjust to full width on smaller screens */
-          border-radius: 0; /* Remove border radius on smaller screens */
-        }
-      }
-    
-    li {
-                margin-bottom: 5px; /* Added spacing between list items */
-            }
-    
+    padding: 70px;
+    background: linear-gradient(180deg, #0b0b0b, #121212);
+}
+
+@media (max-width: 768px) {
+    .main { padding: 25px; }
+}
+
+.main h1,
+.main h2,
+.main h4 {
+    color: #ff8c00;
+    font-weight: 700;
+}
+
+.main p,
+.main li {
+    color: #cfcfcf;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* HERO */
+.od-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    margin-bottom: 90px;
+}
+
+.od-hero img {
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 40px 80px rgba(255,140,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .od-hero { grid-template-columns: 1fr; text-align: center; }
+}
+
+/* BUTTON */
+.btn-main {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 36px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff8c00, #ff6a00);
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* GRID CARDS */
+.od-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.od-card {
+    background: #161616;
+    padding: 28px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,140,0,0.15);
+    transition: transform .3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.od-card:hover { transform: translateY(-6px); }
+
+.od-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent, rgba(255,140,0,0.12), transparent);
+    animation: shimmer 3.8s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* TIMELINE */
+.timeline {
+    margin: 50px 0;
+    border-left: 3px solid #ff8c00;
+    padding-left: 40px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -52px;
+    top: 5px;
+    width: 16px;
+    height: 16px;
+    background: #ff8c00;
+    border-radius: 50%;
+}
 </style>
 </head>
-<body id="top"; class="selDisable">
-    
-    <!-- preloader
-     ================================================== -->
-    <!-- <div id="preloader">
-        <div id="loader" class="dots-jump">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>  -->
 
+<body id="top">
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
-
-        <div class="row">
-
-            <div class="header-logo">
-                <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage">
-                    <span class="logo-text">Software Services</span>
-                </a>
-            </div>
-            
-            <nav class="header-nav-wrap">
-                <ul class="header-nav">
-                    <li> <a rel="canonical" href="/" title="home">Home
-                    </a></li>
-                    <li><a rel="canonical" href="/#services" title="services">Services</a></li>
-                    <li><a rel="canonical" href="/#industries" title="Industries">Industries</a></li>
-                    <li><a rel="canonical" href="/#technologies" title="Technologies">Technologies</a></li>
-                    <li><a rel="canonical" href="about.html" title="about">About</a></li>
-                    <li><a rel="canonical" href="Contact-Us.html" title="Contact Us">Contact Us</a></li>
-                    <li><a rel="canonical" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></li>
-                    
-                </ul>
-            </nav> <!-- end header-nav-wrap -->
-            
-            <a class="header-menu-toggle" href="#0">
-                <span class="header-menu-icon"></span>
+<header class="s-header">
+    <div class="row">
+        <div class="header-logo">
+            <a class="site-logo" href="index.html">
+                <img src="images/logo.png" alt="">
+                <span class="logo-text">Software Services</span>
             </a>
+        </div>
 
-        </div> <!-- end row -->
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li class="has-mega">
+                    <a href="/#industries">
+                        Industries <span class="nav-arrow">▾</span>
+                    </a>
 
-    </header> <!-- end s-header -->
- <!-- Main Content Section -->
- <div class="container">
-     <div class="content">
-         <div class="main">
-             <h1 style="padding-top: 22px; padding-left: 22px; padding-right: 22px; text-align=center">On-Demand Services</h1>
-             
-             <p style="padding-left: 22px; padding-right: 22px;">At twRty, where we specialize in developing personalized On-Demand Services applications. Our expertise lies in creating robust platforms that connect service providers with customers seamlessly.</p>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Hire Expert App & Web Developers!</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
-                 Contact Us
-             </a>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Services</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Mobile App Development</li>
-                 <li>Custom Software Development</li>
-             </ul>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Our Development Process</h2>
-             <ul style="padding-left: 22px; padding-right: 22px;">
-                 <li>Requirement Analysis</li>
-                 <li>Design</li>
-                 <li>Implementation (Coding)</li>
-                 <li>Testing</li>
-                 <li>Deployment</li>
-                 <li>Maintenance</li>
-                 
-             </ul>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Transforming On-Demand Services with Customized Apps</h2>
-             
-             <div class="image-container">
-                 <div>
-                     <h4 style="padding-left: 22px; padding-right: 22px;">Key Features:</h4>
-                     <ul style="padding-top: 10px; padding-left: 22px; padding-right: 22px;">
-                         <li><strong>Customized Development:<br></strong> We build On-Demand Services apps that cater specifically to your business model and target audience.</li>
-                         <li style="padding-top: 10px;"><strong>User-Friendly Interfaces:<br></strong> Intuitive designs that ensure a seamless experience for both service providers and customers.</li>
-                         <li style="padding-top: 10px;"><strong>Real-Time Communication:<br></strong> Integrated messaging and notification systems to facilitate instant communication between users.</li>
-                         <li style="padding-top: 10px;"><strong>Payment Integration:<br></strong> Secure payment gateways for hassle-free transactions within the app.</li>
-                         <li style="padding-top: 10px;"><strong>Scalable Solutions:<br></strong> Platforms designed to grow with your business, accommodating increasing demand and new features.
-</li>
-                         
-                     </ul>
-                     
-                 </div>
-                 
-                 
+                    <div class="mega-menu">
+                        <ul>
+                            <li><a href="healthcare.html">Healthcare</a></li>
+                            <li><a href="fintech.html">Fintech Applications</a></li>
+                            <li><a href="education.html">Education</a></li>
+                            <li><a href="media.html">Media & Entertainment</a></li>
+                        </ul>
+
+                        <ul>
+                            <li><a href="logistics.html">Logistics</a></li>
+                            <li><a href="ecommerce.html">Ecommerce</a></li>
+                            <li><a href="sports.html">Sports & Gaming</a></li>
+                            <li><a href="ondemand.html">On-Demand Services</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/#technologies">Technologies</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Contact-Us.html">Contact Us</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span class="header-menu-icon"></span></a>
+    </div>
+</header>
+
+<div class="content">
+<div class="main">
+
+<div class="od-hero">
+    <div>
+        <h1>On-Demand Services</h1>
+        <p>
+        At twRty, we design and develop custom On-Demand Services applications that power real-time connections between businesses and customers. Our platforms are built for performance, scalability, and long-term growth.
+        </p>
+        <a href="Contact-Us.html" class="btn-main">Contact Us</a>
+    </div>
+    <img src="images/portfolio/industries/ondemand.jpg" alt="">
+</div>
+
+<h2>Our Services</h2>
+<div class="od-grid">
+    <div class="od-card">
+        <h4>Mobile App Development</h4>
+    </div>
+    <div class="od-card">
+        <h4>Custom Software Development</h4>
+    </div>
+</div>
+
+<h2>Our Development Process</h2>
+<div class="timeline">
+    <div class="timeline-item"><h4>Requirement Analysis</h4></div>
+    <div class="timeline-item"><h4>Design</h4></div>
+    <div class="timeline-item"><h4>Implementation (Coding)</h4></div>
+    <div class="timeline-item"><h4>Testing</h4></div>
+    <div class="timeline-item"><h4>Deployment</h4></div>
+    <div class="timeline-item"><h4>Maintenance</h4></div>
+</div>
+
+<h2>Transforming On-Demand Services with Customized Apps</h2>
+
+<div class="od-grid">
+    <div class="od-card">
+        <h4>Customized Development</h4>
+        <p>We build On-Demand Services apps that cater specifically to your business model and target audience.</p>
+    </div>
+    <div class="od-card">
+        <h4>User-Friendly Interfaces</h4>
+        <p>Intuitive designs that ensure a seamless experience for both service providers and customers.</p>
+    </div>
+    <div class="od-card">
+        <h4>Real-Time Communication</h4>
+        <p>Integrated messaging and notification systems to facilitate instant communication between users.</p>
+    </div>
+    <div class="od-card">
+        <h4>Payment Integration</h4>
+        <p>Secure payment gateways for hassle-free transactions within the app.</p>
+    </div>
+    <div class="od-card">
+        <h4>Scalable Solutions</h4>
+        <p>Platforms designed to grow with your business, accommodating increasing demand and new features.</p>
+    </div>
+</div>
+
+<!-- WHY US -->
+<h2 class="fade">Why Choose Us for On-Demand Services?</h2>
+<p class="fade">
+At twRty Software Services, we build reliable and high-performance on-demand
+platforms that connect businesses with customers in real time. From intelligent
+service matching and live tracking to secure payments and scalable
+infrastructure, our solutions are designed to deliver speed, convenience,
+and operational efficiency.
+</p>
+
+<!-- FINAL CTA -->
+<h2>Let’s Build the Future of On-Demand Services Together</h2>
+<p>
+From service booking apps to enterprise-grade on-demand ecosystems — we create
+digital solutions that streamline operations, enhance user experiences, and
+help your business scale with confidence.
+</p>
+
+
+
+</div>
+</div>
+
+ <section id="contact-cta" class="contact-cta">
+     <div class="cta-content">
+         <h1>Built for today. Ready for tomorrow.</h1>
+
+         <p>
+         We help businesses turn ideas into reliable digital solutions.
+         Simple, scalable, and designed to grow with you.
+         </p>
+
+         <a href="Contact-Us.html" class="cta-btn">Contact us</a>
+     </div>
+ </section>
+ 
+
+     <div class="row contact-infos">
+
+         <div class="col-five md-seven tab-full contact-address">
+             <h4 style="color:#fff;">How to Reach Us</h4>
+             <p>
+             <a href="mailto:support@twrty.org">support@twrty.org</a>
+             </p>
+             <div class="trust-badges">
+               <a href="https://www.trustpilot.com/review/twrty.org" target="_blank" rel="noopener">
+                 ★★★★★ Rated on Trustpilot
+               </a>
+
+               <a href="https://clutch.co/profile/twrty-software-services" target="_blank" rel="noopener">
+                 ★★★★★ Rated on Clutch
+               </a>
              </div>
-             
-        
-             <p style="padding-left: 22px; padding-right: 22px;">Partner with us to revolutionize your On-Demand Services business!</p>
-             
-             <h2 style="padding-left: 22px; padding-right: 22px;">Contact Us</h2>
-             <a style="margin-left: 22px;" href="/#contact" class="btn btn-animatedbgtheme">
+         </div>
+
+         
+         <div class="col-three md-five tab-full contact-social">
+             <h4 style="color:#fff;">Follow Us</h4>
+
+             <ul class="contact-list">
+                 <li><a target=_blank  href="https://www.facebook.com/p/twRty-Software-Services-61560321221796/">Facebook</a></li>
+                 <li><a target=_blank  href="https://x.com/twRtySoftware">X (Twitter)</a></li>
+                 <li><a target=_blank href="https://www.instagram.com/twrtysoftware/?igsh=MW15bHp5emU0bnU1MA%3D%3D&utm_source=qr">Instagram</a></li>
+             </ul>
+         </div>
+         
+         
+
+     </div> <!-- end contact-infos -->
+
+     <div class="row contact-bottom">
+         <div class="col-five tab-full contact-button">
+             <a href="Contact-Us.html" class="btn btn-animatedbg">
                  Let's Talk
              </a>
-             
-             <p></p>
          </div>
+
+<!--            <div class="col-six tab-full contact-subscribe">-->
+<!--                <h4 style="color: rgba(255, 255, 255, 0.25);">Subscribe</h4>-->
+<!---->
+<!--                <form id="mc-form" class="group mc-form" novalidate="true">-->
+<!--                    <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">-->
+<!--                    <input type="submit" name="subscribe" value="Subscribe">-->
+<!--                    <label for="mc-email" class="subscribe-message"></label>-->
+<!--                </form>-->
+<!--            </div>-->
+     </div> <!-- end contact-button -->
+
+     
+     
+ </section> <!-- end s-contact -->
+
+
+ <!-- footer
+ ================================================== -->
+ <footer>
+
+     <div class="row">
+
+         <!-- Right: Horizontal links -->
+         <div class="col-six tab-full footer-links-horizontal">
+             <ul>
+                 <li><a href="/">Home</a></li>
+                 <li><a href="services.html" title="Services">Services</a></li>
+                 <li><a class="smoothscroll" href="#industries">Industries</a></li>
+                 <li><a class="smoothscroll" href="#technologies">Technologies</a></li>
+                 <li><a href="about.html" title="About Us">About</a></li>
+                 <li><a href="Contact-Us.html" title="Contact Us">Contact Us</a></li>
+                 <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              
+             <div class="cl-copyright">
+                 <span>
+                     Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                     twRty | All rights reserved
+                 </span>
+                 <span>🔒 Secure HTTPS Connection</span>
+             </div>
+         </div>
+
      </div>
- </div>
+
+     <div class="cl-go-top">
+         <a class="smoothscroll" title="Back to Top" href="#top"></a>
+     </div>
+
+ </footer>
 
 
-<footer>
-    <div class="row">
-        <div class="col-full cl-copyright">
-            <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty | All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</span>
-        </div>
-    </div>
-
-    <div class="cl-go-top">
-        <a class="smoothscroll" title="Back to Top" href="#top"></a>
-    </div>
-</footer>
-
-
+</div>
+</div>
 
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/plugins.js"></script>
@@ -222,4 +378,3 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> twRty
 
 </body>
 </html>
-
