@@ -206,5 +206,8 @@
         $('body').removeClass('menu-open');
     });
     
+    $('.header-nav a').on('click', function () {
+        $('body').removeClass('menu-is-open');
+    });
     
 })(jQuery);
