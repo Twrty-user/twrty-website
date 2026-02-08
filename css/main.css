@@ -4269,16 +4269,7 @@ footer a:visited {
 }
 
 
-.s-header {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 99999;
-    background: rgba(0,0,0,0.95);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-    transition: none !important;
-}
+
 
 
 .page-home .nav-home a,
@@ -4287,46 +4278,5 @@ footer a:visited {
 .page-services .nav-services a,
 .page-privacy .nav-privacy a {
     color: #F26522 !important
-}
-
-
-.global-lang {
-    position: fixed !important;
-    top: 18px;
-    right: 22px;
-    left: auto;
-
-    z-index: 999999;
-
-    font-size: 18px;
-    line-height: 1;
-    cursor: pointer;
-    color: #fff;
-
-    /* Better tap area */
-    padding: 6px;
-}
-
-/* Invisible select over icon */
-.global-lang select {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    cursor: pointer;
-}
-
-/* Hover (desktop only feel) */
-.global-lang:hover {
-    color: #ff8c00;
-}
-
-@media (max-width: 768px) {
-    .global-lang {
-        top: env(safe-area-inset-top, 14px);
-        right: env(safe-area-inset-right, 14px);
-
-        font-size: 16px;
-        padding: 8px;
-    }
 }
 
