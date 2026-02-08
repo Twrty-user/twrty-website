@@ -1077,6 +1077,21 @@
     });
     </script>
 
-    
+    <script>
+    (function () {
+        const hideGoogleBar = () => {
+            const frame = document.querySelector('.goog-te-banner-frame');
+            if (frame) {
+                frame.style.display = 'none';
+            }
+            document.body.style.top = '0px';
+            document.documentElement.style.marginTop = '0px';
+        };
+
+        setTimeout(hideGoogleBar, 500);
+        setTimeout(hideGoogleBar, 1500);
+    })();
+    </script>
+
 </body>
 
