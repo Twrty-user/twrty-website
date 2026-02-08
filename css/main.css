@@ -4277,3 +4277,13 @@ footer a:visited {
 }
 
 
+.s-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999;
+    background: rgba(0,0,0,0.95);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    transition: none !important;
+}

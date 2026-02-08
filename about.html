@@ -116,33 +116,59 @@ user-select: none;
 
 <body id="top" class="page-about">
 
-<!-- HEADER (SAME AS OTHERS) -->
-<header class="s-header">
-  <div class="row">
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+    
+    <div class="row">
+    
     <div class="header-logo">
-      <a class="site-logo" href="index.html">
-        <img src="images/logo.png" alt="Homepage">
-        <span class="logo-text">Software Services</span>
-      </a>
-    </div>
-
-    <nav class="header-nav-wrap">
-      <ul class="header-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/#industries">Industries</a></li>
-        <li><a href="/#technologies">Technologies</a></li>
-        <li class="nav-about"><a href="about.html">About</a></li>
-        <li><a href="Contact-Us.html">Contact Us</a></li>
-        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-      </ul>
-    </nav>
-
-    <a class="header-menu-toggle" href="#0">
-      <span class="header-menu-icon"></span>
+    <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage">
+    <span class="logo-text">Software Services</span>
     </a>
-  </div>
-</header>
+    </div>
+    
+    <nav class="header-nav-wrap">
+    <ul class="header-nav">
+    <li> <a rel="canonical" href="/" title="home">Home
+    </a></li>
+    <li><a rel="canonical" href="services.html" title="Services">Services</a></li>
+    <li class="has-mega">
+        <a href="/#industries">
+            Industries <span class="nav-arrow">▾</span>
+        </a>
+
+        <div class="mega-menu">
+            <ul>
+                <li><a href="healthcare.html">Healthcare</a></li>
+                <li><a href="fintech.html">Fintech Applications</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="media.html">Media & Entertainment</a></li>
+            </ul>
+
+            <ul>
+                <li><a href="logistics.html">Logistics</a></li>
+                <li><a href="ecommerce.html">Ecommerce</a></li>
+                <li><a href="sports.html">Sports & Gaming</a></li>
+                <li><a href="ondemand.html">On-Demand Services</a></li>
+            </ul>
+        </div>
+    </li>
+    <li><a rel="canonical" href="/#technologies" title="Technologies">Technologies</a></li>
+    <li><a rel="canonical" href="about.html" title="about">About</a></li>
+    <li><a rel="canonical" href="Contact-Us.html" title="Contact Us">Contact Us</a></li>
+    <li><a rel="canonical" href="privacy-policy.html" title="Privacy Policy">Privacy Policy</a></li>
+    
+    </ul>
+    </nav> <!-- end header-nav-wrap -->
+    
+    <a class="header-menu-toggle" href="#0">
+    <span class="header-menu-icon"></span>
+    </a>
+    
+    </div> <!-- end row -->
+    
+    </header> <!-- end s-header -->
 
 <!-- MAIN -->
 <div class="content">
@@ -385,7 +411,8 @@ user-select: none;
         <!-- Right: Horizontal links -->
         <div class="col-six tab-full footer-links-horizontal">
             <ul>
-                <li><a class="smoothscroll" href="#services">Services</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="services.html" title="Services">Services</a></li>
                 <li><a class="smoothscroll" href="#industries">Industries</a></li>
                 <li><a class="smoothscroll" href="#technologies">Technologies</a></li>
                 <li><a href="about.html" title="About Us">About</a></li>
