@@ -4293,6 +4293,12 @@ footer a:visited {
 }
 
 
+
+body.menu-open {
+    overflow: hidden;
+}
+
+
 .page-home .nav-home a,
 .page-contact .nav-contact a,
 .page-about .nav-about a,
