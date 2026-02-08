@@ -43,7 +43,7 @@
 
             hdr.toggleClass('sticky', loc > triggerHeight);
             hdr.toggleClass('offset', loc > triggerHeight + 20);
-            hdr.toggleClass('scrolling', loc > triggerHeight + 150);
+            hdr.toggleClass('scrolling', loc > triggerHeight + 15);
         });
     };
 
