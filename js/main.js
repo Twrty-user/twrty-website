@@ -198,4 +198,13 @@
         clAjaxChimp();
     })();
 
+    $('.has-mega').on('mouseenter touchstart', function () {
+        $('body').addClass('menu-open');
+    });
+
+    $('.has-mega').on('mouseleave touchend', function () {
+        $('body').removeClass('menu-open');
+    });
+    
+    
 })(jQuery);
