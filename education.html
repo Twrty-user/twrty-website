@@ -1,483 +1,183 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
-
-<meta charset="utf-8">
-<title>Education Software Development | twRty Software Services</title>
-<meta name="description" content="AI-powered education software, LMS platforms, virtual classrooms, and smart campus solutions by twRty Software Services.">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/vendor.css">
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-<script src="js/modernizr.js"></script>
-<script src="js/pace.min.js"></script>
-
-<style>
-body {
-    background: #0b0b0b;
-    color: #e5e5e5;
-}
-
-.main {
-    margin-top: 135px;
-    padding: 70px;
-    background: linear-gradient(180deg, #0b0b0b, #121212);
-}
-
-@media (max-width: 768px) {
-    .main { padding: 25px; }
-}
-
-.main h1,
-.main h2,
-.main h4 {
-    color: #ff8c00;
-    font-weight: 700;
-}
-
-.main p,
-.main li {
-    color: #cfcfcf;
-    font-size: 16px;
-    line-height: 1.7;
-}
-
-    .selDisable{
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-    supported by Chrome and Opera */
-    }
-/* HERO */
-.edu-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    margin-bottom: 90px;
-}
-
-.edu-hero img {
-    width: 100%;
-    border-radius: 18px;
-    box-shadow: 0 40px 80px rgba(255,140,0,0.15);
-}
-
-@media (max-width: 768px) {
-    .edu-hero { grid-template-columns: 1fr; text-align: center; }
-}
-
-/* BUTTON */
-.btn-main {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 14px 36px;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #ff8c00, #ff6a00);
-    color: #000;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-/* GRID */
-.edu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 35px;
-}
-
-.edu-card {
-    background: #161616;
-    padding: 28px;
-    border-radius: 16px;
-    border: 1px solid rgba(255,140,0,0.15);
-    transition: transform .3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.edu-card:hover { transform: translateY(-6px); }
-
-.edu-card i {
-    font-size: 34px;
-    color: #ff8c00;
-    margin-bottom: 15px;
-}
-
-/* AI FLOW ANIMATION */
-.edu-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, transparent, rgba(255,140,0,0.12), transparent);
-    animation: shimmer 3.8s infinite;
-}
-
-@keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
-}
-
-/* STATS */
-.edu-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin: 100px 0;
-    text-align: center;
-}
-
-.stat-box {
-    background: #161616;
-    padding: 35px 20px;
-    border-radius: 18px;
-    border: 1px solid rgba(255,140,0,0.15);
-}
-
-.stat-text {
-    font-size: 20px;
-    color: #ff8c00;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-/* AUDIENCE */
-.audience {
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    margin: 90px 0;
-}
-
-.audience:nth-child(even) { flex-direction: row-reverse; }
-
-.audience img {
-    width: 45%;
-    border-radius: 18px;
-}
-
-@media (max-width: 768px) {
-    .audience { flex-direction: column !important; }
-    .audience img { width: 100%; }
-}
-
-/* FEATURE STRIP */
-.feature-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 25px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.feature-row span {
-    color: #ff8c00;
-    font-weight: 700;
-}
-
-/* TIMELINE */
-.timeline {
-    margin: 100px 0;
-    border-left: 3px solid #ff8c00;
-    padding-left: 40px;
-}
-
-.timeline-item {
-    margin-bottom: 40px;
-    position: relative;
-}
-
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -52px;
-    top: 5px;
-    width: 16px;
-    height: 16px;
-    background: #ff8c00;
-    border-radius: 50%;
-}
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education Software &amp; Digital Learning Platforms | twRty</title>
+<meta name="description" content="AI-powered education software, LMS platforms, virtual classrooms, mobile learning, and admin automation for schools, universities, and ed-tech startups.">
+<meta name="keywords" content="education software, LMS development, virtual classrooms, ed-tech, e-learning, school management software">
+<link rel="canonical" href="https://twrty.org/education.html">
+<link rel="icon" href="images/favicon.ico">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://twrty.org/education.html">
+<meta property="og:title" content="Education Software &amp; Digital Learning Platforms | twRty">
+<meta property="og:description" content="AI-powered education systems, LMS, virtual classrooms, and mobile learning by twRty.">
+<meta property="og:image" content="https://twrty.org/images/portfolio/industries/learning.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/v2.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","serviceType":"Education Software Development","provider":{"@type":"Organization","name":"twRty Software Services","url":"https://twrty.org"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://twrty.org/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://twrty.org/#industries"},{"@type":"ListItem","position":3,"name":"Education","item":"https://twrty.org/education.html"}]}
+</script>
 </head>
+<body>
 
-<body id="top">
+<div class="page-bg"><div class="mesh-1"></div><div class="mesh-2"></div><div class="mesh-3"></div><div class="mesh-4"></div></div>
 
-<header class="s-header">
-    <div class="row">
-        <div class="header-logo">
-            <a class="site-logo" href="index.html">
-                <img src="images/logo.png" alt="">
-                <span class="logo-text">Software Services</span>
-            </a>
-        </div>
-        <nav class="header-nav-wrap">
-            <ul class="header-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="services.html" title="Services">Services</a></li>
-                <li class="has-mega">
-                    <a href="/#industries">
-                        Industries <span class="nav-arrow">▾</span>
-                    </a>
-
-                    <div class="mega-menu">
-                        <ul>
-                            <li><a href="healthcare.html">Healthcare</a></li>
-                            <li><a href="fintech.html">Fintech Applications</a></li>
-                            <li><a href="education.html">Education</a></li>
-                            <li><a href="media.html">Media & Entertainment</a></li>
-                        </ul>
-
-                        <ul>
-                            <li><a href="logistics.html">Logistics</a></li>
-                            <li><a href="ecommerce.html">Ecommerce</a></li>
-                            <li><a href="sports.html">Sports & Gaming</a></li>
-                            <li><a href="ondemand.html">On-Demand Services</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="/#technologies">Technologies</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="Contact-Us.html">Contact Us</a></li>
-                
-            </ul>
-        </nav>
-        <a class="header-menu-toggle" href="#0"><span class="header-menu-icon"></span></a>
-    </div>
+<header>
+  <a href="index.html" class="brand"><img src="images/logo-trimmed.png" alt="twRty"><span class="tagline">Software Services</span></a>
+  <nav><ul>
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li class="mega"><a href="#" class="has-mega">Industries</a><div class="mega-menu">
+      <a href="healthcare.html">Healthcare</a><a href="logistics.html">Logistics</a>
+      <a href="fintech.html">Fintech</a><a href="ecommerce.html">Ecommerce</a>
+      <a href="education.html" class="active">Education</a><a href="sports.html">Sports &amp; Gaming</a>
+      <a href="media.html">Media &amp; Entertainment</a><a href="ondemand.html">On-Demand Services</a>
+    </div></li>
+    <li><a href="index.html#technologies">Technologies</a></li><li><a href="about.html">About</a></li>
+    <li><a href="index.html#blog">Blog</a></li><li><a href="Contact-Us.html">Contact</a></li>
+  </ul></nav>
+  <a href="Contact-Us.html" class="header-cta">Get in touch →</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
 </header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a><a href="services.html">Services</a>
+  <details class="m-group" open><summary>Industries <span class="chev">▾</span></summary><div class="m-sub">
+    <a href="healthcare.html">Healthcare</a><a href="fintech.html">Fintech</a>
+    <a href="ecommerce.html">Ecommerce</a><a href="education.html">Education</a>
+    <a href="logistics.html">Logistics</a><a href="media.html">Media &amp; Entertainment</a>
+    <a href="sports.html">Sports &amp; Gaming</a><a href="ondemand.html">On-Demand Services</a>
+  </div></details>
+  <a href="index.html#technologies">Technologies</a><a href="about.html">About</a>
+  <a href="index.html#blog">Blog</a><a href="Contact-Us.html">Contact</a>
+  <a href="Contact-Us.html" class="cta-btn">Get in touch →</a>
+</nav>
+<button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
 
-<div class="content">
-<div class="main">
-
-<div class="edu-hero">
-    <div>
-        <h1>Education Software & Digital Learning Platforms</h1>
-        <p>
-            We design AI-powered education systems that enhance learning outcomes,
-            automate operations, and help institutions scale digitally with confidence.
-        </p>
-        <a href="Contact-Us.html" class="btn-main">Start Project</a>
-    </div>
-    <img src="images/portfolio/industries/learning.jpg" alt="">
-</div>
-
-<h2>Education Technology Solutions</h2>
-<div class="edu-grid">
-    <div class="edu-card">
-        <i class="fa fa-graduation-cap"></i>
-        <h4>LMS Platforms</h4>
-        <p>Advanced LMS with automation, analytics, assessments, and AI-driven learner insights.</p>
-    </div>
-    <div class="edu-card">
-        <i class="fa fa-video-camera"></i>
-        <h4>Virtual Classrooms</h4>
-        <p>Live classes, recordings, attendance tracking, collaboration tools, and smart engagement.</p>
-    </div>
-    <div class="edu-card">
-        <i class="fa fa-mobile"></i>
-        <h4>Mobile Learning</h4>
-        <p>Powerful Android and iOS apps for students, educators, parents, and administrators.</p>
-    </div>
-    <div class="edu-card">
-        <i class="fa fa-users"></i>
-        <h4>Admin Automation</h4>
-        <p>Admissions, HR, exams, payroll, reports, compliance, and academic workflows.</p>
-    </div>
-</div>
-
-<!-- UPDATED TEXT-BASED STATS -->
-<div class="edu-stats">
-    <div class="stat-box">
-        <div class="stat-text">Proven Delivery</div>
-        <p>Multiple education platforms successfully delivered</p>
-    </div>
-    <div class="stat-box">
-        <div class="stat-text">Scalable Systems</div>
-        <p>Designed to support growing institutions</p>
-    </div>
-    <div class="stat-box">
-        <div class="stat-text">Education Focus</div>
-        <p>Built specifically for academic workflows</p>
-    </div>
-    <div class="stat-box">
-        <div class="stat-text">Enterprise Reliability</div>
-        <p>High availability, security, and performance</p>
-    </div>
-</div>
-
-<div class="audience">
-    <img src="images/portfolio/industries/school.jpg">
-    <div>
-        <h2>Schools & Universities</h2>
-        <p>Digitize academics, simplify administration, and empower educators with AI insights.</p>
-    </div>
-</div>
-
-<div class="audience">
-    <img src="images/portfolio/industries/virtual.jpg">
-    <div>
-        <h2>Ed-Tech Startups</h2>
-        <p>Build scalable platforms with subscriptions, AI personalization, and analytics.</p>
-    </div>
-</div>
-
-<h2>Platform Capabilities</h2>
-<div class="feature-row"><span>Online Exams</span><p>Timed tests, evaluation & proctoring</p></div>
-<div class="feature-row"><span>Payments</span><p>Fees, subscriptions & installments</p></div>
-<div class="feature-row"><span>Security</span><p>Role-based access & compliance</p></div>
-
-<div class="timeline">
-    <h2>Digital Transformation Journey</h2>
-    <div class="timeline-item"><h4>Discovery</h4><p>Understanding academic workflows</p></div>
-    <div class="timeline-item"><h4>Design</h4><p>Student-first UX & admin dashboards</p></div>
-    <div class="timeline-item"><h4>Development</h4><p>Secure scalable platforms</p></div>
-    <div class="timeline-item"><h4>Launch</h4><p>Deployment, training & growth</p></div>
-</div>
-
-<!-- WHY US -->
-<h2 class="fade">Why Choose Us in Education Technology?</h2>
-<p class="fade">
-At twRty Software Services, we create innovative and engaging digital learning
-solutions that empower institutions, educators, and students. From AI-powered
-learning platforms to virtual classrooms and smart campus systems, our
-technology is designed to enhance education experiences and drive better
-outcomes.
-</p>
-
-<!-- FINAL CTA -->
-<h2>Let’s Build the Future of Learning Together</h2>
-<p>
-From personalized e-learning platforms to scalable education management
-systems — we build digital solutions that make learning smarter, more
-accessible, and ready for tomorrow’s world.
-</p>
-
-
-</div>
-</div>
-
-<section id="contact-cta" class="contact-cta">
-    <div class="cta-content">
-        <h1>Built for today. Ready for tomorrow.</h1>
-
-        <p>
-        We help businesses turn ideas into reliable digital solutions.
-        Simple, scalable, and designed to grow with you.
-        </p>
-
-        <a href="Contact-Us.html" class="cta-btn">Contact us</a>
-    </div>
+<section class="ind-hero">
+  <div class="hero-grid"></div>
+  <div class="ind-hero-text">
+    <div class="pill"><span class="dot"></span> Education</div>
+    <h1>Education software &amp; digital learning platforms.</h1>
+    <p class="lead">We design AI-powered education systems that enhance learning outcomes, automate operations, and help institutions scale digitally with confidence.</p>
+    <a href="Contact-Us.html" class="btn btn-primary">Start project →</a>
+  </div>
+  <div class="ind-hero-img reveal"><img loading="lazy" src="images/portfolio/industries/learning.jpg" alt="Education learning"></div>
 </section>
 
+<section class="container">
+  <div class="section-head reveal"><div class="eyebrow">Solutions</div><h2>Education technology solutions.</h2></div>
+  <div class="bento" style="grid-template-columns: repeat(4, 1fr); grid-auto-rows: auto;">
+    <div class="bento-card reveal" style="grid-column: span 1;"><div class="icon">🎓</div><h3>LMS platforms</h3><p>Advanced LMS with automation, analytics, assessments, and AI-driven learner insights.</p></div>
+    <div class="bento-card reveal" style="grid-column: span 1;"><div class="icon">🎥</div><h3>Virtual classrooms</h3><p>Live classes, recordings, attendance tracking, collaboration, and smart engagement.</p></div>
+    <div class="bento-card reveal" style="grid-column: span 1;"><div class="icon">📱</div><h3>Mobile learning</h3><p>Powerful Android and iOS apps for students, educators, parents, and admins.</p></div>
+    <div class="bento-card reveal" style="grid-column: span 1;"><div class="icon">👥</div><h3>Admin automation</h3><p>Admissions, HR, exams, payroll, reports, compliance, and academic workflows.</p></div>
+  </div>
+</section>
 
-    <div class="row contact-infos">
+<section class="container">
+  <div class="section-head reveal"><div class="eyebrow">By the numbers</div><h2>Built to deliver.</h2></div>
+  <div class="stats-grid">
+    <div class="stat-card reveal"><div class="stat-num">Proven</div><div class="stat-label">Multiple education platforms successfully delivered</div></div>
+    <div class="stat-card reveal"><div class="stat-num">Scalable</div><div class="stat-label">Designed to support growing institutions</div></div>
+    <div class="stat-card reveal"><div class="stat-num">Focused</div><div class="stat-label">Built specifically for academic workflows</div></div>
+    <div class="stat-card reveal"><div class="stat-num">Reliable</div><div class="stat-label">High availability, security, and performance</div></div>
+  </div>
+</section>
 
-        <div class="col-five md-seven tab-full contact-address">
-            <h4 style="color:#fff;">How to Reach Us</h4>
-            <p>
-            <a href="mailto:support@twrty.org">support@twrty.org</a>
-            </p>
-            <div class="trust-badges">
-              <a href="https://www.trustpilot.com/review/twrty.org" target="_blank" rel="noopener">
-                ★★★★★ Rated on Trustpilot
-              </a>
+<section class="container">
+  <div class="content-row">
+    <img loading="lazy" src="images/portfolio/industries/school.jpg" alt="Schools &amp; Universities">
+    <div>
+      <h2>Schools &amp; universities</h2>
+      <p>Digitize academics, simplify administration, and empower educators with AI insights — across the full institution lifecycle.</p>
+    </div>
+  </div>
+  <div class="content-row reverse">
+    <div>
+      <h2>Ed-tech startups</h2>
+      <p>Build scalable platforms with subscriptions, AI personalization, and analytics — ready to grow from MVP to mass adoption.</p>
+    </div>
+    <img loading="lazy" src="images/portfolio/industries/virtual.jpg" alt="Ed-tech startups">
+  </div>
+</section>
 
-              <a href="https://clutch.co/profile/twrty-software-services" target="_blank" rel="noopener">
-                ★★★★★ Rated on Clutch
-              </a>
-            </div>
-        </div>
+<section class="container">
+  <div class="section-head reveal"><div class="eyebrow">Capabilities</div><h2>Platform capabilities.</h2></div>
+  <div class="bento" style="grid-template-columns: repeat(3, 1fr); grid-auto-rows: auto;">
+    <div class="bento-card reveal" style="grid-column: span 1;"><div class="icon">📝</div><h3>Online exams</h3><p>Timed tests, evaluation &amp; proctoring.</p></div>
+    <div class="bento-card reveal" style="grid-column: span 1;"><div class="icon">💳</div><h3>Payments</h3><p>Fees, subscriptions &amp; installments.</p></div>
+    <div class="bento-card reveal" style="grid-column: span 1;"><div class="icon">🔒</div><h3>Security</h3><p>Role-based access &amp; compliance.</p></div>
+  </div>
+</section>
 
-        
-        <div class="col-three md-five tab-full contact-social">
-            <h4 style="color:#fff;">Follow Us</h4>
+<section class="container">
+  <div class="section-head reveal"><div class="eyebrow">Process</div><h2>Digital transformation journey.</h2></div>
+  <div class="pill-row reveal">
+    <span class="ind-pill">① Discovery — Understanding academic workflows</span>
+    <span class="ind-pill">② Design — Student-first UX &amp; admin dashboards</span>
+    <span class="ind-pill">③ Development — Secure scalable platforms</span>
+    <span class="ind-pill">④ Launch — Deployment, training &amp; growth</span>
+  </div>
+</section>
 
-            <ul class="contact-list">
-                <li><a target=_blank  href="https://www.facebook.com/p/twRty-Software-Services-61560321221796/">Facebook</a></li>
-                <li><a target=_blank  href="https://x.com/twRtySoftware">X (Twitter)</a></li>
-                <li><a target=_blank href="https://www.instagram.com/twrtysoftware/?igsh=MW15bHp5emU0bnU1MA%3D%3D&utm_source=qr">Instagram</a></li>
-            </ul>
-        </div>
-        
-        
+<section class="container">
+  <div class="about-intro reveal">
+    <div class="eyebrow">Why choose us</div>
+    <h2>Why teams choose twRty for education.</h2>
+    <p>At twRty Software Services, we create innovative and engaging digital learning solutions that empower institutions, educators, and students. From AI-powered learning platforms to virtual classrooms and smart campus systems, our technology is designed to enhance education experiences and drive better outcomes.</p>
+  </div>
+</section>
 
-    </div> <!-- end contact-infos -->
+<div class="final-cta reveal">
+  <h2>Let's build the future of learning together.</h2>
+  <p>From personalized e-learning platforms to scalable education management systems — we build digital solutions that make learning smarter, more accessible, and ready for tomorrow's world.</p>
+  <a href="Contact-Us.html" class="btn btn-primary">Start a project →</a>
+</div>
 
-    <div class="row contact-bottom">
-        <div class="col-five tab-full contact-button">
-            <a href="Contact-Us.html" class="btn btn-animatedbg">
-                Let's Talk
-            </a>
-        </div>
-
-<!--            <div class="col-six tab-full contact-subscribe">-->
-<!--                <h4 style="color: rgba(255, 255, 255, 0.25);">Subscribe</h4>-->
-<!---->
-<!--                <form id="mc-form" class="group mc-form" novalidate="true">-->
-<!--                    <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">-->
-<!--                    <input type="submit" name="subscribe" value="Subscribe">-->
-<!--                    <label for="mc-email" class="subscribe-message"></label>-->
-<!--                </form>-->
-<!--            </div>-->
-    </div> <!-- end contact-button -->
-
-    
-    
-</section> <!-- end s-contact -->
-
-
-<!-- footer
-================================================== -->
 <footer>
-
-    <div class="row">
-
-        <!-- Right: Horizontal links -->
-        <div class="col-six tab-full footer-links-horizontal">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="services.html" title="Services">Services</a></li>
-                <li><a href="about.html" title="About Us">About</a></li>
-                <li><a href="Contact-Us.html" title="Contact Us">Contact Us</a></li>
-                <li><a href="privacy-policy.html">Privacy Policy</a></li>
-             
-            <div class="cl-copyright">
-                <span>
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                    twRty | All rights reserved
-                </span>
-                <span>🔒 Secure HTTPS Connection</span>
-            </div>
-        </div>
-
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-trimmed.png" alt="twRty Software Services">
+      <div class="tagline">Software Services</div>
+      <p>Software studio crafting modern web, mobile, and AI-driven products for forward-looking teams.</p>
     </div>
-
-    <div class="cl-go-top">
-        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+    <div class="footer-col"><h5>Services</h5><ul>
+      <li><a href="services.html">All services</a></li><li><a href="services.html#details">Software &amp; SaaS</a></li>
+      <li><a href="services.html#details">Mobile apps</a></li><li><a href="services.html#details">AI &amp; ML</a></li>
+      <li><a href="services.html#details">Ecommerce</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Industries</h5><ul>
+      <li><a href="fintech.html">Fintech</a></li><li><a href="healthcare.html">Healthcare</a></li>
+      <li><a href="ecommerce.html">Ecommerce</a></li><li><a href="education.html">Education</a></li>
+      <li><a href="logistics.html">Logistics</a></li><li><a href="ondemand.html">On-demand</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul>
+      <li><a href="about.html">About us</a></li><li><a href="Contact-Us.html">Contact</a></li>
+      <li><a href="index.html#blog">Blog</a></li><li><a href="privacy-policy.html">Privacy policy</a></li><li><a href="#" data-cookie-preferences>Cookie preferences</a></li>
+    </ul></div>
+    <div class="footer-col reach">
+      <h5>Reach us</h5>
+      <a href="mailto:support@twrty.org" class="email-prominent">support@twrty.org</a>
+      <ul>
+        <li><a href="https://x.com/twRtySoftware" target="_blank" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://www.instagram.com/twrtysoftware/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/p/twRty-Software-Services-61560321221796/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+      <div class="ratings">
+        <a href="https://www.trustpilot.com/review/twrty.org" target="_blank" rel="noopener" class="rating-pill"><span class="stars">★★★★★</span><span>Rated on <strong>Trustpilot</strong></span></a>
+        <a href="https://clutch.co/profile/twrty-software-services" target="_blank" rel="noopener" class="rating-pill"><span class="stars">★★★★★</span><span>Rated on <strong>Clutch</strong></span></a>
+      </div>
     </div>
-
+  </div>
+  <div class="footer-bottom"><span>© 2026 twRty Software Services. All rights reserved.</span></div>
 </footer>
-
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-
-<script>
-document.querySelectorAll('.stat-number').forEach(counter=>{
-    let target=+counter.dataset.count, c=0;
-    let i=setInterval(()=>{
-        c+=Math.ceil(target/80);
-        if(c>=target){counter.innerText=target;clearInterval(i);}
-        else counter.innerText=c;
-    },20);
-});
-</script>
-
+<script src="js/v2.js" defer></script>
+<script src="js/cookie-consent.js" defer></script>
 </body>
 </html>
