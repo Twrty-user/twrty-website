@@ -49,23 +49,6 @@
     }
   }
 
-  // -------- Pause mesh background animations when scrolled out of view --------
-  // Saves significant GPU on mobile after user scrolls past the hero.
-  const pageBg = document.querySelector('.page-bg');
-  if (pageBg && 'IntersectionObserver' in window) {
-    // Sentinel: we observe the first section to detect when hero leaves viewport
-    const heroSentinel = document.querySelector('.hero, .page-hero, .ind-hero');
-    if (heroSentinel) {
-      const bgIo = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          // Pause animations once hero is no longer in viewport
-          pageBg.dataset.paused = e.isIntersecting ? 'false' : 'true';
-        });
-      }, { threshold: 0 });
-      bgIo.observe(heroSentinel);
-    }
-  }
-
   // -------- Animated counters --------
   const numEls = document.querySelectorAll('[data-count]');
   if (numEls.length) {

@@ -112,19 +112,13 @@ nav a.has-mega::after { content: ' ▾'; font-size: 10px; color: var(--text-fain
 .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 26px; cursor: pointer; }
 
 /* ====== Page-wide animated mesh background ====== */
-.page-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; contain: strict; }
+.page-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .mesh-1, .mesh-2, .mesh-3, .mesh-4 {
   position: absolute; border-radius: 50%; filter: blur(110px);
   /* GPU-promote so animation runs on compositor thread (not CPU repaint) */
   will-change: transform;
   transform: translateZ(0);
-  /* Pause animation when paused="true" attribute set on .page-bg by JS */
-  animation-play-state: running;
 }
-.page-bg[data-paused="true"] .mesh-1,
-.page-bg[data-paused="true"] .mesh-2,
-.page-bg[data-paused="true"] .mesh-3,
-.page-bg[data-paused="true"] .mesh-4 { animation-play-state: paused; }
 
 .mesh-1 { width: 600px; height: 600px; background: var(--accent); top: -120px; left: -140px; opacity: 0.32; animation: meshFloat1 18s ease-in-out infinite; }
 .mesh-2 { width: 520px; height: 520px; background: #5b2eff; top: 18%; right: -140px; opacity: 0.26; animation: meshFloat2 22s ease-in-out infinite; }
@@ -235,7 +229,7 @@ nav a.has-mega::after { content: ' ▾'; font-size: 10px; color: var(--text-fain
 @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
 
 /* ====== Sections ====== */
-section.container { position: relative; padding: 100px 40px; max-width: 1280px; margin: 0 auto; z-index: 1; contain: layout paint; }
+section.container { position: relative; padding: 100px 40px; max-width: 1280px; margin: 0 auto; z-index: 1; }
 
 /* ===== Trust strip ===== */
 .trust-strip {
