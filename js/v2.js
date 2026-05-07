@@ -20,16 +20,24 @@
     });
   }
 
-  // iOS Safari paint-fix: after navigation, iOS Safari sometimes shows the
-  // OLD page screenshot until user scrolls/interacts. This handler forces
-  // a synchronous repaint on every pageshow so the new page is visible
-  // immediately. Standard workaround for the documented iOS rendering bug.
-  window.addEventListener('pageshow', () => {
-    // Toggle a transform on body to invalidate the layer and force repaint
-    document.body.style.transform = 'translateZ(0)';
-    requestAnimationFrame(() => {
-      document.body.style.transform = '';
-    });
+  // iOS Safari paint-fix: after navigation, iOS Safari shows the OLD page
+  // until user scrolls. This handler programmatically simulates that scroll
+  // immediately on page load — exact same effect as user's manual scroll.
+  // Done on multiple events to catch the right firing point regardless of
+  // navigation type (initial load, BFCache restore, in-app navigation).
+  function forcePaintRefresh() {
+    // Read current scroll position
+    const x = window.scrollX || window.pageXOffset || 0;
+    const y = window.scrollY || window.pageYOffset || 0;
+    // Scroll by 1px and back — exact same paint trigger as a real user touch-scroll
+    window.scrollTo(x, y + 1);
+    requestAnimationFrame(() => window.scrollTo(x, y));
+  }
+  // Fire on page show (covers fresh nav + BFCache restore)
+  window.addEventListener('pageshow', forcePaintRefresh);
+  // Also fire after full load as a backup (sometimes pageshow fires before paint is ready)
+  window.addEventListener('load', () => {
+    requestAnimationFrame(forcePaintRefresh);
   });
 
   // -------- Reveal-on-scroll --------
