@@ -942,3 +942,51 @@ html, body { overflow-x: hidden; }
   /* Final CTA padding */
   .final-cta { padding: 50px 18px; }
 }
+
+/* ============================================================
+   MOBILE-ONLY PERFORMANCE OVERRIDES
+   Mobile silicon (CPU/GPU) is 5-10x weaker than desktop. The full
+   v2 design (animated mesh + backdrop-filter blur + variable fonts)
+   is too expensive for mobile, causing slow page renders + heat.
+
+   This block trades visual fidelity for speed on mobile only:
+     - Pause mesh background animations (mesh stays visible, just static)
+     - Remove backdrop-filter blur everywhere (the single biggest GPU cost)
+     - Replace blurred-translucent backgrounds with solid backgrounds for legibility
+     - Reduce box-shadow blur radius (cheaper paint)
+
+   Desktop is UNAFFECTED — full design preserved at 901px+.
+============================================================ */
+@media (max-width: 900px) {
+
+  /* ── Pause mesh background animations ──
+     The mesh divs remain visible (still blurred colored circles for visual depth)
+     but no longer animate, so GPU isn't doing continuous work. */
+  .mesh-1, .mesh-2, .mesh-3, .mesh-4 {
+    animation: none;
+    will-change: auto;       /* don't reserve GPU layer for static elements */
+  }
+
+  /* ── Remove backdrop-filter blur everywhere on mobile ──
+     Universal selector is fine here — it only removes ONE specific property
+     and only on mobile screens. Desktop has full blur. */
+  *, *::before, *::after {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* ── Solid backgrounds where blur previously gave legibility ──
+     These elements relied on blur+translucent to look right.
+     Now they get solid (or near-solid) backgrounds. */
+  header { background: rgba(7, 8, 13, 0.96); }
+  .mobile-nav { background: rgba(10, 12, 20, 1); }
+  .cc-banner { background: rgba(14, 14, 22, 0.98); }
+  .cc-modal-backdrop { background: rgba(0, 0, 0, 0.85); }
+  .cc-modal-card { background: rgba(20, 20, 28, 1); }
+
+  /* ── Reduce expensive box-shadow blur on mobile ──
+     Large blur radius shadows are expensive to paint. Smaller shadows
+     look essentially identical at mobile screen size. */
+  .cc-banner { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+  .cc-modal-card { box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); }
+}
