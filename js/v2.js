@@ -7,6 +7,11 @@
 (function () {
   'use strict';
 
+  // Mark <html> as JS-enabled. CSS uses this to switch reveal elements
+  // from "visible by default" (no-JS fallback) to "hide-then-animate-in".
+  // Done synchronously at script start so it runs before paint.
+  document.documentElement.classList.add('js');
+
   // -------- Reveal-on-scroll --------
   const revealEls = document.querySelectorAll('.reveal');
   if (revealEls.length) {
