@@ -1011,4 +1011,11 @@ html, body { overflow-x: hidden; }
   /* Reduce CSS animations elsewhere (decorative dots, scroll cue) */
   .pill .dot { animation: none; }
   .scroll-cue { animation: none; }
+
+  /* ── DEBUG TEST 1 — Remove page-bg mesh entirely on mobile ──
+     Suspect: position:fixed mesh divs with filter:blur create persistent
+     GPU layers that iOS Safari reuses across navigations, causing the
+     "old page stays visible until scroll" bug. If this fix solves it,
+     mesh-bg was the cause. */
+  .page-bg { display: none; }
 }
