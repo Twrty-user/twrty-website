@@ -20,6 +20,18 @@
     });
   }
 
+  // iOS Safari paint-fix: after navigation, iOS Safari sometimes shows the
+  // OLD page screenshot until user scrolls/interacts. This handler forces
+  // a synchronous repaint on every pageshow so the new page is visible
+  // immediately. Standard workaround for the documented iOS rendering bug.
+  window.addEventListener('pageshow', () => {
+    // Toggle a transform on body to invalidate the layer and force repaint
+    document.body.style.transform = 'translateZ(0)';
+    requestAnimationFrame(() => {
+      document.body.style.transform = '';
+    });
+  });
+
   // -------- Reveal-on-scroll --------
   // CRITICAL: Above-the-fold elements get .in IMMEDIATELY (no observer wait).
   // Below-fold uses IntersectionObserver. Prevents "blank page" on slow mobile JS.
