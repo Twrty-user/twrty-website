@@ -21,14 +21,49 @@
   }
 
   // -------- Reveal-on-scroll --------
+  // CRITICAL: Above-the-fold elements get .in IMMEDIATELY (no observer wait).
+  // Below-fold uses IntersectionObserver. Prevents "blank page" on slow mobile JS.
   const revealEls = document.querySelectorAll('.reveal');
   if (revealEls.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach((el) => io.observe(el));
+    const viewportHeight = window.innerHeight;
+    const aboveFoldMargin = viewportHeight * 1.2; // include just-below-fold for safety
+    const observableEls = [];
+
+    revealEls.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      // Element top is within (or just above) the visible viewport → reveal immediately
+      if (rect.top < aboveFoldMargin) {
+        el.classList.add('in');
+      } else {
+        observableEls.push(el);
+      }
+    });
+
+    if (observableEls.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      observableEls.forEach((el) => io.observe(el));
+    }
+  }
+
+  // -------- Pause mesh background animations when scrolled out of view --------
+  // Saves significant GPU on mobile after user scrolls past the hero.
+  const pageBg = document.querySelector('.page-bg');
+  if (pageBg && 'IntersectionObserver' in window) {
+    // Sentinel: we observe the first section to detect when hero leaves viewport
+    const heroSentinel = document.querySelector('.hero, .page-hero, .ind-hero');
+    if (heroSentinel) {
+      const bgIo = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          // Pause animations once hero is no longer in viewport
+          pageBg.dataset.paused = e.isIntersecting ? 'false' : 'true';
+        });
+      }, { threshold: 0 });
+      bgIo.observe(heroSentinel);
+    }
   }
 
   // -------- Animated counters --------

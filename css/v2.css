@@ -13,14 +13,14 @@
   font-style: normal;
   font-weight: 400 900;
   font-display: swap;
-  src: url('../fonts/montserrat-variable.woff2') format('woff2-variations');
+  src: url('../fonts/montserrat-variable.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
   font-weight: 300 900;
   font-display: swap;
-  src: url('../fonts/merriweather-variable.woff2') format('woff2-variations');
+  src: url('../fonts/merriweather-variable.woff2') format('woff2');
 }
 
 :root {
@@ -112,12 +112,30 @@ nav a.has-mega::after { content: ' ▾'; font-size: 10px; color: var(--text-fain
 .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 26px; cursor: pointer; }
 
 /* ====== Page-wide animated mesh background ====== */
-.page-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.mesh-1, .mesh-2, .mesh-3, .mesh-4 { position: absolute; border-radius: 50%; filter: blur(110px); }
+.page-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; contain: strict; }
+.mesh-1, .mesh-2, .mesh-3, .mesh-4 {
+  position: absolute; border-radius: 50%; filter: blur(110px);
+  /* GPU-promote so animation runs on compositor thread (not CPU repaint) */
+  will-change: transform;
+  transform: translateZ(0);
+  /* Pause animation when paused="true" attribute set on .page-bg by JS */
+  animation-play-state: running;
+}
+.page-bg[data-paused="true"] .mesh-1,
+.page-bg[data-paused="true"] .mesh-2,
+.page-bg[data-paused="true"] .mesh-3,
+.page-bg[data-paused="true"] .mesh-4 { animation-play-state: paused; }
+
 .mesh-1 { width: 600px; height: 600px; background: var(--accent); top: -120px; left: -140px; opacity: 0.32; animation: meshFloat1 18s ease-in-out infinite; }
 .mesh-2 { width: 520px; height: 520px; background: #5b2eff; top: 18%; right: -140px; opacity: 0.26; animation: meshFloat2 22s ease-in-out infinite; }
 .mesh-3 { width: 440px; height: 440px; background: #1a8cff; bottom: 5%; left: 30%; opacity: 0.22; animation: meshFloat3 26s ease-in-out infinite; }
 .mesh-4 { width: 320px; height: 320px; background: #ff5e9e; top: 55%; left: 8%; opacity: 0.16; animation: meshFloat4 30s ease-in-out infinite; }
+
+/* Respect user "reduce motion" preference (some mobile users have this on) */
+@media (prefers-reduced-motion: reduce) {
+  .mesh-1, .mesh-2, .mesh-3, .mesh-4 { animation: none; }
+  .reveal { transition: none !important; }
+}
 @keyframes meshFloat1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-30px) scale(1.1); } }
 @keyframes meshFloat2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,40px) scale(1.05); } }
 @keyframes meshFloat3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px,-50px) scale(1.08); } }
@@ -217,7 +235,7 @@ nav a.has-mega::after { content: ' ▾'; font-size: 10px; color: var(--text-fain
 @keyframes bob { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
 
 /* ====== Sections ====== */
-section.container { position: relative; padding: 100px 40px; max-width: 1280px; margin: 0 auto; z-index: 1; }
+section.container { position: relative; padding: 100px 40px; max-width: 1280px; margin: 0 auto; z-index: 1; contain: layout paint; }
 
 /* ===== Trust strip ===== */
 .trust-strip {
@@ -443,7 +461,7 @@ section.container { position: relative; padding: 100px 40px; max-width: 1280px; 
 .blog-thumb .badge {
   position: absolute; top: 12px; left: 12px; z-index: 2;
   padding: 4px 10px; border-radius: 999px;
-  background: rgba(7,8,13,0.7); backdrop-filter: blur(10px);
+  background: rgba(7,8,13,0.7); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
   font-size: 11px; color: var(--text); border: 1px solid var(--border-strong);
   font-family: 'Montserrat', sans-serif;
 }
@@ -679,7 +697,7 @@ footer {
 /* ===== Mobile menu drawer ===== */
 .mobile-nav {
   position: fixed; top: 0; right: 0; bottom: 0; width: min(320px, 85vw);
-  background: rgba(10,12,20,0.97); backdrop-filter: blur(20px);
+  background: rgba(10,12,20,0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   border-left: 1px solid var(--border-strong);
   transform: translateX(100%); transition: transform 0.3s ease;
   z-index: 200; padding: 80px 28px 28px;
