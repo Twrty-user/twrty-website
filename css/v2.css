@@ -115,8 +115,9 @@ nav a.has-mega::after { content: ' ▾'; font-size: 10px; color: var(--text-fain
 .page-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .mesh-1, .mesh-2, .mesh-3, .mesh-4 {
   position: absolute; border-radius: 50%; filter: blur(110px);
-  /* GPU-promote so animation runs on compositor thread (not CPU repaint) */
-  will-change: transform;
+  /* GPU layer promotion via translateZ only.
+     Removed will-change: transform — it caused iOS Safari to keep the OLD
+     page's mesh layer visible after navigation until user scrolled. */
   transform: translateZ(0);
 }
 
