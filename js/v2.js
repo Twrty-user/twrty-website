@@ -12,6 +12,14 @@
   // Done synchronously at script start so it runs before paint.
   document.documentElement.classList.add('js');
 
+  // Register service worker (caches static assets for instant repeat loads).
+  // Non-blocking and fails silently in unsupported browsers.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+  }
+
   // -------- Reveal-on-scroll --------
   const revealEls = document.querySelectorAll('.reveal');
   if (revealEls.length) {

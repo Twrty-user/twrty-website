@@ -3,65 +3,24 @@
    Used by every page on the site.
 ============================================================ */
 
-/* ===== Self-hosted web fonts (latin subset, woff2 only) =====
-   font-display: swap → text renders immediately with fallback,
-   then re-renders in custom font once loaded. No invisible text. */
+/* ===== Self-hosted web fonts — variable fonts (latin subset) =====
+   ONE file per family covers ALL weights. Browser only fetches 2 fonts
+   instead of 8. font-display: swap = text renders immediately with
+   fallback, swaps to custom font when loaded. No invisible text. */
 
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 900;
   font-display: swap;
-  src: url('../fonts/montserrat-400.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/montserrat-500.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../fonts/montserrat-600.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/montserrat-700.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url('../fonts/montserrat-800.woff2') format('woff2');
+  src: url('../fonts/montserrat-variable.woff2') format('woff2-variations');
 }
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 300 900;
   font-display: swap;
-  src: url('../fonts/merriweather-300.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../fonts/merriweather-400.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/merriweather-700.woff2') format('woff2');
+  src: url('../fonts/merriweather-variable.woff2') format('woff2-variations');
 }
 
 :root {
