@@ -20,25 +20,83 @@
     });
   }
 
-  // iOS Safari paint-fix: after navigation, iOS Safari shows the OLD page
-  // until user scrolls. This handler programmatically simulates that scroll
-  // immediately on page load — exact same effect as user's manual scroll.
-  // Done on multiple events to catch the right firing point regardless of
-  // navigation type (initial load, BFCache restore, in-app navigation).
-  function forcePaintRefresh() {
-    // Read current scroll position
-    const x = window.scrollX || window.pageXOffset || 0;
-    const y = window.scrollY || window.pageYOffset || 0;
-    // Scroll by 1px and back — exact same paint trigger as a real user touch-scroll
-    window.scrollTo(x, y + 1);
-    requestAnimationFrame(() => window.scrollTo(x, y));
-  }
-  // Fire on page show (covers fresh nav + BFCache restore)
-  window.addEventListener('pageshow', forcePaintRefresh);
-  // Also fire after full load as a backup (sometimes pageshow fires before paint is ready)
-  window.addEventListener('load', () => {
-    requestAnimationFrame(forcePaintRefresh);
-  });
+  // -------- Animated mesh background (canvas) --------
+  // Renders 4 colored radial gradients on a single canvas element with smooth
+  // sin/cos animation. Single render layer = no iOS Safari layer-reuse bug.
+  // Same visual on desktop and mobile. 30fps target = subtle, smooth, low battery.
+  (function meshBackground() {
+    const canvas = document.querySelector('.page-bg-canvas');
+    if (!canvas || !canvas.getContext) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);  // cap at 2x for perf
+
+    let width = 0, height = 0;
+
+    // Mesh blobs — colors and approximate positions match the original CSS mesh
+    const blobs = [
+      { baseX: 0.20, baseY: 0.05, radius: 600, color: '#e35929', alpha: 0.32, sx: 0.00018, sy: 0.00014, ax: 0.10, ay: 0.08, ph: 0 },
+      { baseX: 0.85, baseY: 0.20, radius: 520, color: '#5b2eff', alpha: 0.26, sx: 0.00015, sy: 0.00018, ax: 0.08, ay: 0.10, ph: Math.PI * 0.5 },
+      { baseX: 0.50, baseY: 0.80, radius: 440, color: '#1a8cff', alpha: 0.22, sx: 0.00012, sy: 0.00016, ax: 0.10, ay: 0.10, ph: Math.PI },
+      { baseX: 0.10, baseY: 0.60, radius: 320, color: '#ff5e9e', alpha: 0.16, sx: 0.00016, sy: 0.00013, ax: 0.10, ay: 0.10, ph: Math.PI * 1.5 },
+    ];
+
+    const alphaToHex = (a) => Math.round(a * 255).toString(16).padStart(2, '0');
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function drawFrame(now) {
+      ctx.clearRect(0, 0, width, height);
+      for (const b of blobs) {
+        const x = (b.baseX + Math.sin(now * b.sx + b.ph) * b.ax) * width;
+        const y = (b.baseY + Math.cos(now * b.sy + b.ph) * b.ay) * height;
+        const r = Math.max(b.radius, Math.max(width, height) * 0.6);  // scale a bit with viewport
+        const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+        g.addColorStop(0, b.color + alphaToHex(b.alpha));
+        g.addColorStop(1, b.color + '00');
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, width, height);
+      }
+    }
+
+    // Animation loop throttled to 30fps (smooth enough for slow mesh, half the work of 60fps)
+    const interval = 1000 / 30;
+    let lastFrame = 0;
+    let running = true;
+
+    function loop(now) {
+      if (!running) return;
+      if (now - lastFrame >= interval) {
+        lastFrame = now;
+        drawFrame(now);
+      }
+      requestAnimationFrame(loop);
+    }
+
+    // Pause when tab not visible (saves battery + GPU)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { running = false; }
+      else { running = true; lastFrame = 0; requestAnimationFrame(loop); }
+    });
+
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    // If user prefers reduced motion, draw once and stop animating
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      drawFrame(0);
+    } else {
+      requestAnimationFrame(loop);
+    }
+  })();
 
   // -------- Reveal-on-scroll --------
   // CRITICAL: Above-the-fold elements get .in IMMEDIATELY (no observer wait).

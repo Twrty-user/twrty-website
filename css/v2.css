@@ -112,29 +112,24 @@ nav a.has-mega::after { content: ' ▾'; font-size: 10px; color: var(--text-fain
 .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 26px; cursor: pointer; }
 
 /* ====== Page-wide animated mesh background ====== */
-.page-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.mesh-1, .mesh-2, .mesh-3, .mesh-4 {
-  position: absolute; border-radius: 50%; filter: blur(110px);
-  /* GPU layer promotion via translateZ only.
-     Removed will-change: transform — it caused iOS Safari to keep the OLD
-     page's mesh layer visible after navigation until user scrolled. */
-  transform: translateZ(0);
+/* ===== Animated mesh background (canvas-rendered) =====
+   Single canvas element. JS draws 4 colored radial gradients with smooth
+   sin/cos animation. Single render layer = no iOS Safari layer-reuse bug.
+   Same visual on desktop AND mobile. */
+.page-bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
 }
 
-.mesh-1 { width: 600px; height: 600px; background: var(--accent); top: -120px; left: -140px; opacity: 0.32; animation: meshFloat1 18s ease-in-out infinite; }
-.mesh-2 { width: 520px; height: 520px; background: #5b2eff; top: 18%; right: -140px; opacity: 0.26; animation: meshFloat2 22s ease-in-out infinite; }
-.mesh-3 { width: 440px; height: 440px; background: #1a8cff; bottom: 5%; left: 30%; opacity: 0.22; animation: meshFloat3 26s ease-in-out infinite; }
-.mesh-4 { width: 320px; height: 320px; background: #ff5e9e; top: 55%; left: 8%; opacity: 0.16; animation: meshFloat4 30s ease-in-out infinite; }
-
-/* Respect user "reduce motion" preference (some mobile users have this on) */
+/* Respect user "reduce motion" preference — JS detects this and renders
+   one static frame instead of animating. CSS just ensures no transitions. */
 @media (prefers-reduced-motion: reduce) {
-  .mesh-1, .mesh-2, .mesh-3, .mesh-4 { animation: none; }
   .reveal { transition: none !important; }
 }
-@keyframes meshFloat1 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(60px,-30px) scale(1.1); } }
-@keyframes meshFloat2 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-40px,40px) scale(1.05); } }
-@keyframes meshFloat3 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(50px,-50px) scale(1.08); } }
-@keyframes meshFloat4 { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px,20px) scale(1.12); } }
 
 /* ====== HERO (homepage full-screen) ====== */
 .hero {
@@ -1012,24 +1007,6 @@ html, body { overflow-x: hidden; }
   .pill .dot { animation: none; }
   .scroll-cue { animation: none; }
 
-  /* ── Disable page-bg mesh on mobile (was causing iOS Safari paint-hold bug) ──
-     The position:fixed + filter:blur mesh created persistent GPU layers
-     that iOS Safari reused across navigations, causing the "old page stays
-     until scroll" bug. Confirmed by isolation test on 2026-05-07. */
-  .page-bg { display: none; }
-
-  /* ── Native CSS gradient on body — mesh-like depth without GPU layer issues ──
-     Uses regular background-image property (no fixed positioning, no filter,
-     no transform, no animation). Browser handles as a normal paint operation,
-     no compositor layer reuse problems. Visual: 4 colored radial gradients
-     overlaid for mesh-like color depth. */
-  body {
-    background:
-      radial-gradient(circle at 20% 0%, rgba(227, 89, 41, 0.22), transparent 50%),
-      radial-gradient(circle at 80% 18%, rgba(91, 46, 255, 0.18), transparent 55%),
-      radial-gradient(circle at 50% 70%, rgba(26, 140, 255, 0.14), transparent 50%),
-      radial-gradient(circle at 10% 90%, rgba(255, 94, 158, 0.10), transparent 45%),
-      var(--bg);
-    background-attachment: scroll;
-  }
+  /* No mobile-specific background override needed — the canvas mesh
+     works identically on mobile and desktop with a single render layer. */
 }
