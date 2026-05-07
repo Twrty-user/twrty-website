@@ -32,15 +32,22 @@
 
     let width = 0, height = 0;
 
-    // Mesh blobs — colors and approximate positions match the original CSS mesh
+    // Mesh blobs — positioned partially OFF-SCREEN at edges so colors glow inward
+    // (matches the original CSS mesh which used negative top/left/right offsets).
+    // Higher alpha + multi-stop gradient = concentrated blur-like falloff,
+    // not uniform fade. Result: colored corners, dark center.
     const blobs = [
-      { baseX: 0.20, baseY: 0.05, radius: 600, color: '#e35929', alpha: 0.32, sx: 0.00018, sy: 0.00014, ax: 0.10, ay: 0.08, ph: 0 },
-      { baseX: 0.85, baseY: 0.20, radius: 520, color: '#5b2eff', alpha: 0.26, sx: 0.00015, sy: 0.00018, ax: 0.08, ay: 0.10, ph: Math.PI * 0.5 },
-      { baseX: 0.50, baseY: 0.80, radius: 440, color: '#1a8cff', alpha: 0.22, sx: 0.00012, sy: 0.00016, ax: 0.10, ay: 0.10, ph: Math.PI },
-      { baseX: 0.10, baseY: 0.60, radius: 320, color: '#ff5e9e', alpha: 0.16, sx: 0.00016, sy: 0.00013, ax: 0.10, ay: 0.10, ph: Math.PI * 1.5 },
+      // Orange — top-left corner, partially off-screen (mesh-1 equivalent)
+      { baseX: -0.05, baseY: -0.05, radiusFactor: 0.70, color: '#e35929', alpha: 0.40, sx: 0.00016, sy: 0.00012, ax: 0.04, ay: 0.04, ph: 0 },
+      // Purple — top-right corner, partially off-screen (mesh-2 equivalent)
+      { baseX: 1.05, baseY: 0.25, radiusFactor: 0.50, color: '#5b2eff', alpha: 0.30, sx: 0.00013, sy: 0.00016, ax: 0.04, ay: 0.05, ph: Math.PI * 0.5 },
+      // Blue — bottom-center, partially off-screen below (mesh-3 equivalent)
+      { baseX: 0.55, baseY: 1.05, radiusFactor: 0.45, color: '#1a8cff', alpha: 0.24, sx: 0.00011, sy: 0.00014, ax: 0.05, ay: 0.04, ph: Math.PI },
+      // Pink — middle-left edge, partially off-screen (mesh-4 equivalent)
+      { baseX: -0.05, baseY: 0.65, radiusFactor: 0.35, color: '#ff5e9e', alpha: 0.17, sx: 0.00014, sy: 0.00012, ax: 0.04, ay: 0.05, ph: Math.PI * 1.5 },
     ];
 
-    const alphaToHex = (a) => Math.round(a * 255).toString(16).padStart(2, '0');
+    const alphaToHex = (a) => Math.round(Math.min(1, Math.max(0, a)) * 255).toString(16).padStart(2, '0');
 
     function resize() {
       width = window.innerWidth;
@@ -54,12 +61,18 @@
 
     function drawFrame(now) {
       ctx.clearRect(0, 0, width, height);
+      const viewportSize = Math.max(width, height);
       for (const b of blobs) {
         const x = (b.baseX + Math.sin(now * b.sx + b.ph) * b.ax) * width;
         const y = (b.baseY + Math.cos(now * b.sy + b.ph) * b.ay) * height;
-        const r = Math.max(b.radius, Math.max(width, height) * 0.6);  // scale a bit with viewport
+        const r = viewportSize * b.radiusFactor;
         const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-        g.addColorStop(0, b.color + alphaToHex(b.alpha));
+        // Soft gradient falloff — mimics CSS filter: blur(110px) on a solid circle.
+        // Slight peak softening (90% of alpha at center) avoids harsh hot-spot,
+        // gives the dim atmospheric look of the original CSS mesh.
+        g.addColorStop(0, b.color + alphaToHex(b.alpha * 0.90));
+        g.addColorStop(0.4, b.color + alphaToHex(b.alpha * 0.55));
+        g.addColorStop(0.75, b.color + alphaToHex(b.alpha * 0.15));
         g.addColorStop(1, b.color + '00');
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, width, height);
