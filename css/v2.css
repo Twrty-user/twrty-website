@@ -989,4 +989,25 @@ html, body { overflow-x: hidden; }
      look essentially identical at mobile screen size. */
   .cc-banner { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
   .cc-modal-card { box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5); }
+
+  /* ── Kill all reveal/transition animations on mobile ──
+     The .reveal JS-driven hide-then-fade-in pattern causes content to appear
+     in STAGES on mobile because IntersectionObserver fires slowly under load.
+     User sees "step by step replacement" and feels page is loading slowly even
+     though HTML loaded in 500ms. Fix: show all content immediately on mobile.
+     Desktop keeps the fade-in effect. */
+  .reveal,
+  .js .reveal,
+  .js .reveal.in {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  /* Stop the counter animation (cosmetic, adds JS work during render) */
+  [data-count] { animation: none; }
+
+  /* Reduce CSS animations elsewhere (decorative dots, scroll cue) */
+  .pill .dot { animation: none; }
+  .scroll-cue { animation: none; }
 }
