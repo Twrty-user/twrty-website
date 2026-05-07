@@ -1012,10 +1012,24 @@ html, body { overflow-x: hidden; }
   .pill .dot { animation: none; }
   .scroll-cue { animation: none; }
 
-  /* ── DEBUG TEST 1 — Remove page-bg mesh entirely on mobile ──
-     Suspect: position:fixed mesh divs with filter:blur create persistent
-     GPU layers that iOS Safari reuses across navigations, causing the
-     "old page stays visible until scroll" bug. If this fix solves it,
-     mesh-bg was the cause. */
+  /* ── Disable page-bg mesh on mobile (was causing iOS Safari paint-hold bug) ──
+     The position:fixed + filter:blur mesh created persistent GPU layers
+     that iOS Safari reused across navigations, causing the "old page stays
+     until scroll" bug. Confirmed by isolation test on 2026-05-07. */
   .page-bg { display: none; }
+
+  /* ── Native CSS gradient on body — mesh-like depth without GPU layer issues ──
+     Uses regular background-image property (no fixed positioning, no filter,
+     no transform, no animation). Browser handles as a normal paint operation,
+     no compositor layer reuse problems. Visual: 4 colored radial gradients
+     overlaid for mesh-like color depth. */
+  body {
+    background:
+      radial-gradient(circle at 20% 0%, rgba(227, 89, 41, 0.22), transparent 50%),
+      radial-gradient(circle at 80% 18%, rgba(91, 46, 255, 0.18), transparent 55%),
+      radial-gradient(circle at 50% 70%, rgba(26, 140, 255, 0.14), transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(255, 94, 158, 0.10), transparent 45%),
+      var(--bg);
+    background-attachment: scroll;
+  }
 }
