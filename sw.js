@@ -15,7 +15,7 @@
    CACHE_VERSION below. activate event will delete the old cache.
 ============================================================ */
 
-const CACHE_VERSION = 'twrty-v1';
+const CACHE_VERSION = 'twrty-v2';
 
 const PRECACHE_URLS = [
   '/css/v2.css',
