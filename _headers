@@ -1,0 +1,62 @@
+# ============================================================
+# Cloudflare Pages — HTTP response headers config
+# ============================================================
+# Cache strategy:
+#   - Static assets (CSS, JS, fonts, images, SVGs): cache 1 year + immutable
+#     → browser uses cached version forever, never asks server "is it fresh?"
+#     → repeat page navigations become near-instant on any network
+#     → when you change a file, deploy a new version (or rename if needed)
+#   - HTML pages: cache 5 minutes + must-revalidate
+#     → content updates appear within 5 min of deploy
+#     → without this, HTML would also cache forever and updates would never show
+#   - sw.js: never cache (browser must always check for new version)
+#     → keeps Service Worker updates flowing if we re-enable SW later
+# ============================================================
+
+# CSS files — cache forever, won't ever change content under same URL
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# JavaScript files — cache forever
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fonts (variable woff2) — cache forever
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images — cache forever
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Favicon at root
+/favicon.ico
+  Cache-Control: public, max-age=2592000
+
+# Service Worker — never cache, browser must check every time for updates
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# HTML pages — short cache so content updates ship within 5 minutes
+# (Cloudflare itself can cache longer; this controls what BROWSERS cache)
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+
+# Root HTML — same short cache
+/
+  Cache-Control: public, max-age=300, must-revalidate
+
+# Sitemap and robots — moderate cache
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+/robots.txt
+  Cache-Control: public, max-age=86400
+
+# ============================================================
+# Security headers — applied to all responses
+# ============================================================
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
