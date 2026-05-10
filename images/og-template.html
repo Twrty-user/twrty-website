@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>og-template</title>
+<style>
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: block;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Montserrat', -apple-system, Segoe UI, Roboto, sans-serif;
+    color: #0B0B0B;
+    -webkit-font-smoothing: antialiased;
+  }
+  .canvas {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+  }
+  .wordmark {
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 1200px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 220px;
+    letter-spacing: -6px;
+    line-height: 1;
+  }
+  .wordmark .r { color: #F54C03; }
+  .brand {
+    position: absolute;
+    top: 380px;
+    left: 0;
+    width: 1200px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 44px;
+    letter-spacing: 0.5px;
+  }
+  .tagline {
+    position: absolute;
+    top: 445px;
+    left: 0;
+    width: 1200px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 26px;
+    color: #4A4A4A;
+    letter-spacing: 0.2px;
+  }
+  .url {
+    position: absolute;
+    bottom: 30px;
+    right: 56px;
+    font-weight: 600;
+    font-size: 22px;
+    color: #8A8A8A;
+    letter-spacing: 1px;
+  }
+  .accent {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1200px;
+    height: 10px;
+    background: #F54C03;
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="wordmark"><span>tw</span><span class="r">R</span><span>ty</span></div>
+    <div class="brand">twRty Software Services</div>
+    <div class="tagline">Inventive software that brings your ideas to life</div>
+    <div class="url">twrty.org</div>
+    <div class="accent"></div>
+  </div>
+</body>
+</html>
