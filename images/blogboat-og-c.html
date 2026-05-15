@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>og-c</title><style>
+
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:1200px; height:630px; overflow:hidden;
+    font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:#fff; -webkit-font-smoothing:antialiased; }
+  .canvas { position:relative; width:1200px; height:630px; overflow:hidden; background:#0a0812; }
+  .browser { position:absolute; left:34px; top:108px; width:524px;
+    border-radius:12px; overflow:hidden; background:#14121f;
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 34px 80px rgba(0,0,0,0.6); z-index:3; }
+  .browser .bar { height:28px; background:#1c1930; display:flex; align-items:center;
+    padding-left:12px; gap:6px; }
+  .browser .bar i { width:8px; height:8px; border-radius:50%; display:block; }
+  .browser .bar .a { background:#ff5f57; } .browser .bar .b { background:#febc2e; } .browser .bar .c { background:#28c840; }
+  .browser img { width:100%; display:block; }
+  .phone { position:absolute; left:386px; top:246px; width:156px;
+    border-radius:28px; background:#000; padding:6px;
+    border:1px solid rgba(255,255,255,0.18);
+    box-shadow:0 28px 64px rgba(0,0,0,0.65); z-index:4; }
+  .phone img { width:100%; display:block; border-radius:22px; }
+  .right { position:absolute; left:616px; top:0; bottom:0; width:536px;
+    display:flex; flex-direction:column; justify-content:center; z-index:5; }
+  .logo { width:236px; height:auto; display:block; margin-bottom:24px; }
+  .head { font-size:51px; font-weight:800; line-height:1.08; letter-spacing:-1.6px; color:#fff;
+    text-shadow:0 2px 20px rgba(0,0,0,0.4); }
+  .pills { margin-top:28px; display:flex; flex-direction:column; gap:11px; align-items:flex-start; }
+  .pill { display:inline-flex; align-items:center; gap:9px;
+    padding:10px 17px; border-radius:999px;
+    background:rgba(124,92,255,0.15); border:1px solid rgba(124,92,255,0.5);
+    font-size:18px; font-weight:600; color:#e2dbff;
+    backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); }
+  .pill svg { width:15px; height:15px; flex-shrink:0; }
+  .url { position:absolute; bottom:26px; right:34px; z-index:7;
+    font-weight:600; font-size:16px; color:#9a93b3; letter-spacing:0.4px; }
+  .accent { position:absolute; bottom:0; left:0; width:1200px; height:8px; z-index:9;
+    background:linear-gradient(90deg,#7C5CFF,#a585ff 55%,#F54C03); }
+
+  .bg { position:absolute; inset:0; background:
+      radial-gradient(720px circle at 25% 45%, rgba(124,92,255,0.38), transparent 60%),
+      radial-gradient(1000px circle at 108% 115%, rgba(124,92,255,0.20), transparent 55%),
+      radial-gradient(620px circle at 95% -12%, rgba(124,92,255,0.16), transparent 60%),
+      #0a0812; }
+  .stars { position:absolute; inset:0; z-index:1; }
+  .ring { position:absolute; left:295px; top:48px; width:512px; height:512px;
+    margin-left:-256px; border-radius:50%; z-index:2; background:radial-gradient(closest-side,
+      rgba(124,92,255,0) 56%, rgba(124,92,255,0.12) 65%, rgba(178,148,255,0.62) 74%,
+      rgba(124,92,255,0.12) 83%, rgba(124,92,255,0) 92%); }
+  .ring::after { content:''; position:absolute; inset:-60px; border-radius:50%;
+    box-shadow:0 0 150px 30px rgba(124,92,255,0.30); }
+</style></head><body><div class="canvas">
+  <div class="bg"></div>
+  <svg class="stars" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="530" cy="297" r="0.7" fill="#fff" opacity="0.22"/>
+      <circle cx="301" cy="230" r="0.7" fill="#fff" opacity="0.11"/>
+      <circle cx="1088" cy="219" r="0.8" fill="#fff" opacity="0.09"/>
+      <circle cx="258" cy="623" r="0.6" fill="#fff" opacity="0.3"/>
+      <circle cx="300" cy="86" r="0.8" fill="#fff" opacity="0.26"/>
+      <circle cx="894" cy="142" r="0.8" fill="#fff" opacity="0.16"/>
+      <circle cx="479" cy="498" r="1.1" fill="#fff" opacity="0.2"/>
+      <circle cx="879" cy="372" r="1" fill="#fff" opacity="0.22"/>
+      <circle cx="240" cy="354" r="1.1" fill="#fff" opacity="0.26"/>
+      <circle cx="538" cy="459" r="1.1" fill="#fff" opacity="0.21"/>
+      <circle cx="276" cy="450" r="1" fill="#fff" opacity="0.2"/>
+      <circle cx="600" cy="207" r="0.7" fill="#fff" opacity="0.19"/>
+      <circle cx="518" cy="380" r="1" fill="#fff" opacity="0.14"/>
+      <circle cx="573" cy="405" r="0.7" fill="#fff" opacity="0.21"/>
+      <circle cx="1126" cy="241" r="1.1" fill="#fff" opacity="0.13"/>
+      <circle cx="398" cy="375" r="0.7" fill="#fff" opacity="0.1"/>
+      <circle cx="949" cy="399" r="0.6" fill="#fff" opacity="0.24"/>
+      <circle cx="88" cy="230" r="0.7" fill="#fff" opacity="0.19"/>
+      <circle cx="911" cy="259" r="0.7" fill="#fff" opacity="0.24"/>
+      <circle cx="514" cy="359" r="0.7" fill="#fff" opacity="0.24"/>
+      <circle cx="767" cy="532" r="0.7" fill="#fff" opacity="0.28"/>
+      <circle cx="486" cy="508" r="0.7" fill="#fff" opacity="0.27"/>
+      <circle cx="87" cy="594" r="1.1" fill="#fff" opacity="0.09"/>
+      <circle cx="1194" cy="583" r="0.8" fill="#fff" opacity="0.12"/>
+      <circle cx="395" cy="168" r="1.1" fill="#fff" opacity="0.1"/>
+      <circle cx="461" cy="171" r="0.6" fill="#fff" opacity="0.17"/>
+      <circle cx="1139" cy="556" r="0.6" fill="#fff" opacity="0.29"/>
+      <circle cx="702" cy="94" r="1.1" fill="#fff" opacity="0.08"/>
+      <circle cx="636" cy="124" r="1" fill="#fff" opacity="0.15"/>
+      <circle cx="550" cy="578" r="1.1" fill="#fff" opacity="0.23"/>
+      <circle cx="962" cy="534" r="0.8" fill="#fff" opacity="0.27"/>
+      <circle cx="73" cy="5" r="0.8" fill="#fff" opacity="0.15"/>
+      <circle cx="1016" cy="573" r="1.1" fill="#fff" opacity="0.19"/>
+      <circle cx="971" cy="228" r="0.7" fill="#fff" opacity="0.15"/>
+      <circle cx="65" cy="385" r="1.1" fill="#fff" opacity="0.24"/>
+      <circle cx="321" cy="149" r="0.8" fill="#fff" opacity="0.17"/>
+      <circle cx="440" cy="264" r="1" fill="#fff" opacity="0.21"/>
+      <circle cx="728" cy="250" r="1.1" fill="#fff" opacity="0.14"/>
+      <circle cx="417" cy="359" r="1" fill="#fff" opacity="0.09"/>
+      <circle cx="814" cy="471" r="0.6" fill="#fff" opacity="0.1"/>
+      <circle cx="93" cy="614" r="0.6" fill="#fff" opacity="0.22"/>
+      <circle cx="627" cy="194" r="1" fill="#fff" opacity="0.19"/>
+      <circle cx="1135" cy="399" r="0.8" fill="#fff" opacity="0.09"/>
+      <circle cx="1081" cy="445" r="0.7" fill="#fff" opacity="0.11"/>
+      <circle cx="107" cy="114" r="0.8" fill="#fff" opacity="0.26"/>
+      <circle cx="447" cy="315" r="0.8" fill="#fff" opacity="0.21"/>
+      <circle cx="595" cy="34" r="0.8" fill="#fff" opacity="0.11"/>
+      <circle cx="739" cy="502" r="1" fill="#fff" opacity="0.21"/>
+  </svg>
+  <div class="ring"></div>
+
+    <div class="browser">
+      <div class="bar"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+      <img src="blogboat/web-home.jpg" alt="">
+    </div>
+    <div class="phone"><img src="blogboat/mobile-blog-ideas.jpg" alt=""></div>
+    <div class="right">
+      <img class="logo" src="blogboat/blogboat-logo.png" alt="twRty Blogboat">
+      <div class="head">Your personal<br>blog assistant</div>
+      <div class="pills">
+        <span class="pill"><svg viewBox="0 0 24 24" fill="#9c84ff"><path d="M12 0c1 7 4 10 12 12-8 2-11 5-12 12-1-7-4-10-12-12C8 10 11 7 12 0Z"/></svg> One-click publish to 15+ platforms</span>
+        <span class="pill"><svg viewBox="0 0 24 24" fill="#9c84ff"><path d="M12 0c1 7 4 10 12 12-8 2-11 5-12 12-1-7-4-10-12-12C8 10 11 7 12 0Z"/></svg> Write &amp; publish in multiple languages</span>
+      </div>
+    </div>
+    <div class="url">twrty.org/blogboat</div>
+    <div class="accent"></div>
+
+</div></body></html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" fill="none">
+<circle cx="500.0" cy="500.0" r="498.0" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<line x1="500.0" y1="2.0" x2="500.0" y2="998.0" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<ellipse cx="500.0" cy="500.0" rx="169.3" ry="498.0" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<ellipse cx="500.0" cy="500.0" rx="318.7" ry="498.0" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<ellipse cx="500.0" cy="500.0" rx="438.2" ry="498.0" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<line x1="2.0" y1="500.0" x2="998.0" y2="500.0" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<ellipse cx="500.0" cy="500.0" rx="498.0" ry="169.3" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<ellipse cx="500.0" cy="500.0" rx="498.0" ry="318.7" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+<ellipse cx="500.0" cy="500.0" rx="498.0" ry="438.2" stroke="rgba(190,170,255,0.22)" stroke-width="1.1"/>
+</svg>

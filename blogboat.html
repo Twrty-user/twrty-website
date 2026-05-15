@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.className=document.documentElement.className.replace("no-js","js");</script>
+<link rel="preload" href="fonts/montserrat-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/merriweather-variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="css/v2.css" as="style">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>twRty Blogboat — Your personal AI blog assistant</title>
+<meta name="description" content="twRty Blogboat writes full, ready-to-publish blogs with AI and publishes them to 15+ platforms in one click. Available on web, iOS, and Android.">
+<meta name="keywords" content="AI blog writer, AI blog generator, blog publishing tool, multi-platform publishing, AI content writing, twRty Blogboat">
+<meta name="author" content="twRty Software Services">
+<link rel="canonical" href="https://twrty.org/blogboat">
+<link rel="icon" href="images/favicon.ico">
+<link rel="apple-touch-icon" href="images/favicon.ico">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://twrty.org/blogboat">
+<meta property="og:title" content="twRty Blogboat — Your personal AI blog assistant">
+<meta property="og:description" content="Writes and publishes for you. Generate full blogs with AI and publish to 15+ platforms in one click — on web, iOS, and Android.">
+<meta property="og:image" content="https://twrty.org/images/blogboat/blogboat-og.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="2400">
+<meta property="og:image:height" content="1260">
+<meta property="og:image:alt" content="twRty Blogboat — your personal blog assistant that writes and publishes for you">
+<meta property="og:site_name" content="twRty Software Services">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="twRty Blogboat — Your personal AI blog assistant">
+<meta name="twitter:description" content="Writes and publishes for you. Generate full blogs with AI and publish to 15+ platforms in one click.">
+<meta name="twitter:image" content="https://twrty.org/images/blogboat/blogboat-og.jpg">
+<meta name="twitter:image:alt" content="twRty Blogboat — your personal blog assistant that writes and publishes for you">
+<link rel="stylesheet" href="css/v2.css">
+<link rel="stylesheet" href="css/blogboat.css">
+
+<!-- Footer Featured Product card — inline so it always loads with the HTML (no cache issues) -->
+<style>
+.footer-featured {
+  position: relative;
+  padding: 14px 16px;
+  margin-top: 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(124,92,255,0.13) 0%, rgba(227,89,41,0.09) 100%);
+  border: 1px solid rgba(255,255,255,0.10);
+  overflow: hidden;
+}
+.footer-featured::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(80% 120% at 100% 50%, rgba(227,89,41,0.12), transparent 60%),
+    radial-gradient(80% 120% at 0% 50%, rgba(124,92,255,0.14), transparent 60%);
+  pointer-events: none;
+}
+.ff-eyebrow {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #ff8d5e; margin-bottom: 6px;
+  position: relative; z-index: 1;
+}
+.ff-eyebrow svg { width: 11px; height: 11px; flex-shrink: 0; }
+.ff-heading {
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px;
+  color: #fff; margin-bottom: 4px; position: relative; z-index: 1;
+}
+.ff-sub {
+  font-size: 12.5px; color: #b0b0b0; line-height: 1.5;
+  margin-bottom: 12px; position: relative; z-index: 1;
+}
+.ff-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 13px; border-radius: 999px;
+  background: linear-gradient(135deg, #E35929, #a83a14);
+  color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px;
+  text-decoration: none; white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(227,89,41,0.32);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; z-index: 1;
+}
+.ff-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(227,89,41,0.42); }
+</style>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"twRty Blogboat","applicationCategory":"BusinessApplication","operatingSystem":"Web, iOS, Android","description":"twRty Blogboat writes full, ready-to-publish blogs with AI and publishes them to 15+ platforms in one click.","url":"https://twrty.org/blogboat","image":"https://twrty.org/images/blogboat/blogboat-og.jpg","publisher":{"@type":"Organization","name":"twRty Software Services","url":"https://twrty.org"},"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://twrty.org/"},{"@type":"ListItem","position":2,"name":"Blogboat","item":"https://twrty.org/blogboat"}]}
+</script>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="brand" aria-label="twRty Software Services">
+    <img src="images/logo-trimmed.png" alt="twRty">
+    <span class="tagline">Software Services</span>
+  </a>
+  <nav>
+    <ul>
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="blogboat.html" class="bb-nav"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> BlogBoat</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li class="mega"><a href="#" class="has-mega">Industries</a>
+        <div class="mega-menu">
+          <a href="healthcare.html">Healthcare</a>
+          <a href="logistics.html">Logistics</a>
+          <a href="fintech.html">Fintech</a>
+          <a href="ecommerce.html">Ecommerce</a>
+          <a href="education.html">Education</a>
+          <a href="sports.html">Sports &amp; Gaming</a>
+          <a href="media.html">Media &amp; Entertainment</a>
+          <a href="ondemand.html">On-Demand Services</a>
+        </div>
+      </li>
+      <li><a href="index.html#technologies">Technologies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#blog">Blog</a></li>
+      <li><a href="Contact-Us.html">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="Contact-Us.html" class="header-cta">Get in touch →</a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+</header>
+
+<!-- Mobile drawer -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile menu">
+  <a href="index.html#home">Home</a>
+  <a href="blogboat.html" class="bb-nav"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> BlogBoat</a>
+  <a href="services.html">Services</a>
+  <details class="m-group">
+    <summary>Industries <span class="chev">▾</span></summary>
+    <div class="m-sub">
+      <a href="healthcare.html">Healthcare</a>
+      <a href="fintech.html">Fintech</a>
+      <a href="ecommerce.html">Ecommerce</a>
+      <a href="education.html">Education</a>
+      <a href="logistics.html">Logistics</a>
+      <a href="media.html">Media &amp; Entertainment</a>
+      <a href="sports.html">Sports &amp; Gaming</a>
+      <a href="ondemand.html">On-Demand Services</a>
+    </div>
+  </details>
+  <a href="index.html#technologies">Technologies</a>
+  <a href="about.html">About</a>
+  <a href="index.html#blog">Blog</a>
+  <a href="Contact-Us.html">Contact</a>
+  <a href="Contact-Us.html" class="cta-btn">Get in touch →</a>
+</nav>
+<button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+
+<main class="bb">
+  <div class="bb-bg" aria-hidden="true"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="bb-hero">
+    <div class="bb-hero-stage">
+
+      <div class="bb-hero-left reveal">
+        <img class="bb-logo" src="images/blogboat/blogboat-logo.png" alt="twRty Blogboat">
+        <h1 class="bb-headline">Your personal blog assistant<br><span class="accent">Writes &amp; publishes for you</span></h1>
+        <p class="bb-sub">AI writing + multi-platform publishing in one app.</p>
+        <div class="bb-highlights">
+          <span class="bb-highlight">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg>
+            One-click publish to 15+ platforms
+          </span>
+          <span class="bb-highlight">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg>
+            Write &amp; publish in multiple languages
+          </span>
+        </div>
+        <div class="bb-cta-note">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg>
+          Start Free
+        </div>
+        <div class="bb-cta-row">
+          <a href="https://blogboat.twrty.org" class="bb-launch" target="_blank" rel="noopener">Get Started →</a>
+          <div class="bb-stores">
+            <span class="bb-store" aria-label="App Store — coming soon">
+              <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 14.6 3.51 6.65 9.05 6.34c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.05ZM12.03 6.3c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>
+              <span class="bb-store-txt"><small>Coming soon</small><b>App Store</b></span>
+            </span>
+            <span class="bb-store" aria-label="Google Play — coming soon">
+              <svg viewBox="0 0 24 24"><path d="M3.6 2.3 13.3 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Zm11.1 11.1 2.5 2.5-9.9 5.7 7.4-8.2Zm4.3-2.5c.5.3.5 1 0 1.3l-2.6 1.5-2.7-2.7 2.7-2.7 2.6 1.6ZM7.3 2.7l9.9 5.7-2.5 2.5-7.4-8.2Z"/></svg>
+              <span class="bb-store-txt"><small>Coming soon</small><b>Google Play</b></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bb-hero-visual reveal">
+        <div class="bb-ring-glow"></div>
+        <div class="bb-ring"></div>
+        <div class="bb-browser">
+          <div class="bb-bar"><i class="r1"></i><i class="r2"></i><i class="r3"></i></div>
+          <img src="images/blogboat/web-home.jpg" alt="twRty Blogboat web app — AI blog writing assistant">
+        </div>
+        <div class="bb-phone">
+          <img src="images/blogboat/mobile-blog-ideas.jpg" alt="twRty Blogboat mobile app">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== TRUST STRIP ===================== -->
+  <section class="bb-trust">
+    <div class="bb-trust-inner reveal">
+      <p class="bb-trust-label">Built for creators, startups &amp; businesses</p>
+      <div class="bb-trust-logos">
+        <span>Medium</span>
+        <span>Dev.to</span>
+        <span>Hashnode</span>
+        <span>WordPress</span>
+        <span>Ghost</span>
+        <span>LinkedIn</span>
+        <span>X</span>
+        <span>&amp; more</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="bb-section bb-how">
+    <div class="bb-beams" aria-hidden="true"></div>
+    <div class="bb-section-head reveal">
+      <div class="bb-eyebrow">How it works</div>
+      <h2 class="bb-h2">From idea to <span class="accent">published</span> — in three steps</h2>
+    </div>
+    <!-- Step 1 — image left, text right -->
+    <div class="bb-row">
+      <div class="bb-row-media reveal bb-from-left">
+        <div class="bb-frame"><img src="images/blogboat/web-home.jpg" alt="Entering a topic in twRty Blogboat" loading="lazy"></div>
+      </div>
+      <div class="bb-row-text reveal bb-from-right">
+        <div class="bb-step-num">1</div>
+        <h3>Pick a topic or idea</h3>
+        <p>Type any topic, or choose from a live feed of trending Blog Ideas — each with a ready-made outline. Set the length and tone, and you're ready to generate.</p>
+      </div>
+    </div>
+
+    <!-- Step 2 — image right, text left -->
+    <div class="bb-row bb-row-reverse">
+      <div class="bb-row-media reveal bb-from-right">
+        <div class="bb-frame"><img src="images/blogboat/web-ai-blog.jpg" alt="An AI-generated blog ready in twRty Blogboat" loading="lazy"></div>
+      </div>
+      <div class="bb-row-text reveal bb-from-left">
+        <div class="bb-step-num">2</div>
+        <h3>AI writes the full blog</h3>
+        <p>BlogBoat generates a complete, structured article — headings, sections and images — in seconds. Edit it your way, or send it straight to publish.</p>
+      </div>
+    </div>
+
+    <!-- Step 3 — image left, text right -->
+    <div class="bb-row">
+      <div class="bb-row-media reveal bb-from-left">
+        <div class="bb-frame"><img src="images/blogboat/web-publish.jpg" alt="One-click publishing to 15+ platforms" loading="lazy"></div>
+      </div>
+      <div class="bb-row-text reveal bb-from-right">
+        <div class="bb-step-num">3</div>
+        <h3>Publish in one click</h3>
+        <p>Push it to Medium, Dev.to, Hashnode, WordPress and 15+ platforms at once — or export to Word, PDF, HTML or Markdown.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES ===================== -->
+  <section class="bb-section bb-features">
+    <div class="bb-arc" aria-hidden="true"></div>
+    <div class="bb-section-head reveal">
+      <div class="bb-eyebrow">Features</div>
+      <h2 class="bb-h2">More than just <span class="accent">AI writing</span></h2>
+      <p class="bb-section-sub">BlogBoat is a full blogging workspace — from drafting and editing to translating and exporting.</p>
+    </div>
+
+    <!-- one image feature — How-it-works style -->
+    <div class="bb-row">
+      <div class="bb-row-media reveal bb-from-left">
+        <div class="bb-frame"><img src="images/blogboat/web-block-editor.jpg" alt="Editing a single block with AI in twRty Blogboat" loading="lazy"></div>
+      </div>
+      <div class="bb-row-text reveal bb-from-right">
+        <h3>Block-based AI editing</h3>
+        <p>Every blog is built from blocks. Rewrite, expand or restyle any single block with AI — without touching the rest of your article.</p>
+      </div>
+    </div>
+
+    <!-- three text features -->
+    <div class="bb-feature-cards">
+      <div class="bb-fcard reveal bb-from-left">
+        <div class="bb-pcard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <h3>Write manually too</h3>
+        <p>Prefer to write yourself? Use the full manual editor with formatting, images and structure — AI assist is there only when you want it.</p>
+      </div>
+      <div class="bb-fcard reveal">
+        <div class="bb-pcard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg>
+        </div>
+        <h3>Write &amp; publish in 16 languages</h3>
+        <p>Generate, edit and publish your blog in 16 languages — reach a global audience from one place, without leaving the app.</p>
+      </div>
+      <div class="bb-fcard reveal bb-from-right">
+        <div class="bb-pcard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
+        </div>
+        <h3>Export anywhere</h3>
+        <p>Export any blog to Word, PDF, HTML or Markdown — ready for clients, documentation or your own CMS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MOBILE APP ===================== -->
+  <section class="bb-section bb-mobile">
+    <div class="bb-stars" aria-hidden="true"></div>
+    <div class="bb-section-head reveal">
+      <div class="bb-eyebrow">Mobile app</div>
+      <h2 class="bb-h2">Your blog studio, <span class="accent">in your pocket</span></h2>
+      <p class="bb-section-sub">Write, edit and publish on the go — the full BlogBoat workflow, on iOS and Android.</p>
+    </div>
+    <div class="bb-phones">
+      <div class="bb-phone-shot reveal bb-from-left">
+        <div class="bb-phone-frame"><img src="images/blogboat/mobile-home.jpg" alt="The BlogBoat mobile app home screen" loading="lazy"></div>
+        <span class="bb-phone-label">Pick a topic</span>
+      </div>
+      <div class="bb-phone-shot reveal">
+        <div class="bb-phone-frame"><img src="images/blogboat/mobile-ai-blog.jpg" alt="An AI-generated blog in the BlogBoat mobile app" loading="lazy"></div>
+        <span class="bb-phone-label">AI writes it</span>
+      </div>
+      <div class="bb-phone-shot reveal bb-from-right">
+        <div class="bb-phone-frame"><img src="images/blogboat/mobile-publish.jpg" alt="Publishing a blog from the BlogBoat mobile app" loading="lazy"></div>
+        <span class="bb-phone-label">Publish anywhere</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRIVACY ===================== -->
+  <section class="bb-section bb-privacy">
+    <div class="bb-orb" aria-hidden="true"><div class="bb-orb-lines"></div></div>
+    <div class="bb-privacy-inner">
+      <div class="bb-section-head reveal">
+        <div class="bb-eyebrow">Privacy-first</div>
+        <h2 class="bb-h2">Your data never <span class="accent">leaves your device</span></h2>
+        <p class="bb-section-sub">BlogBoat connects to your platforms through your device's own secure keychain. Your passwords and tokens are never uploaded — and twRty has zero access to them.</p>
+      </div>
+      <div class="bb-privacy-cards">
+        <div class="bb-pcard reveal bb-from-left">
+          <div class="bb-pcard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3>Secure keychain</h3>
+          <p>Credentials are stored only on your device, inside its encrypted keychain — never on a server.</p>
+        </div>
+        <div class="bb-pcard reveal">
+          <div class="bb-pcard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <h3>Zero access</h3>
+          <p>twRty never sees your platform passwords, API keys or tokens. They simply aren't ours to read.</p>
+        </div>
+        <div class="bb-pcard reveal bb-from-right">
+          <div class="bb-pcard-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg>
+          </div>
+          <h3>Nothing uploaded</h3>
+          <p>Your connections stay on your device. Switch devices and you simply reconnect — your data never travels.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FINAL CTA ===================== -->
+  <section class="bb-section bb-final">
+    <div class="bb-final-glow" aria-hidden="true"></div>
+    <div class="bb-final-inner reveal">
+      <h2 class="bb-h2">Write in <span class="accent">any language</span>. Publish everywhere.</h2>
+      <p class="bb-section-sub">Publish SEO-ready blogs that grow your traffic — on every platform.</p>
+      <div class="bb-cta-row">
+        <a href="https://blogboat.twrty.org" class="bb-launch" target="_blank" rel="noopener">Get Started →</a>
+        <div class="bb-stores">
+          <span class="bb-store" aria-label="App Store — coming soon">
+            <svg viewBox="0 0 24 24"><path d="M17.05 20.28c-.98.95-2.05.88-3.08.41-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.41C2.79 14.6 3.51 6.65 9.05 6.34c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.05ZM12.03 6.3c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>
+            <span class="bb-store-txt"><small>Coming soon</small><b>App Store</b></span>
+          </span>
+          <span class="bb-store" aria-label="Google Play — coming soon">
+            <svg viewBox="0 0 24 24"><path d="M3.6 2.3 13.3 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1Zm11.1 11.1 2.5 2.5-9.9 5.7 7.4-8.2Zm4.3-2.5c.5.3.5 1 0 1.3l-2.6 1.5-2.7-2.7 2.7-2.7 2.6 1.6ZM7.3 2.7l9.9 5.7-2.5 2.5-7.4-8.2Z"/></svg>
+            <span class="bb-store-txt"><small>Coming soon</small><b>Google Play</b></span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo-trimmed.png" alt="twRty Software Services">
+      <div class="tagline">Software Services</div>
+      <p>Software studio crafting modern web, mobile, and AI-driven products for forward-looking teams.</p>
+      <div class="footer-featured">
+        <div class="ff-eyebrow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> Featured product</div>
+        <div class="ff-heading">twRty Blogboat</div>
+        <div class="ff-sub">Your personal blog assistant — Writes &amp; publishes</div>
+        <a href="https://blogboat.twrty.org" class="ff-cta" target="_blank" rel="noopener">Launch BlogBoat →</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="services.html">All services</a></li>
+        <li><a href="services.html">Software &amp; SaaS</a></li>
+        <li><a href="services.html">Mobile apps</a></li>
+        <li><a href="services.html">AI &amp; ML</a></li>
+        <li><a href="services.html">Ecommerce</a></li>
+        <li><a href="services.html">Cloud &amp; QA</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Industries</h5>
+      <ul>
+        <li><a href="fintech.html">Fintech</a></li>
+        <li><a href="healthcare.html">Healthcare</a></li>
+        <li><a href="ecommerce.html">Ecommerce</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="logistics.html">Logistics</a></li>
+        <li><a href="ondemand.html">On-demand</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="Contact-Us.html">Contact</a></li>
+        <li><a href="index.html#blog">Blog</a></li>
+        <li><a href="privacy-policy.html">Privacy policy</a></li><li><a href="#" data-cookie-preferences>Cookie preferences</a></li>
+      </ul>
+    </div>
+    <div class="footer-col reach">
+      <h5>Reach us</h5>
+      <a href="mailto:support@twrty.org" class="email-prominent">support@twrty.org</a>
+      <ul>
+        <li><a href="https://x.com/twRtySoftware" target="_blank" rel="noopener">X (Twitter)</a></li>
+        <li><a href="https://www.instagram.com/twrtysoftware/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/p/twRty-Software-Services-61560321221796/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
+      <div class="ratings">
+        <a href="https://www.trustpilot.com/review/twrty.org" target="_blank" rel="noopener" class="rating-pill">
+          <span class="stars">★★★★★</span>
+          <span>Rated on <strong>Trustpilot</strong></span>
+        </a>
+        <a href="https://clutch.co/profile/twrty-software-services" target="_blank" rel="noopener" class="rating-pill">
+          <span class="stars">★★★★★</span>
+          <span>Rated on <strong>Clutch</strong></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 twRty Software Services. All rights reserved.</span>
+  </div>
+</footer>
+
+<script src="js/v2.js" defer></script>
+<script src="js/cookie-consent.js" defer></script>
+
+<script src="https://instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
+</body>
+</html>
