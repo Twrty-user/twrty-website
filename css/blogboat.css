@@ -435,7 +435,13 @@
   .bb-ring-glow { box-shadow: 0 0 90px 36px rgba(108,78,235,0.40); }
   .bb-section { padding: 70px 20px; }
   .bb-section-head { margin-bottom: 40px; }
+  .bb-beams::before {
+    background-image: repeating-linear-gradient(to bottom,
+      transparent 0, transparent 119px,
+      rgba(255,255,255,0.07) 119px, rgba(255,255,255,0.08) 120px);
+  }
   .bb-row { grid-template-columns: 1fr; gap: 26px; margin-bottom: 60px; }
+  .bb-row.bb-row-reverse { grid-template-columns: 1fr; }
   .bb-row.bb-row-reverse .bb-row-media { order: 1; }
   .bb-row.bb-row-reverse .bb-row-text { order: 2; }
   .bb-row-text { text-align: center; }
@@ -447,7 +453,7 @@
   .bb-pcard { padding: 24px 22px; }
   .bb-feature-cards { grid-template-columns: 1fr; gap: 14px; }
   .bb-fcard { padding: 24px 22px; }
-  .bb-arc { top: -300px; width: min(620px, 96vw); }
+  .bb-arc { top: -210px; width: min(560px, 96vw); }
   .bb-phones { gap: 10px; }
   .bb-phone-shot, .bb-phone-shot:nth-child(2) {
     flex: 1 1 0; min-width: 0; width: auto; margin-top: 0;
