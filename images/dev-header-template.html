@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>dev-header</title>
+<style>
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/montserrat-variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-display: block;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0B0B0B;
+    width: 4096px;
+    height: 2304px;
+    overflow: hidden;
+    font-family: 'Montserrat', -apple-system, Segoe UI, Roboto, sans-serif;
+    color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+  }
+  .canvas {
+    position: relative;
+    width: 4096px;
+    height: 2304px;
+  }
+  .wordmark {
+    position: absolute;
+    top: 580px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2600px;
+    height: auto;
+    display: block;
+  }
+  .subtitle {
+    position: absolute;
+    top: 1500px;
+    left: 0;
+    width: 4096px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 140px;
+    letter-spacing: 4px;
+    color: #C8C8C8;
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <img class="wordmark" src="logo-hires.png" alt="twRty">
+    <div class="subtitle">Software Services</div>
+  </div>
+</body>
+</html>

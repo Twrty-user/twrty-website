@@ -40,6 +40,54 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"twRty Software Services","alternateName":["twRty","twrty"],"url":"https://twrty.org"}
 </script>
+
+<!-- Footer Featured Product card — inline so it always loads with the HTML (no cache issues) -->
+<style>
+.footer-featured {
+  position: relative;
+  padding: 14px 16px;
+  margin-top: 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(124,92,255,0.13) 0%, rgba(227,89,41,0.09) 100%);
+  border: 1px solid rgba(255,255,255,0.10);
+  overflow: hidden;
+}
+.footer-featured::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(80% 120% at 100% 50%, rgba(227,89,41,0.12), transparent 60%),
+    radial-gradient(80% 120% at 0% 50%, rgba(124,92,255,0.14), transparent 60%);
+  pointer-events: none;
+}
+.ff-eyebrow {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: #ff8d5e; margin-bottom: 6px;
+  position: relative; z-index: 1;
+}
+.ff-eyebrow svg { width: 11px; height: 11px; flex-shrink: 0; }
+.ff-heading {
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px;
+  color: #fff; margin-bottom: 4px; position: relative; z-index: 1;
+}
+.ff-sub {
+  font-size: 12.5px; color: #b0b0b0; line-height: 1.5;
+  margin-bottom: 12px; position: relative; z-index: 1;
+}
+.ff-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 13px; border-radius: 999px;
+  background: linear-gradient(135deg, #E35929, #a83a14);
+  color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px;
+  text-decoration: none; white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(227,89,41,0.32);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; z-index: 1;
+}
+.ff-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(227,89,41,0.42); }
+</style>
+
 </head>
 <body>
 
@@ -54,6 +102,7 @@
   <nav>
     <ul>
       <li><a href="#home" class="active">Home</a></li>
+      <li><a href="blogboat.html" class="bb-nav"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> BlogBoat</a></li>
       <li><a href="services.html">Services</a></li>
       <li class="mega"><a href="#" class="has-mega">Industries</a>
         <div class="mega-menu">
@@ -80,6 +129,7 @@
 <!-- Mobile drawer -->
 <nav class="mobile-nav" id="mobileNav" aria-label="Mobile menu">
   <a href="#home">Home</a>
+  <a href="blogboat.html" class="bb-nav"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> BlogBoat</a>
   <a href="services.html">Services</a>
   <details class="m-group">
     <summary>Industries <span class="chev">▾</span></summary>
@@ -286,6 +336,12 @@
       <img src="images/logo-trimmed.png" alt="twRty Software Services">
       <div class="tagline">Software Services</div>
       <p>Software studio crafting modern web, mobile, and AI-driven products for forward-looking teams.</p>
+      <div class="footer-featured">
+        <div class="ff-eyebrow"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> Featured product</div>
+        <div class="ff-heading">twRty Blogboat</div>
+        <div class="ff-sub">Your personal blog assistant — Writes &amp; publishes</div>
+        <a href="https://blogboat.twrty.org" class="ff-cta" target="_blank" rel="noopener">Launch BlogBoat →</a>
+      </div>
     </div>
     <div class="footer-col">
       <h5>Services</h5>

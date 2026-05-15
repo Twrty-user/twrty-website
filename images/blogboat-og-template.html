@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>og</title><style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { width:1200px; height:630px; overflow:hidden;
+    font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    color:#fff; -webkit-font-smoothing:antialiased; }
+  .canvas { position:relative; width:1200px; height:630px; overflow:hidden;
+    background:
+      radial-gradient(820px circle at 0% -4%, rgba(227,89,41,0.34), transparent 52%),
+      radial-gradient(950px circle at 100% 64%, rgba(91,46,255,0.32), transparent 56%),
+      radial-gradient(640px circle at 92% 0%, rgba(26,140,255,0.18), transparent 52%),
+      #0a0810; }
+  .stars { position:absolute; inset:0; z-index:1; }
+  .arcglow { position:absolute; left:560px; top:96px; width:660px; height:470px;
+    z-index:2; border-radius:50%; box-shadow:0 0 180px 64px rgba(108,78,235,0.40); }
+  .arc { position:absolute; left:548px; top:30px; width:640px; height:640px;
+    border-radius:50%; z-index:3;
+    background:radial-gradient(closest-side,
+      transparent 63%, rgba(150,125,255,0.10) 70%, rgba(208,194,255,0.98) 77.5%,
+      rgba(120,90,235,0.30) 83%, rgba(91,46,255,0.08) 88%, transparent 93%); }
+  .left { position:absolute; left:60px; top:0; bottom:0; width:466px; z-index:8;
+    display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; }
+  .logo { width:210px; height:auto; display:block; margin-bottom:24px; }
+  .cta { margin-bottom:28px; }
+  .cta .l1 { font-size:30px; font-weight:700; color:#fff; letter-spacing:-0.5px; line-height:1.22; }
+  .cta .l2 { font-size:30px; font-weight:700; color:#ef9264; letter-spacing:-0.5px; line-height:1.22; }
+  .badges { display:flex; flex-direction:column; gap:13px; align-items:center; }
+  .badge { display:inline-flex; align-items:center; gap:9px; padding:13px 20px; border-radius:13px;
+    background:linear-gradient(135deg, rgba(227,89,41,0.22), rgba(91,46,255,0.20));
+    border:1px solid rgba(255,255,255,0.22);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.22), 0 8px 22px rgba(0,0,0,0.42);
+    font-size:16.5px; font-weight:600; color:#fbf2ec; }
+  .badge svg { width:15px; height:15px; flex-shrink:0; }
+  .browser { position:absolute; left:556px; top:120px; width:740px; z-index:5;
+    border-radius:13px 0 0 13px; overflow:hidden; background:#14121f;
+    border:1px solid rgba(255,255,255,0.16); box-shadow:0 44px 100px rgba(0,0,0,0.64); }
+  .browser .bar { height:30px; background:#1c1930; display:flex; align-items:center; padding-left:13px; gap:7px; }
+  .browser .bar i { width:9px; height:9px; border-radius:50%; display:block; }
+  .browser .bar .a { background:#ff5f57; } .browser .bar .b { background:#febc2e; } .browser .bar .c { background:#28c840; }
+  .browser img { width:100%; display:block; }
+  .phone { position:absolute; left:520px; top:286px; width:118px; z-index:7;
+    border-radius:22px; background:#000; padding:5px; border:1px solid rgba(255,255,255,0.22);
+    box-shadow:0 32px 64px rgba(0,0,0,0.74); }
+  .phone img { width:100%; display:block; border-radius:17px; }
+  .accent { position:absolute; bottom:0; left:0; width:1200px; height:7px; z-index:9;
+    background:linear-gradient(90deg,#E35929,#9d5fd6 52%,#5b6dff); }
+</style></head><body><div class="canvas">
+  <svg class="stars" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="780" cy="340" r="0.6" fill="#fff" opacity="0.2"/>
+      <circle cx="789" cy="290" r="1" fill="#fff" opacity="0.1"/>
+      <circle cx="1180" cy="9" r="0.6" fill="#fff" opacity="0.15"/>
+      <circle cx="37" cy="449" r="0.6" fill="#fff" opacity="0.2"/>
+      <circle cx="653" cy="171" r="0.7" fill="#fff" opacity="0.15"/>
+      <circle cx="1195" cy="60" r="0.5" fill="#fff" opacity="0.17"/>
+      <circle cx="67" cy="442" r="0.7" fill="#fff" opacity="0.18"/>
+      <circle cx="442" cy="74" r="0.7" fill="#fff" opacity="0.16"/>
+      <circle cx="256" cy="18" r="0.5" fill="#fff" opacity="0.07"/>
+      <circle cx="294" cy="182" r="0.5" fill="#fff" opacity="0.1"/>
+      <circle cx="461" cy="26" r="1" fill="#fff" opacity="0.14"/>
+      <circle cx="890" cy="58" r="0.7" fill="#fff" opacity="0.12"/>
+      <circle cx="218" cy="95" r="0.8" fill="#fff" opacity="0.06"/>
+      <circle cx="1010" cy="404" r="0.6" fill="#fff" opacity="0.06"/>
+      <circle cx="276" cy="79" r="0.8" fill="#fff" opacity="0.19"/>
+      <circle cx="822" cy="435" r="1" fill="#fff" opacity="0.16"/>
+      <circle cx="1105" cy="28" r="0.5" fill="#fff" opacity="0.15"/>
+      <circle cx="659" cy="180" r="0.6" fill="#fff" opacity="0.17"/>
+      <circle cx="81" cy="111" r="0.6" fill="#fff" opacity="0.19"/>
+      <circle cx="846" cy="87" r="1" fill="#fff" opacity="0.13"/>
+      <circle cx="203" cy="247" r="0.6" fill="#fff" opacity="0.12"/>
+      <circle cx="941" cy="420" r="0.8" fill="#fff" opacity="0.07"/>
+      <circle cx="565" cy="555" r="0.6" fill="#fff" opacity="0.19"/>
+      <circle cx="509" cy="283" r="0.8" fill="#fff" opacity="0.19"/>
+      <circle cx="667" cy="388" r="0.7" fill="#fff" opacity="0.17"/>
+      <circle cx="165" cy="219" r="1" fill="#fff" opacity="0.08"/>
+      <circle cx="63" cy="230" r="0.6" fill="#fff" opacity="0.13"/>
+      <circle cx="493" cy="65" r="0.6" fill="#fff" opacity="0.14"/>
+      <circle cx="317" cy="504" r="0.7" fill="#fff" opacity="0.08"/>
+      <circle cx="786" cy="121" r="0.8" fill="#fff" opacity="0.14"/>
+      <circle cx="395" cy="509" r="0.8" fill="#fff" opacity="0.2"/>
+      <circle cx="554" cy="362" r="0.5" fill="#fff" opacity="0.09"/>
+      <circle cx="315" cy="156" r="1" fill="#fff" opacity="0.13"/>
+      <circle cx="362" cy="421" r="0.5" fill="#fff" opacity="0.07"/>
+      <circle cx="720" cy="219" r="0.8" fill="#fff" opacity="0.19"/>
+      <circle cx="630" cy="290" r="0.6" fill="#fff" opacity="0.1"/>
+      <circle cx="777" cy="236" r="0.5" fill="#fff" opacity="0.18"/>
+      <circle cx="572" cy="426" r="0.7" fill="#fff" opacity="0.12"/>
+      <circle cx="1006" cy="244" r="0.5" fill="#fff" opacity="0.13"/>
+      <circle cx="903" cy="238" r="0.8" fill="#fff" opacity="0.09"/>
+  </svg>
+  <div class="arcglow"></div>
+  <div class="arc"></div>
+  <div class="browser">
+    <div class="bar"><i class="a"></i><i class="b"></i><i class="c"></i></div>
+    <img src="blogboat-reference/SS/Home_screen.png" alt="">
+  </div>
+  <div class="phone"><img src="blogboat-reference/SS/Mobile%20App/blog_idea.PNG" alt=""></div>
+  <div class="left">
+    <img class="logo" src="blogboat/blogboat-logo.png" alt="twRty Blogboat">
+    <div class="cta">
+      <div class="l1">Your personal blog assistant</div>
+      <div class="l2">Writes &amp; publishes for you</div>
+    </div>
+    <div class="badges">
+      <span class="badge"><svg viewBox="0 0 24 24" fill="#f0c8b0"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> One-click publish to 15+ platforms</span>
+      <span class="badge"><svg viewBox="0 0 24 24" fill="#f0c8b0"><path d="M12 2c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10Z"/></svg> Write &amp; publish in multiple languages</span>
+    </div>
+  </div>
+  <div class="accent"></div>
+</div></body></html>

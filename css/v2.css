@@ -1010,3 +1010,60 @@ html, body { overflow-x: hidden; }
   /* No mobile-specific background override needed — the canvas mesh
      works identically on mobile and desktop with a single render layer. */
 }
+
+/* ============================================================
+   BlogBoat nav button — AI-look pill with animated gradient border
+   + sparkle pulse. Site-wide (loads on every page).
+   To revert: delete this entire block (between the two markers).
+============================================================ */
+/* === bb-nav START === */
+.bb-nav {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 13px; border-radius: 999px;
+  color: #fff; font-weight: 600; text-decoration: none;
+  background: linear-gradient(135deg, rgba(124,92,255,0.12), rgba(227,89,41,0.07));
+  isolation: isolate;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.bb-nav::before {
+  content: ''; position: absolute; inset: 0;
+  border-radius: inherit; padding: 1px;
+  background: linear-gradient(120deg, #7c5cff, #e35929, #7c5cff, #e35929);
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: bb-nav-border 5s linear infinite;
+  pointer-events: none;
+}
+.bb-nav svg {
+  width: 13px; height: 13px; flex-shrink: 0;
+  color: #ef9264;
+  animation: bb-nav-sparkle 3s ease-in-out infinite;
+}
+.bb-nav:hover { box-shadow: 0 0 18px rgba(124,92,255,0.32); transform: translateY(-1px); }
+@keyframes bb-nav-border {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+@keyframes bb-nav-sparkle {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.18); }
+}
+/* Mobile drawer variant — wider, left-aligned, same animated look */
+.mobile-nav .bb-nav {
+  display: inline-flex; align-self: flex-start;
+  margin: 4px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bb-nav::before, .bb-nav svg { animation: none; }
+}
+/* === bb-nav END === */
+
+/* ============================================================
+   Footer Featured Product strip — single flagship highlight.
+   Sits above the regular footer grid on every page.
+   To revert: delete this entire block between the markers.
+============================================================ */
