@@ -470,3 +470,26 @@
   .bb-trust-logos { gap: 10px 22px; }
   .bb-trust-logos span { font-size: 15px; }
 }
+
+/* ============================================================
+   CINEMATIC 3D LAYER — additive only.
+   Flowing WebGL wireframe terrain, fixed BEHIND all content.
+   Nothing above is modified. Runs on desktop + mobile;
+   only "reduce motion" disables it (handled in JS + below).
+============================================================ */
+
+/* Full-viewport WebGL canvas, fixed behind content.
+   z-index 0 = same layer as .bb-bg gradient (which sits earlier in
+   the DOM, so the terrain renders over the gradient). Content
+   (.bb-hero/.bb-section z-index:1) and footer stay above it. */
+.bb-webgl {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+  opacity: 0; transition: opacity 1.6s ease;
+}
+.bb-webgl.is-ready { opacity: 0.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bb-webgl { display: none; }
+}
