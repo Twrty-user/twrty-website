@@ -102,15 +102,39 @@
 .bb-launch:hover { transform: translateY(-2px); box-shadow: 0 16px 46px rgba(227,89,41,0.58); }
 .bb-stores { display: flex; gap: 9px; }
 .bb-store {
+  position: relative; isolation: isolate;
   display: flex; align-items: center; gap: 8px;
-  padding: 8px 14px; border-radius: 11px;
-  background: rgba(255,255,255,0.05); border: 1px solid var(--bb-border);
-  cursor: default;
+  padding: 9px 15px; border-radius: 11px;
+  background: linear-gradient(135deg, rgba(124,92,255,0.16), rgba(227,89,41,0.13));
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
 }
-.bb-store svg { width: 19px; height: 19px; flex-shrink: 0; fill: #fff; opacity: 0.9; }
+/* animated AI gradient ring (purple → orange), drawn as a 1px masked border */
+.bb-store::before {
+  content: ''; position: absolute; inset: 0;
+  border-radius: inherit; padding: 1px;
+  background: linear-gradient(120deg, #7c5cff, #e35929, #ff8d5e, #7c5cff);
+  background-size: 300% 100%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: bb-store-border 6s linear infinite;
+  opacity: 0.78; pointer-events: none;
+}
+@keyframes bb-store-border {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.bb-store:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(124,92,255,0.26); }
+.bb-store:hover::before { opacity: 1; }
+.bb-store:hover svg { opacity: 1; }
+.bb-store svg { width: 19px; height: 19px; flex-shrink: 0; fill: #fff; opacity: 0.95; }
 .bb-store .bb-store-txt { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
-.bb-store .bb-store-txt small { font-size: 9px; color: var(--text-faint); letter-spacing: 0.03em; }
-.bb-store .bb-store-txt b { font-family: 'Montserrat', sans-serif; font-size: 12.5px; font-weight: 600; color: var(--text-dim); }
+.bb-store .bb-store-txt small { font-size: 9px; color: var(--text-dim); letter-spacing: 0.05em; text-transform: uppercase; }
+.bb-store .bb-store-txt b { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: #fff; }
+@media (prefers-reduced-motion: reduce) {
+  .bb-store::before { animation: none; }
+}
 
 /* ---- RIGHT (60%) — device cluster: FAITHFUL OG COPY ----
    Box maps to OG region x[490-1200] y[60-540]; device %s are the
@@ -179,6 +203,44 @@
 .bb-trust-logos span {
   font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 17px;
   color: var(--text-dim); opacity: 0.72; letter-spacing: -0.01em;
+}
+
+/* ===================== ON-THIS-PAGE JUMP NAV ===================== */
+/* Visible anchor nav — gives Google named in-page targets for anchor
+   sitelinks. Purely additive; sits between trust strip and first section. */
+.bb-jump {
+  position: relative; z-index: 1;
+  border-bottom: 1px solid var(--bb-border);
+  background: rgba(255,255,255,0.012);
+  padding: 14px 20px;
+}
+.bb-jump ul {
+  list-style: none; margin: 0 auto; padding: 0;
+  max-width: 1120px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: 8px 10px;
+}
+.bb-jump a {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.01em;
+  color: var(--text-dim); text-decoration: none;
+  padding: 7px 14px; border-radius: 999px;
+  border: 1px solid var(--bb-border);
+  background: rgba(255,255,255,0.02);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.bb-jump a:hover {
+  color: #fff;
+  border-color: rgba(227,89,41,0.5);
+  background: rgba(227,89,41,0.08);
+}
+/* Land anchor jumps below the fixed header */
+#how-it-works, #features, #languages, #platforms,
+#mobile-app, #privacy, #get-started { scroll-margin-top: 90px; }
+@media (max-width: 720px) {
+  .bb-jump { padding: 12px 14px; }
+  .bb-jump a { font-size: 12px; padding: 6px 12px; }
 }
 
 /* ===================== SHARED SECTION ===================== */
